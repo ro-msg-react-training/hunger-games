@@ -1,6 +1,6 @@
 # Hunger Games
 
-## Branchign strategy
+## Branching strategy
 
 Each task (issue) should have its own branch and only one asignee. All work is done on these task branches. The task branch names should follow the following naming convention: `<issue_number>_<issue_description>`, for example: `1_implement_login`.
 

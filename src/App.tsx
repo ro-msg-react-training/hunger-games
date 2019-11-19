@@ -14,6 +14,13 @@ const App: React.FC = () => (
     <ConnectedRouter history={history}>
       <LoginDisplay {...{} as any}></LoginDisplay>
       <Switch>
+        <Redirect exact from = "/" to = "/districts"/>
+        <Route path = "/districts" exact component = {Home} />
+        <Route path = "/districts/:id" exact component = {Home} />
+        <Route path = "/demands" exact component = {Home} />
+        <Route path = "/peacekeepers" exact component = {Home} />
+        <Route path = "/peacekeepers/:id" exact component = {Home} />
+        <Route path = "/register" exact component = {Home} />
         <Route exact path="/home" component={Home} />
         <Route exact path="/examples" component={SmartExampleList} />
         <Route exact path="/login" component={LoginDisplay}/>

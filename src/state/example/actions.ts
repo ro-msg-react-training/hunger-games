@@ -1,4 +1,4 @@
-import { ExampleEntity } from "../../model/example-entity";
+import { ExampleEntity } from "../../model/exemple-entity";
 
 export enum ExampleActionTypes {
   LOAD = "[Example] Load entities",

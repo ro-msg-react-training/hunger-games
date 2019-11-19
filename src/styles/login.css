@@ -1,0 +1,39 @@
+.content-Login{
+    background-image:url("../resources/background.jpg");
+    background-size: auto;
+    margin:auto;
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    justify-content: center;
+}
+.box{
+    background-color:rgb(97, 96, 96);
+    height: auto;
+    width: auto;
+    justify-content: center;
+    margin:auto;
+    
+}
+.box img{
+    height: 200px;
+    width: 15vw;
+    margin-bottom: 15px;
+    object-fit: contain;
+   
+}
+.register{
+   color:rgb(233, 162, 55);
+   
+}
+.register:hover{
+    color:rgb(184, 133, 56);
+    
+ }
+ #buttonLogin{
+    background-color:rgb(233, 162, 55);
+    
+ }
+ #buttonLogin:hover{
+    background-color:rgb(184, 133, 56);
+ }

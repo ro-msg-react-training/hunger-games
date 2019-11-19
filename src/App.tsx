@@ -7,10 +7,12 @@ import { store } from "./state/store";
 import { history } from "./state/history";
 import { Home } from "./component/example/home";
 import { SmartExampleList } from "./component/example/smart-example-list";
+import { LoginDisplay } from "./component/Login/dumbLogin";
 
 const App: React.FC = () => (
   <Provider store={store}>
     <ConnectedRouter history={history}>
+      <LoginDisplay {...{} as any}></LoginDisplay>
       <Switch>
         <Redirect exact from = "/" to = "/districts"/>
         <Route path = "/districts" exact component = {Home} />
@@ -21,6 +23,7 @@ const App: React.FC = () => (
         <Route path = "/register" exact component = {Home} />
         <Route exact path="/home" component={Home} />
         <Route exact path="/examples" component={SmartExampleList} />
+        <Route exact path="/login" component={LoginDisplay}/>
       </Switch>
     </ConnectedRouter>
   </Provider>

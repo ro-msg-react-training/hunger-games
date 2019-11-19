@@ -1,5 +1,5 @@
 import { Dictionary } from "lodash";
-import { ExampleEntity } from "../../model/example-entity";
+import { ExampleEntity } from "../../model/exemple-entity";
 
 export interface ExampleState {
   loading: boolean;

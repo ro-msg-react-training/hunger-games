@@ -1,6 +1,6 @@
 import React from "react";
 import { Dictionary } from "lodash";
-import { ExampleEntity } from "../../model/example-entity";
+import { ExampleEntity } from "../../model/exemple-entity";
 
 export interface ExampleListProps {
     data: Dictionary<ExampleEntity>,

@@ -4,7 +4,6 @@ export interface IRestaurant {
     adress: string;
     open_close_interval:TimeRanges;
     image:string;
-    no_of_orders:number;
     food_list:IFood[];
 }
 export interface IFood{

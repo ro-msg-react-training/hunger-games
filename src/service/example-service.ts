@@ -1,4 +1,4 @@
-import { ExampleEntity } from "../model/example-entity";
+import { ExampleEntity } from "../model/exemple-entity";
 import { loadOrDefault } from "./utils/load-or-default";
 import { exampleMockData } from "./data/example-mock-data";
 import { save } from "./utils/save";

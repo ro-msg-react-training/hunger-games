@@ -1,6 +1,6 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 import { exampleService } from "../../service/example-service";
-import { ExampleEntity } from "../../model/example-entity";
+import { ExampleEntity } from "../../model/exemple-entity";
 import { loadExampleEntitiesSuccess, ExampleActionTypes } from "./actions";
 
 function* loadExampleEntitiesSaga() {

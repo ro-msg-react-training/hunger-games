@@ -1,19 +1,14 @@
 import React from "react";
-import { Provider } from "react-redux";
-import { ConnectedRouter } from "connected-react-router";
-import { Route, Switch, Redirect } from "react-router";
-
-import { store } from "./state/store";
-import { history } from "./state/history";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import { Home } from "./component/example/home";
 import { SmartExampleList } from "./component/example/smart-example-list";
 import { NavbarDumpView } from "./component/Navbar/NavbarDumpView";
 import { LoginDisplay } from "./component/Login/dumbLogin";
 import { RegisterDisplay } from "./component/Register/dumbRegister";
 
+// (!) An error occured when implementing the ReduxStore Initializer. It was solved by switching from ConnectedRouter to the BrowserRouter
 const App: React.FC = () => (
-  <Provider store={store}>
-    <ConnectedRouter history={history}>
+    <Router>
       <NavbarDumpView />
       <Switch>
         <Redirect exact from = "/" to = "/login"/>
@@ -27,8 +22,7 @@ const App: React.FC = () => (
         <Route exact path="/login" component={LoginDisplay}/>
         <Route exact path="/register" component={RegisterDisplay}/>
       </Switch>
-    </ConnectedRouter>
-  </Provider>
+    </Router>
 );
 
 export default App;

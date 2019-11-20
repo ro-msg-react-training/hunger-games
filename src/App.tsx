@@ -7,12 +7,13 @@ import { store } from "./state/store";
 import { history } from "./state/history";
 import { Home } from "./component/example/home";
 import { SmartExampleList } from "./component/example/smart-example-list";
+import { NavbarDumpView } from "./component/Navbar/NavbarDumpView";
 import { LoginDisplay } from "./component/Login/dumbLogin";
 
 const App: React.FC = () => (
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <LoginDisplay {...{} as any}></LoginDisplay>
+      <NavbarDumpView />
       <Switch>
         <Redirect exact from = "/" to = "/districts"/>
         <Route path = "/districts" exact component = {Home} />

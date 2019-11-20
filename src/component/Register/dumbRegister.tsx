@@ -1,15 +1,14 @@
 import React, { SyntheticEvent, useState } from "react";
 import logo from "../../resources/logo.png";
 import "../../styles/login.css";
-import { Redirect } from "react-router";
 import { Link } from "react-router-dom";
-export interface IDumbLogin {
+export interface IDumbRegister {
   onUsernameChange: (e: SyntheticEvent) => void;
   onPasswordChange: (e: SyntheticEvent) => void;
-  checkUserData: (username: string, password: string) => boolean;
+  saveUserDate: (userName: string, password: string) => void;
 }
 
-export const LoginDisplay = (props: IDumbLogin) => {
+export const RegisterDisplay = (props: IDumbRegister) => {
   const [password, setPassword] = useState("");
   const [userName, setUsername] = useState("");
 
@@ -20,7 +19,7 @@ export const LoginDisplay = (props: IDumbLogin) => {
           <div className="column is-4 is-offset-4">
             <div className="box">
               <div className="title has-text-white is-family-sand-serif">
-                Hunger Games
+                Hello new tribute!
               </div>
               <figure className="avatar">
                 <img src={logo} />
@@ -28,6 +27,9 @@ export const LoginDisplay = (props: IDumbLogin) => {
               <form>
                 <div className="field">
                   <div className="control">
+                    <p className="has-text-white">
+                      {"Insert your desired nickname"}
+                    </p>
                     <input
                       className="input"
                       type="email"
@@ -46,6 +48,7 @@ export const LoginDisplay = (props: IDumbLogin) => {
 
                 <div className="field">
                   <div className="control">
+                    <p className="has-text-white">{"And your secret code"}</p>
                     <input
                       className="input "
                       type="password"
@@ -61,32 +64,16 @@ export const LoginDisplay = (props: IDumbLogin) => {
                   </div>
                 </div>
                 <div className="field"></div>
-                <button
-                  className="button is-block is-info is-medium is-fullwidth"
-                  id="buttonLogin"
-                >
-                  Enter food arena{" "}
-                  <i className="fa fa-sign-in" aria-hidden="true"></i>
-                </button>
-                <p className="has-text-white">
-                  <br></br>
-                 
-                  <a
-                    href="/register"
-                    className="register"
-                    onClick={() => {
-                      // if (props.checkUserData(userName, password) === true) {
-                      //   return <Redirect to="/"></Redirect>;
-                      // } else {
-                        setUsername("");
-                        setPassword("");
-                      // }
-                    }}>
-                    {"Not a participant yet? Become our newest tribute!"}
-                  </a>
-                 
-                  &nbsp;
-                </p>
+                <Link to="/home">
+                  <button
+                    className="button is-block is-info is-medium is-fullwidth"
+                    id="buttonLogin"
+                    onClick={() => props.saveUserDate(userName, password)}
+                  >
+                    {"Join the games"}
+                    <i className="fa fa-sign-in" aria-hidden="true"></i>
+                  </button>
+                </Link>
               </form>
             </div>
           </div>

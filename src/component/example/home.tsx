@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { LoadingIndicator } from "../LoadingIndicator/LoadingIndicator";
+import { PageLoader } from "../LoadingIndicator/PageLoader";
 
 export const Home: React.FC = () => (
     <section className="hero is-primary is-fullheight">

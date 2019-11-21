@@ -1,19 +1,24 @@
 .content-Login {
   background-image: url("../resources/background.jpg");
-  background-size: auto;
   margin: auto;
   width: 100vw;
   height: 100vh;
   max-height: 100vh;
   vertical-align: middle;
   justify-content: center;
+  overflow-y :auto;
+  display: inline-block;
+  min-width: 100px;
+  position: relative;
+  overflow: hidden;
+  
 }
 .box {
   background-color: rgb(97, 96, 96);
   height: auto;
   width: auto;
   margin: auto;
-  margin-top: 15%;
+  margin-top: 10%;
   vertical-align: middle;
 }
 .box img {

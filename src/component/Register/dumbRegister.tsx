@@ -1,5 +1,5 @@
 import React, { SyntheticEvent, useState } from "react";
-import logo from "../../resources/logo.png";
+import registerPic from "../../resources/register.png";
 import "../../styles/login.css";
 import { Link } from "react-router-dom";
 export interface IDumbRegister {
@@ -22,7 +22,7 @@ export const RegisterDisplay = (props: IDumbRegister) => {
                 Hello new tribute!
               </div>
               <figure className="avatar">
-                <img src={logo} />
+                <img src={registerPic} />
               </figure>
               <form>
                 <div className="field">

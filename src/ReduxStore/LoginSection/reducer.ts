@@ -6,7 +6,6 @@ export const initialState: LTypes.LoginState = {
     password: ""
   },
   isLoggedIn: false,
-  isLoading: false,
   activateNavbar: false
 };
 
@@ -19,7 +18,6 @@ export function loginReducer(
       return {
         userData: action.userInfo,
         activateNavbar: true,
-        isLoading: true,
         isLoggedIn: true
       };
     }
@@ -28,15 +26,7 @@ export function loginReducer(
       return {
         userData: {} as any,
         isLoggedIn: false,
-        isLoading: false,
         activateNavbar: false
-      };
-    }
-
-    case LTypes.LOAD_PAGE: {
-      return {
-        ...state,
-        isLoading: true
       };
     }
 

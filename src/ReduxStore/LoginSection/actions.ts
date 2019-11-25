@@ -13,9 +13,3 @@ export function logoutEventHandler(): LTypes.LLogoutEvent {
     type: LTypes.LOGOUT_ACTION
   };
 }
-
-export function loadingActiveEventHandler(): LTypes.LTriggerLoading {
-  return {
-    type: LTypes.LOAD_PAGE
-  };
-}

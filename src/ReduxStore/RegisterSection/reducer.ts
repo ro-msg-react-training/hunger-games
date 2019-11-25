@@ -5,7 +5,6 @@ export const initialState: RTypes.RegisterState = {
     username: "",
     password: ""
   },
-  isLoading: false,
   activateNavbar: false
 };
 
@@ -17,23 +16,14 @@ export function registerReducer(
     case RTypes.SAVE_NEW_USER: {
       return {
         userData: action.userInfo,
-        activateNavbar: false,
-        isLoading: true
+        activateNavbar: false
       };
     }
 
     case RTypes.LOG_NEW_USER_IN_ACTION: {
       return {
         userData: action.userInfo,
-        isLoading: false,
         activateNavbar: false
-      };
-    }
-
-    case RTypes.LOAD_PAGE: {
-      return {
-        ...state,
-        isLoading: true
       };
     }
 

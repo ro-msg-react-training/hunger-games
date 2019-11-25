@@ -3,7 +3,6 @@ import { IUser } from "../../model/entitys";
 export interface LoginState {
   userData: IUser;
   isLoggedIn: boolean;
-  isLoading: boolean;
   activateNavbar: boolean;
 }
 
@@ -21,8 +20,4 @@ export interface LLogoutEvent {
   type: typeof LOGOUT_ACTION;
 }
 
-export interface LTriggerLoading {
-  type: typeof LOAD_PAGE;
-}
-
-export type LoginActionTypes = LLoginEvent | LLogoutEvent | LTriggerLoading;
+export type LoginActionTypes = LLoginEvent | LLogoutEvent;

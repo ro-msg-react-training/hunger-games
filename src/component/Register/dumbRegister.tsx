@@ -1,6 +1,6 @@
 import React, { SyntheticEvent, useState } from "react";
 import registerPic from "../../resources/register.png";
-import "../../styles/login.css";
+import "../../styles/login.scss";
 import { Link } from "react-router-dom";
 export interface IDumbRegister {
   onUsernameChange: (e: SyntheticEvent) => void;
@@ -71,7 +71,7 @@ export const RegisterDisplay = (props: IDumbRegister) => {
                     onClick={() => props.saveUserDate(userName, password)}
                   >
                     {"Join the games"}
-                    <i className="fa fa-sign-in" aria-hidden="true"></i>
+                  
                   </button>
                 </Link>
               </form>

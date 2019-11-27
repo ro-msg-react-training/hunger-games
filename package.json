@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.11.2",
     "@types/jest": "24.0.23",
     "@types/node": "12.12.7",
     "@types/react": "16.9.11",
@@ -11,6 +12,8 @@
     "bulma-extensions": "^6.2.7",
     "bulma-pageloader": "^0.3.0",
     "connected-react-router": "^6.5.2",
+    "font-awesome": "^4.7.0",
+    "font-awesome-icons": "^1.6.0",
     "history": "^4.10.1",
     "lodash": "^4.17.15",
     "node-sass": "^4.13.0",

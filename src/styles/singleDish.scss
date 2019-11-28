@@ -1,0 +1,40 @@
+.hideScrollBar {
+    overflow: scroll;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.priceColorClass {
+    color : hsl(32, 86%, 48%);
+    margin-bottom: 1em;
+}
+
+#addDishButton {
+    background-color: hsl(32, 69%, 46%);
+    color: rgb(233, 233, 233);
+    border-style: none;
+}
+
+#addDishButton:hover {
+    background-color: hsl(32, 69%, 44%);
+    color: rgb(224, 224, 224);
+    border-style: none;
+}
+
+.customHasCenteredContent{
+    margin: auto;
+}
+
+.dishImage {
+    max-width: 210px;
+    max-height: 110px;
+
+    object-fit: fill;
+}
+
+.dishImage:hover {
+    max-width: 230px;
+    max-height: 130px;
+
+    object-fit: fill;
+}

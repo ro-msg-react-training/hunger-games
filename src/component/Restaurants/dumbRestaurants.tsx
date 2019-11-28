@@ -6,7 +6,6 @@ import "../../styles/restaurants.scss";
 import food2 from "../../resources/food2.jpg";
 import food3 from "../../resources/food3.jpg";
 import food4 from "../../resources/food4.jpg";
-import "font-awesome/css/font-awesome.min.css";
 
 export interface IDumbRestaurant {
   restaurantsList: IRestaurant[];

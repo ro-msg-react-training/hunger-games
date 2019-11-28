@@ -1,4 +1,4 @@
-import { IUser } from "../../model/entitys";
+import { IUser } from "../../model/entites";
 
 export interface LoginState {
   userData: IUser;

@@ -1,5 +1,5 @@
 import * as RTypes from "./types";
-import { IUser } from "../../model/entitys";
+import { IUser } from "../../model/entites";
 
 export function registerEventHandler(
   userData: IUser

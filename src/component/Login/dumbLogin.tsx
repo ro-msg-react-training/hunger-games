@@ -1,8 +1,6 @@
 import React, { SyntheticEvent, useState } from "react";
 import logo from "../../resources/logo.png";
-import "../../styles/login.css";
-import { Redirect } from "react-router";
-import { Link } from "react-router-dom";
+import "../../styles/login.scss";
 export interface IDumbLogin {
   onUsernameChange: (e: SyntheticEvent) => void;
   onPasswordChange: (e: SyntheticEvent) => void;
@@ -65,8 +63,8 @@ export const LoginDisplay = (props: IDumbLogin) => {
                   className="button is-block is-info is-medium is-fullwidth"
                   id="buttonLogin"
                 >
-                  Enter food arena{" "}
-                  <i className="fa fa-sign-in" aria-hidden="true"></i>
+                  Enter food arena
+                 
                 </button>
                 <p className="has-text-white">
                   <br></br>

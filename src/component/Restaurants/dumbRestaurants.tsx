@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { IRestaurant } from "../../model/entitys";
+import { IRestaurant } from "../../model/entites";
 import restaurantList from "../../MockupData/restaurants.json";
 import "../../styles/restaurants.scss";
 import food2 from "../../resources/food2.jpg";

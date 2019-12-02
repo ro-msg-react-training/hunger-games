@@ -1,5 +1,5 @@
 import * as LTypes from "./types";
-import { IUser } from "../../model/entitys";
+import { IUser } from "../../model/entites";
 
 export function loginEventHandler(userData: IUser): LTypes.LLoginEvent {
   return {

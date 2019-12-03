@@ -4,7 +4,7 @@ export interface RestaurantListState {
   currentRestaurant:IRestaurant;
   nrOfOrders:number
 }
-export const CHANGE_ORDERS_NUMBER = "CHANGE_ORDERS_NUMBER ";
+export const CHANGE_ORDERS_NUMBER = "CHANGE_ORDERS_NUMBER";
 
 export interface RLOrdersNumberEvent {
   type: typeof CHANGE_ORDERS_NUMBER;

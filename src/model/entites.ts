@@ -14,7 +14,10 @@ export interface IFood {
     ingredients : string;
     price : number;
 }
+
 export interface IUser {
+    id : number,
     username : string,
+    email : string,
     password : string
 }

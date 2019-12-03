@@ -7,6 +7,7 @@ import { LoginDisplay } from "./component/Login/dumbLogin";
 import { RegisterDisplay } from "./component/Register/dumbRegister";
 import { RestaurantsListView } from "./component/Restaurants/dumbRestaurants";
 import { RestaurantDishesDumpView } from "./component/RestaurantDishes/RestaurantDishesDumpView";
+import { PageLoader } from "./component/LoadingIndicator/PageLoader";
 
 const App: React.FC = () => (
     <Router>

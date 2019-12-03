@@ -1,5 +1,5 @@
 import React from "react";
-import { IFood } from "../../model/entitys";
+import { IFood } from "../../model/entites";
 import '../../styles/singleDish.scss';
 import { getRandomImage } from "../../Helpers/loadRandomImages";
 

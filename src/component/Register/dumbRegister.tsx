@@ -5,12 +5,14 @@ import { Link } from "react-router-dom";
 export interface IDumbRegister {
   onUsernameChange: (e: SyntheticEvent) => void;
   onPasswordChange: (e: SyntheticEvent) => void;
+  onEmailChange:(e:SyntheticEvent)=>void;
   saveUserDate: (userName: string, password: string) => void;
 }
 
 export const RegisterDisplay = (props: IDumbRegister) => {
   const [password, setPassword] = useState("");
   const [userName, setUsername] = useState("");
+  const [email, setEmail] = useState("");
 
   return (
     <div className="content-Login">
@@ -61,6 +63,26 @@ export const RegisterDisplay = (props: IDumbRegister) => {
                         );
                       }}
                     />
+                  </div>
+                </div>
+                <div className="field">
+                  <div className="control">
+                    <p className="has-text-white">
+                      {"Insert your e-mail"}
+                    </p>
+                    <input
+                      className="input"
+                      type="email"
+                      placeholder="user@msg.group"
+                      value={email}
+                      onChange={(e: SyntheticEvent) => {
+                        props.onEmailChange(e);
+                        setEmail(
+                          (e.target as HTMLInputElement).value.trim()
+                        );
+                      }}
+                      contentEditable={true}
+                    ></input>
                   </div>
                 </div>
                 <div className="field"></div>

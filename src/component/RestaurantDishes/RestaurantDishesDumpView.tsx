@@ -1,7 +1,7 @@
 import React from "react";
 import { RestaurantDishesState } from "./RestaurantDishesSmartView";
 import Restaurants from '../../MockupData/restaurants.json';
-import { IRestaurant, IFood } from "../../model/entitys";
+import { IRestaurant, IFood } from "../../model/entites";
 import '../../styles/resDishesList.scss';
 import { SingleDish } from "./SingleDish";
 

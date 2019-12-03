@@ -2,6 +2,8 @@ import * as LTypes from "./types";
 
 export const initialState: LTypes.LoginState = {
   userData: {
+    id : 0,
+    email : "",
     username: "",
     password: ""
   },

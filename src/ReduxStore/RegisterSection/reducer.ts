@@ -2,6 +2,8 @@ import * as RTypes from "./types";
 
 export const initialState: RTypes.RegisterState = {
   userData: {
+    id : 0,
+    email : "",
     username: "",
     password: ""
   },

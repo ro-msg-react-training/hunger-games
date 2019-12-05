@@ -1,25 +1,13 @@
-@charset "utf-8";
-
 #PageLoaderDiv {
     width: 100vw;
     height: 100vh;
-    background-color: rgb(12, 12, 12);
+
+    background-color: black;
 
     // centering image
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    border-style: none;
 }
-
-#PageLoaderGif {
-    object-fit: contain;
-
-    //pentru margini blurate, dar aparent *nu* merge
-    border: solid 7px rgba(rgb(22, 22, 22), .2);
-    background-size: cover;
-    background-clip: border-box;
-    background-origin: padding-box;
-}
-
-@import '../index.scss';

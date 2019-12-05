@@ -16,7 +16,7 @@ const App: React.FC = () => (
         <Redirect exact from = "/" to = "/login"/>
         <Route path = "/districts" exact component = {RestaurantsListView } />
         <Route path = "/districts/:id" exact render = {(props) => <RestaurantDishesDumpView {...props}/>} />
-        <Route path = "/demands" exact component = {Home} />
+        <Route path = "/demands" exact component = {PageLoader} />
         <Route path = "/peacekeepers" exact component = {Home} />
         <Route path = "/peacekeepers/:id" exact component = {Home} />
         <Route exact path="/home" component={Home} /> 

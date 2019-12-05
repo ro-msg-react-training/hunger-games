@@ -1,6 +1,6 @@
 import React from "react";
 import '../../styles/pageLoader.scss';
-import LoadingGif from '../../resources/loadingIndicator.gif';
+import LoadingGif from '../../resources/loadingIndicatorGif.gif';
 
 export const PageLoader : React.FC = () =>{
     return (

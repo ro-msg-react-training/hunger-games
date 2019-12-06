@@ -8,6 +8,7 @@ import { RegisterDisplay } from "./component/Register/dumbRegister";
 import { RestaurantsListView } from "./component/Restaurants/dumbRestaurants";
 import { RestaurantDishesDumpView } from "./component/RestaurantDishes/RestaurantDishesDumpView";
 import { PageLoader } from "./component/LoadingIndicator/PageLoader";
+import { NotificationDumpView } from "./component/Notification/NotificationDumpView";
 
 const App: React.FC = () => (
     <Router>
@@ -24,6 +25,7 @@ const App: React.FC = () => (
         <Route exact path="/login" component={LoginDisplay}/>
         <Route exact path="/register" component={RegisterDisplay}/>
       </Switch>
+      <NotificationDumpView message = "Successfully placed order!" color = "success" isVisible = {true}/>
     </Router>
 );
 

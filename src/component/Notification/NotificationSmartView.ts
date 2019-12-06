@@ -3,3 +3,4 @@ export interface NotificationComponentState {
     color : string;
     isVisible : boolean;
 }
+

@@ -21,3 +21,14 @@ export interface IUser {
     email : string,
     password : string
 }
+export interface IUserOrders{
+    user_order_id:number,
+    food:IFood,
+    user:IUser
+}
+export interface IOrders{
+    resturant:IRestaurant,
+    userOrders:IUserOrders[],
+    contor:number,
+    order_id:number
+}

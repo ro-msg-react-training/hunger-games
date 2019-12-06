@@ -8,6 +8,7 @@ import { RegisterDisplay } from "./component/Register/dumbRegister";
 import { RestaurantsListView } from "./component/Restaurants/dumbRestaurants";
 import { RestaurantDishesDumpView } from "./component/RestaurantDishes/RestaurantDishesDumpView";
 import { PageLoader } from "./component/LoadingIndicator/PageLoader";
+import { DemandsView } from "./component/Demands/DumbDemands";
 import { NotificationDumpView } from "./component/Notification/NotificationDumpView";
 
 const App: React.FC = () => (
@@ -17,7 +18,7 @@ const App: React.FC = () => (
         <Redirect exact from = "/" to = "/login"/>
         <Route path = "/districts" exact component = {RestaurantsListView } />
         <Route path = "/districts/:id" exact render = {(props) => <RestaurantDishesDumpView {...props}/>} />
-        <Route path = "/demands" exact component = {PageLoader} />
+        <Route path = "/demands" exact component = {DemandsView} />
         <Route path = "/peacekeepers" exact component = {Home} />
         <Route path = "/peacekeepers/:id" exact component = {Home} />
         <Route exact path="/home" component={Home} /> 

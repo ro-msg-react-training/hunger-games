@@ -37,3 +37,15 @@ export interface IOrders {
     order_id : number,
     placed_order_user : IUser
 }
+export interface IUserOrders{
+    user_order_id:number,
+    food:IFood,
+    user:IUser
+}
+export interface IOrders {
+    restaurant : IRestaurant,
+    userOrders : IUserOrders[],
+    contor : number,
+    order_id : number,
+    placed_order_user : IUser
+}

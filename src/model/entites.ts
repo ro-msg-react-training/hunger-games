@@ -26,9 +26,10 @@ export interface IUserOrders{
     food:IFood,
     user:IUser
 }
-export interface IOrders{
-    resturant:IRestaurant,
-    userOrders:IUserOrders[],
-    contor:number,
-    order_id:number
+export interface IOrders {
+    restaurant : IRestaurant,
+    userOrders : IUserOrders[],
+    contor : number,
+    order_id : number,
+    placed_order_user : IUser
 }

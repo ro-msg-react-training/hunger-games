@@ -64,5 +64,11 @@
         "email": "test@mail.com",
         "username": "testuser",
         "password": "password"
+    },
+    {
+        "id": 12,
+        "email": "johndoe@mail.com",
+        "username": "johndoe",
+        "password": "password"
     }
 ]

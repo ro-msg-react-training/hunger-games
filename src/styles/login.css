@@ -6,35 +6,31 @@
   max-height: 100vh;
   vertical-align: middle;
   justify-content: center;
-  overflow-y :auto;
+  overflow-y: auto;
   display: inline-block;
   min-width: 100px;
   position: relative;
   overflow: hidden;
-  
 }
-
 .register {
-  color: rgb(233, 162, 55);
+  color: #e9a237;
 }
 .register:hover {
-  color: rgb(184, 133, 56);
+  color: #b88538;
 }
 #buttonLogin {
-  background-color: rgb(233, 162, 55);
+  background-color: #e9a237;
 }
 #buttonLogin:hover {
-  background-color: rgb(184, 133, 56);
+  background-color: #b88538;
 }
-
 .loginBox {
-  background-color: rgb(97, 96, 96);
+  background-color: #616060;
   height: auto;
   width: auto;
   margin: auto;
   vertical-align: middle;
 }
-
 .loginBox img {
   height: 200px;
   width: 15vw;

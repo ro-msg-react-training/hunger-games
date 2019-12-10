@@ -7,7 +7,6 @@ import { LoginDisplay } from "./component/Login/dumbLogin";
 import { RegisterDisplay } from "./component/Register/dumbRegister";
 import { RestaurantsListView } from "./component/Restaurants/dumbRestaurants";
 import { RestaurantDishesDumpView } from "./component/RestaurantDishes/RestaurantDishesDumpView";
-import { PageLoader } from "./component/LoadingIndicator/PageLoader";
 import { PeacekeepersDumpView } from "./component/Peacekeepers/PeacekeepersDumpView";
 
 const App: React.FC = () => (
@@ -18,7 +17,7 @@ const App: React.FC = () => (
         <Route path = "/districts" exact component = {RestaurantsListView } />
         <Route path = "/districts/:id" exact render = {(props) => <RestaurantDishesDumpView {...props}/>} />
         <Route path = "/demands" exact component = {PeacekeepersDumpView} />
-        <Route path = "/peacekeepers" exact component = {Home} />
+        <Route path = "/peacekeepers" exact component = {PeacekeepersDumpView} />
         <Route path = "/peacekeepers/:id" exact component = {Home} />
         <Route exact path="/home" component={Home} /> 
         <Route exact path="/examples" component={SmartExampleList} />

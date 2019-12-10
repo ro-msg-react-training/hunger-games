@@ -1,0 +1,50 @@
+#orderCardImage {
+    width: 350px;
+    height: 210px;
+
+    object-fit: fill;
+
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    margin-bottom: 0;
+}
+
+.orderCardText {
+    padding : 1.25rem;
+    padding-top : 0;
+    padding-bottom: 0.8rem;
+}
+
+.OrderBox {
+    background-color: hsl(0, 0%, 22%);
+    padding : 0;
+    -webkit-box-shadow: 0px 7px 15px -0.9px rgba(rgb(22, 22, 22), 1);
+    -moz-box-shadow: 0px 7px 15px -0.9px rgba(rgb(22, 22, 22), 1);
+    box-shadow: 0px 7px 15px -0.9px rgba(rgb(22, 22, 22), 1);
+}
+
+.OrderBox:hover {
+    -webkit-box-shadow: 0px 7px 15px -0.9px rgba(hsl(32, 85%, 45%), 0.5);
+    -moz-box-shadow: 0px 7px 15px -0.9px rgba(hsl(32, 85%, 45%), 0.5);
+    box-shadow: 0px 7px 15px -0.9px rgba(hsl(32, 85%, 45%), 0.5);
+}
+
+#restaurantTitle {
+    display: inline-block;
+    max-width: 300px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#placedByText {
+    display: inline-block;
+    max-width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.customHeroHead {
+    margin-top: 2rem;
+}

@@ -8,6 +8,8 @@ import { RegisterDisplay } from "./component/Register/dumbRegister";
 import { RestaurantsListView } from "./component/Restaurants/dumbRestaurants";
 import { RestaurantDishesDumpView } from "./component/RestaurantDishes/RestaurantDishesDumpView";
 import { PeacekeepersDumpView } from "./component/Peacekeepers/PeacekeepersDumpView";
+import { DemandsView } from "./component/Demands/DumbDemands";
+import { NotificationDumpView } from "./component/Notification/NotificationDumpView";
 
 const App: React.FC = () => (
     <Router>
@@ -18,12 +20,15 @@ const App: React.FC = () => (
         <Route path = "/districts/:id" exact render = {(props) => <RestaurantDishesDumpView {...props}/>} />
         <Route path = "/demands" exact component = {PeacekeepersDumpView} />
         <Route path = "/peacekeepers" exact component = {PeacekeepersDumpView} />
+        <Route path = "/demands" exact component = {DemandsView} />
+        <Route path = "/peacekeepers" exact component = {Home} />
         <Route path = "/peacekeepers/:id" exact component = {Home} />
         <Route exact path="/home" component={Home} /> 
         <Route exact path="/examples" component={SmartExampleList} />
         <Route exact path="/login" component={LoginDisplay}/>
         <Route exact path="/register" component={RegisterDisplay}/>
       </Switch>
+      <NotificationDumpView message = "Successfully placed order!" color = "success" isVisible = {true}/>
     </Router>
 );
 

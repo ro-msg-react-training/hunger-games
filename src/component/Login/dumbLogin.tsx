@@ -16,7 +16,7 @@ export const LoginDisplay = (props: IDumbLogin) => {
       <div className="hero-body">
         <div className="container has-text-centered">
           <div className="column is-4 is-offset-4">
-            <div className="box">
+            <div className="box loginBox">
               <div className="title has-text-white is-family-sand-serif">
                 Hunger Games
               </div>

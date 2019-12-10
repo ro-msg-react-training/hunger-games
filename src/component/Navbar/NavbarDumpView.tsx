@@ -37,7 +37,7 @@ export const NavbarDumpView: React.FC = () => {
                         </div>
 
                         <div className="navbar-item">
-                            <Link to="/districts" className="has-text-white">
+                            <Link to="/peacekeepers" className="has-text-white">
                                 Peacekeepers
                         </Link>
                         </div>

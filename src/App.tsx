@@ -11,21 +11,21 @@ import { PeacekeepersDumpView } from "./component/Peacekeepers/PeacekeepersDumpV
 import { PeacekeepersDetailedDumpView } from "./component/PeacekeepersDetailed/PeacekeepersDetailedDumpView";
 
 const App: React.FC = () => (
-    <Router>
-      <NavbarDumpView />
-      <Switch>
-        <Redirect exact from = "/" to = "/login"/>
-        <Route path = "/districts" exact component = {RestaurantsListView } />
-        <Route path = "/districts/:id" exact render = {(props) => <RestaurantDishesDumpView {...props}/>} />
-        <Route path = "/demands" exact component = {PeacekeepersDumpView} />
-        <Route path = "/peacekeepers" exact component = {PeacekeepersDumpView} />
-        <Route path = "/peacekeepers/:id" exact render = {(props) => <PeacekeepersDetailedDumpView {...props}/>} />
-        <Route exact path="/home" component={Home} /> 
-        <Route exact path="/examples" component={SmartExampleList} />
-        <Route exact path="/login" component={LoginDisplay}/>
-        <Route exact path="/register" component={RegisterDisplay}/>
-      </Switch>
-    </Router>
+  <Router>
+    <NavbarDumpView />
+    <Switch>
+      <Redirect exact from="/" to="/login" />
+      <Route path="/districts" exact component={RestaurantsListView} />
+      <Route path="/districts/:id" exact render={(props) => <RestaurantDishesDumpView {...props} />} />
+      <Route path="/demands" exact component={PeacekeepersDumpView} />
+      <Route path="/peacekeepers" exact component={PeacekeepersDumpView} />
+      <Route path="/peacekeepers/:id" exact render={(props) => <PeacekeepersDetailedDumpView {...props} />} />
+      <Route exact path="/home" component={Home} />
+      <Route exact path="/examples" component={SmartExampleList} />
+      <Route exact path="/login" component={LoginDisplay} />
+      <Route exact path="/register" component={RegisterDisplay} />
+    </Switch>
+  </Router>
 );
 
 export default App;

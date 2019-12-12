@@ -54,3 +54,37 @@
     box-shadow: 0px 15px 15px -10px rgba(hsl(32, 85%, 45%), 0.5), 15px 0px 15px -15px rgba(rgb(21, 255, 0), 1), -15px 0px 15px -10px rgba(rgb(22, 22, 22), 1);
 }
 
+.UserOrderDetails {
+    height: 190px;
+    width: 300px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.singleOrderFoodName {
+    background-color: transparent;
+    border-style: none;
+    padding: 0;
+
+    overflow: hidden;
+}
+
+.userOrderDetailsText {
+    font-size: smaller;
+}
+
+.userOrderPaymentDetails {
+    background-color: transparent;
+    border-style: none;
+}
+
+.userOderPaymentDetailsTD {
+    border-style: none !important;
+}
+
+.orderedByContainer {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}

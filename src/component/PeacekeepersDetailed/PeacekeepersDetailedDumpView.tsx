@@ -4,6 +4,7 @@ import Orders from '../../MockupData/orders.json';
 import { IOrders, IUserOrders } from "../../model/entites.js";
 import { NoItemsFound } from "../Peacekeepers/NoItemsFound";
 import { PeacekeeperPaymentItemDumpView, MyPaymentItem } from "./PeacekeeperPaymentItem";
+import { FaLayerGroup } from "react-icons/fa";
 
 export interface PeacekeepersState {
     match?: any;
@@ -48,7 +49,7 @@ export const PeacekeepersDetailedDumpView: React.FC<PeacekeepersState> = (props:
             ordersCards = userOrdersFromCurrentRestaurant.userOrders.map(
                 (order: IUserOrders) => {
                     let paymentItemValues: MyPaymentItem = {} as any;
-                    paymentItemValues.isFullyPaidFor = false;
+                    paymentItemValues.isFullyPaidFor = true;
                     paymentItemValues.singleOrder = order;
 
                     return <PeacekeeperPaymentItemDumpView {...paymentItemValues} key={"Payment Card " + order.user_order_id} />;
@@ -83,7 +84,7 @@ export const PeacekeepersDetailedDumpView: React.FC<PeacekeepersState> = (props:
                 <div className="dropdown is-up is-hoverable">
                     <div className="dropdown-trigger">
                         <div className="columns has-text-centered has-text-grey-light" aria-controls="dropdown-menu4">
-                            <div className="column">{userOrdersFromCurrentRestaurant.contor}</div>
+                            <div className="column">{userOrdersFromCurrentRestaurant.contor} <FaLayerGroup className = "is-size-7"/></div>
                             <div className="column">{calculateTotalOrdersCost(userOrdersFromCurrentRestaurant) + " lei"}</div>
                             <div className="column">{"0"} <i className="fa fa-caret-down" /></div>
                             <div className="column">{"0"} <i className="fa fa-caret-up" /></div>

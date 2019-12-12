@@ -8,7 +8,7 @@ export const SingleDish: React.FC<IFood> = (props: IFood) => {
         <div className="media has-text-centered">
             <div className="media-left">
                 <div className="image">
-                    <img className = "dishImage" src={getRandomImage("foods")} />
+                    <img className = "dishImage" src={getRandomImage("foods")} alt = {"imageForFood" + props.id_food}/>
                 </div>
             </div>
             <div className="media-content hideScrollBar">

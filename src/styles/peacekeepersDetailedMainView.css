@@ -1,0 +1,75 @@
+.customHeadSpacing {
+  margin-top: 0.13rem;
+}
+#orderRestaurantImage {
+  width: 450px;
+  height: 120px;
+  object-fit: cover;
+}
+.CustomHeaderBox {
+  max-width: 450px;
+  height: auto;
+  background-color: #d56307;
+  padding: 0;
+  -webkit-box-shadow: 0 10px 14px 10px #0a0a0a;
+  -moz-box-shadow: 0 10px 14px 10px #0a0a0a;
+  box-shadow: 0 10px 14px 10px #0a0a0a;
+  border-bottom-right-radius: 16px;
+  border-bottom-left-radius: 16px;
+  margin-bottom: 4rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+.CustomStatsBox {
+  max-width: 450px;
+  height: auto;
+  background-color: #363636;
+  padding: 0;
+  -webkit-box-shadow: 0 -7px 14px 4px #0a0a0a;
+  -moz-box-shadow: 0 -7px 14px 4px #0a0a0a;
+  box-shadow: 0 -7px 14px 4px #0a0a0a;
+  border-top-right-radius: 16px;
+  border-top-left-radius: 16px;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  position: fixed;
+  width: 50%;
+  bottom: 0.5px;
+  align-self: center;
+}
+#paymentScreenRestaurantName {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+#paymentScreenStatsBar {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.myCloseOrderbutton:hover {
+  color: #fd7a01 !important;
+}
+.dropdown {
+  display: flex;
+}
+.dropdown .dropdown-trigger,
+.dropdown .dropdown-menu {
+  width: 100%;
+}
+div.columns {
+  margin-right: 0;
+}
+.dropdown-content {
+  background-color: #363636;
+  -webkit-box-shadow: 0 -1px 4px 1px rgba(10, 10, 10, 0.7);
+  -moz-box-shadow: 0 -1px 4px 1px rgba(10, 10, 10, 0.7);
+  box-shadow: 0 -1px 4px 1px rgba(10, 10, 10, 0.7);
+  padding: 0;
+}
+.dropdown-item {
+  padding-left: 0;
+  padding-right: 0;
+}

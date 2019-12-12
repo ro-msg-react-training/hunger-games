@@ -12,13 +12,13 @@ export const PeacekeepersDumpView: React.FC = () => {
         if (ordersArray.length) {
             ordersCards = ordersArray.map(
                 (order: IOrders) =>
-                    <OrderCard {...order} />
+                    <OrderCard {...order} key = {"towardsOrder_" + order.order_id}/>
             );
 
             return ordersCards;
         } else {
             return (
-                <NoItemsFound />
+                <NoItemsFound message = "Nothing to show for now. Check back later..."/>
             );
         }
     }

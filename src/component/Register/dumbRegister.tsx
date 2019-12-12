@@ -24,7 +24,7 @@ export const RegisterDisplay = (props: IDumbRegister) => {
                 Hello new tribute!
               </div>
               <figure className="avatar">
-                <img src={registerPic} />
+                <img src={registerPic} alt = "Registration logo, arrow"/>
               </figure>
               <form>
                 <div className="field">

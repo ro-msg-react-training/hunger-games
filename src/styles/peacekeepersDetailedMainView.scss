@@ -1,0 +1,95 @@
+.customHeadSpacing {
+    margin-top: 0.13rem;
+}
+
+#orderRestaurantImage {
+    width: 450px;
+    height: 120px;
+    object-fit: cover;
+}
+
+.CustomHeaderBox {
+    max-width: 450px;
+    height: auto;
+    background-color: hsl(27, 94%, 43%);
+    padding : 0;
+    -webkit-box-shadow: 0 10px 14px 10px rgba(rgb(10, 10, 10), 1);
+    -moz-box-shadow: 0 10px 14px 10px rgba(rgb(10, 10, 10), 1);
+    box-shadow: 0 10px 14px 10px rgba(rgb(10, 10, 10), 1);
+
+    /* aparent este nevoie si de astea ca sa fie intotdeauna rotunjit acolo */
+    border-bottom-right-radius: 16px;
+    border-bottom-left-radius: 16px;
+
+    margin-bottom: 4rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+.CustomStatsBox {
+    max-width: 450px;
+    height: auto;
+    background-color: hsl(0, 0, 21%);
+    padding : 0;
+    -webkit-box-shadow: 0 -7px 14px 4px rgba(rgb(10, 10, 10), 1);
+    -moz-box-shadow: 0 -7px 14px 4px rgba(rgb(10, 10, 10), 1);
+    box-shadow: 0 -7px 14px 4px rgba(rgb(10, 10, 10), 1);
+
+    /* aparent este nevoie si de astea ca sa fie intotdeauna rotunjit acolo */
+    border-top-right-radius: 16px;
+    border-top-left-radius: 16px;
+
+    padding-right: 1rem;
+    padding-left: 1rem;
+
+    position: fixed;
+    width: 50%;
+    bottom: 0.5px;
+    align-self: center;
+}
+
+#paymentScreenRestaurantName {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#paymentScreenStatsBar {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.myCloseOrderbutton:hover {
+    color: rgb(253, 122, 1) !important;
+}
+
+.dropdown {
+    display: flex;
+  
+    .dropdown-trigger,
+    .dropdown-menu {
+      width: 100%;
+    }
+}
+
+div.columns {
+    margin-right: 0;
+}
+
+.dropdown-content {
+    background-color: hsl(0, 0, 21%);
+
+    -webkit-box-shadow: 0 -1px 4px 1px rgba(rgb(10, 10, 10), 0.7);
+    -moz-box-shadow: 0 -1px 4px 1px rgba(rgb(10, 10, 10), 0.7);
+    box-shadow: 0 -1px 4px 1px rgba(rgb(10, 10, 10), 0.7);
+
+    padding : 0;
+}
+
+.dropdown-item {
+    padding-left: 0;
+    padding-right: 0;
+}

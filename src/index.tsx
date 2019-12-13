@@ -4,8 +4,6 @@ import './index.scss';
 import App from './App';
 import { configureStore } from './ReduxStore';
 import { Provider } from 'react-redux';
-import { IconContext } from 'react-icons';
-import { FaLayerGroup } from 'react-icons/fa';
 
 const store = configureStore();
 

@@ -11,9 +11,9 @@
   height: auto;
   background-color: #d56307;
   padding: 0;
-  -webkit-box-shadow: 0 10px 14px 10px #0a0a0a;
-  -moz-box-shadow: 0 10px 14px 10px #0a0a0a;
-  box-shadow: 0 10px 14px 10px #0a0a0a;
+  -webkit-box-shadow: 0 7px 14px 7px #0a0a0a;
+  -moz-box-shadow: 0 7px 14px 7px #0a0a0a;
+  box-shadow: 0 7px 14px 7px #0a0a0a;
   border-bottom-right-radius: 16px;
   border-bottom-left-radius: 16px;
   margin-bottom: 4rem;
@@ -49,9 +49,6 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-.myCloseOrderbutton:hover {
-  color: #fd7a01 !important;
-}
 .dropdown {
   display: flex;
 }
@@ -62,14 +59,64 @@
 div.columns {
   margin-right: 0;
 }
-.dropdown-content {
+.bottomDropDownContent {
   background-color: #363636;
-  -webkit-box-shadow: 0 -1px 4px 1px rgba(10, 10, 10, 0.7);
-  -moz-box-shadow: 0 -1px 4px 1px rgba(10, 10, 10, 0.7);
-  box-shadow: 0 -1px 4px 1px rgba(10, 10, 10, 0.7);
+  -webkit-box-shadow: 0 -1px 4px 1px rgba(10, 10, 10, 0.7),
+    inset 0 -6px 6px -4px #0a0a0a;
+  -moz-box-shadow: 0 -1px 4px 1px rgba(10, 10, 10, 0.7),
+    inset 0 -6px 6px -4px #0a0a0a;
+  box-shadow: 0 -1px 4px 1px rgba(10, 10, 10, 0.7),
+    inset 0 -6px 6px -4px #0a0a0a;
   padding: 0;
+  border-top-right-radius: 16px;
+  border-top-left-radius: 16px;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+.topDropDownContent {
+  background-color: #c55a03;
+  -webkit-box-shadow: 0 3px 4px 3px #0a0a0a, inset 0 6px 6px -4px #0a0a0a;
+  -moz-box-shadow: 0 3px 4px 3px #0a0a0a, inset 0 6px 6px -4px #0a0a0a;
+  box-shadow: 0 3px 4px 3px #0a0a0a, inset 0 6px 6px -4px #0a0a0a;
+  padding: 0;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  border-bottom-right-radius: 16px;
+  border-bottom-left-radius: 16px;
 }
 .dropdown-item {
   padding-left: 0;
   padding-right: 0;
+}
+.closeOrderButton {
+  position: fixed;
+  top: 5.5rem;
+  right: 0;
+  background-color: rgba(20, 177, 6, 0.9) !important;
+  color: #161616 !important;
+  -webkit-box-shadow: 0 3px 8px 3px #0a0a0a;
+  -moz-box-shadow: 0 3px 8px 3px #0a0a0a;
+  box-shadow: 0 3px 8px 3px #0a0a0a;
+  border-top-left-radius: 14px;
+  border-bottom-left-radius: 14px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-style: none !important;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+.closeOrderButton:hover {
+  background-color: #14b106 !important;
+  color: black !important;
+}
+.cardActionsLevel {
+  margin-bottom: 0 !important;
+}
+.paymentCardActionIcon {
+  font-size: xx-small;
+  color: #7a7a7a;
+}
+.paymentCardActionIcon:hover {
+  font-size: xx-small;
+  color: #b5b5b5;
 }

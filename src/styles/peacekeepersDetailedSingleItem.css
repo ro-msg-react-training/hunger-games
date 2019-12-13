@@ -70,16 +70,28 @@
   overflow: hidden;
 }
 .userOrderDetailsText {
-  font-size: smaller;
+  font-size: smaller !important;
 }
 .userOrderPaymentDetails {
   background-color: transparent;
   border-style: none;
 }
-.userOderPaymentDetailsTD {
+.userOrderPaymentDetailsTD {
   border-style: none !important;
 }
 .orderedByContainer {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.financeInputField {
+  max-width: 55px;
+  max-height: 26px;
+  padding: 0 !important;
+  padding-bottom: 0.5rem !important;
+  font-size: inherit !important;
+}
+.littleExtraPaddingRight {
+  padding-right: 1rem !important;
 }

@@ -103,3 +103,17 @@
 .littleExtraPaddingRight {
     padding-right: 1rem !important;
 }
+
+.cardActionsLevel {
+    margin-bottom: 0 !important;
+}
+
+.paymentCardActionIcon {
+    font-size: xx-small;
+    color : rgba(rgb(122, 122, 122), 1);
+}
+
+.paymentCardActionIcon:hover {
+    font-size: x-small;
+    color : rgba(rgb(181, 181, 181), 1);
+}

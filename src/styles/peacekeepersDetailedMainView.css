@@ -109,14 +109,3 @@ div.columns {
   background-color: #14b106 !important;
   color: black !important;
 }
-.cardActionsLevel {
-  margin-bottom: 0 !important;
-}
-.paymentCardActionIcon {
-  font-size: xx-small;
-  color: #7a7a7a;
-}
-.paymentCardActionIcon:hover {
-  font-size: xx-small;
-  color: #b5b5b5;
-}

@@ -10,6 +10,7 @@ import { RestaurantDishesDumpView } from "./component/RestaurantDishes/Restauran
 import { PeacekeepersDumpView } from "./component/Peacekeepers/PeacekeepersDumpView";
 import { DemandsView } from "./component/Demands/DumbDemands";
 import { NotificationDumpView } from "./component/Notification/NotificationDumpView";
+import NotificationInitializer from "./component/Notification/NotificationSmartView";
 
 const App: React.FC = () => (
     <Router>
@@ -28,7 +29,7 @@ const App: React.FC = () => (
         <Route exact path="/login" component={LoginDisplay}/>
         <Route exact path="/register" component={RegisterDisplay}/>
       </Switch>
-      <NotificationDumpView message = "Successfully placed order!" color = "success" isVisible = {true}/>
+      <NotificationInitializer />
     </Router>
 );
 

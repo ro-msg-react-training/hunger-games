@@ -89,17 +89,19 @@ export const PeacekeepersDetailedDumpView: React.FC<PeacekeepersState> = (props:
                     </div>
                 </div>
 
-                <div className="button closeOrderButton">
-                    <span className="icon">
-                        <i className="fa fa-check-circle"></i>
-                    </span>
-                    <span className="has-text-weight-medium">Close order</span>
-                </div>
+                
 
                 <div className="container is-fluid">
                     <div className="columns is-multiline is-fluid is-mobile is-centered">
                         {generatePaymentCards()}
                     </div>
+                </div>
+
+                <div className="button closeOrderButton">
+                    <span className="icon">
+                        <i className="fa fa-check-circle"></i>
+                    </span>
+                    <span className="has-text-weight-medium">Close order</span>
                 </div>
             </div>
             <div className="hero-body"></div>

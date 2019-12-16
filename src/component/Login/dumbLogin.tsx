@@ -21,7 +21,7 @@ export const LoginDisplay = (props: IDumbLogin) => {
                 Hunger Games
               </div>
               <figure className="avatar">
-                <img src={logo} />
+                <img src={logo} alt = "Website Logo, The Mockingkay"/>
               </figure>
               <form>
                 <div className="field">

@@ -7,9 +7,9 @@ import { getRandomImage } from "../../Helpers/loadRandomImages";
 export const OrderCard: React.FC<IOrders> = (props: IOrders) => {
     return (
         <div className="column is-narrow">
-            <Link to={"/districts/" + props.restaurant.id}>
+            <Link to={"/peacekeepers/" + props.order_id}>
                 <div className="box OrderBox">
-                    <img id="orderCardImage" src={getRandomImage("restaurants")} />
+                    <img id="orderCardImage" src={getRandomImage("restaurants")} alt = {"imageForOrder" + props.order_id}/>
                     <div className="orderCardText">
                         <div className="level">
                             <div id="restaurantTitle" className="level-item has-text-centered has-text-white-ter has-text-weight-medium">

@@ -14,7 +14,7 @@ export const PeacekeeperPaymentItemDumpView: React.FC<MyPaymentItem> = (props: M
         type: "text",
         maxLength: 7,
         placeholder: "0",
-        defaultValue: "31" + " lei",
+        defaultValue: "31 lei",
         className: "input financeInputField is-static has-text-grey-light has-text-centered"
     }
 

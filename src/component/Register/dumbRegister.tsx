@@ -14,9 +14,9 @@ export const RegisterDumpView: React.FC<RegisterComponentState> = (props: Regist
               <div className="box loginBox">
                 <div className="title has-text-white is-family-sand-serif">
                   Hello new tribute!
-              </div>
+                </div>
                 <figure className="avatar">
-                  <img src={registerPic} />
+                  <img src={registerPic} alt="Registration logo, arrow" />
                 </figure>
                 <form>
                   <div className="field">
@@ -26,30 +26,7 @@ export const RegisterDumpView: React.FC<RegisterComponentState> = (props: Regist
                       </p>
                       <input className="input" type="email" placeholder="Nickname" defaultValue={props.userInfo.username} onChange={(e) => props.onUsernameChange(props, e.target.value)} />
                     </div>
-              <figure className="avatar">
-                <img src={registerPic} alt = "Registration logo, arrow"/>
-              </figure>
-              <form>
-                <div className="field">
-                  <div className="control">
-                    <p className="has-text-white">
-                      {"Insert your desired nickname"}
-                    </p>
-                    <input
-                      className="input"
-                      type="email"
-                      placeholder="Nickname"
-                      value={userName}
-                      onChange={(e: SyntheticEvent) => {
-                        props.onUsernameChange(e);
-                        setUsername(
-                          (e.target as HTMLInputElement).value.trim()
-                        );
-                      }}
-                      contentEditable={true}
-                    ></input>
                   </div>
-
                   <div className="field">
                     <div className="control">
                       <p className="has-text-white">{"And your secret code"}</p>

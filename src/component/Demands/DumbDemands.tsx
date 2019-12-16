@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { IRestaurant, IFood } from "../../model/entites";
 import restaurantList from "../../MockupData/restaurants.json";
 import "../../styles/demands.scss";

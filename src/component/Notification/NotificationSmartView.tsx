@@ -1,4 +1,3 @@
-import { SyntheticEvent } from "react";
 import React from "react";
 import { NotificationDumpView } from "./NotificationDumpView";
 import { GlobalState } from "../../ReduxStore";

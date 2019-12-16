@@ -9,7 +9,6 @@ import { RestaurantsListView } from "./component/Restaurants/dumbRestaurants";
 import { RestaurantDishesDumpView } from "./component/RestaurantDishes/RestaurantDishesDumpView";
 import { PeacekeepersDumpView } from "./component/Peacekeepers/PeacekeepersDumpView";
 import { DemandsView } from "./component/Demands/DumbDemands";
-import { NotificationDumpView } from "./component/Notification/NotificationDumpView";
 import NotificationInitializer from "./component/Notification/NotificationSmartView";
 
 const App: React.FC = () => (

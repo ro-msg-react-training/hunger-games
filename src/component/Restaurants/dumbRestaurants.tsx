@@ -3,9 +3,6 @@ import { Link } from "react-router-dom";
 import { IRestaurant } from "../../model/entites";
 import restaurantList from "../../MockupData/restaurants.json";
 import "../../styles/restaurants.scss";
-import food2 from "../../resources/food2.jpg";
-import food3 from "../../resources/food3.jpg";
-import food4 from "../../resources/food4.jpg";
 import { getRandomImage } from "../../Helpers/loadRandomImages";
 
 export interface IDumbRestaurant {
@@ -41,7 +38,7 @@ export const RestaurantsListView = (props: IDumbRestaurant) => {
   };
   let restaurantWithOrWithoutOrders = (restaurant: IRestaurant, nrOfOrders: number) => {
     let restaurantStyle;
-    if (nrOfOrders != 0) {
+    if (nrOfOrders !== 0) {
       restaurantStyle = (
         <div className="content-with-orders">
           <div className="restaurant">

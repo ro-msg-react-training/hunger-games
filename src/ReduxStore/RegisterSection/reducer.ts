@@ -1,4 +1,5 @@
 import * as RTypes from "./types";
+import { IUser } from "../../model/entites";
 
 export const initialState: RTypes.RegisterState = {
   userData: {
@@ -10,10 +11,7 @@ export const initialState: RTypes.RegisterState = {
   activateNavbar: false
 };
 
-export function registerReducer(
-  state: RTypes.RegisterState = initialState,
-  action: RTypes.LoginActionTypes
-): RTypes.RegisterState {
+export function registerReducer(state: RTypes.RegisterState = initialState, action: RTypes.LoginActionTypes): RTypes.RegisterState {
   switch (action.type) {
     case RTypes.SAVE_NEW_USER: {
       return {
@@ -25,7 +23,16 @@ export function registerReducer(
     case RTypes.LOG_NEW_USER_IN_ACTION: {
       return {
         userData: action.userInfo,
-        activateNavbar: false
+        activateNavbar: true
+      };
+    }
+
+    case RTypes.UPDATE_TEMPORARY_USER: {
+      let newValues : IUser = action ? action.newUserValues : state.userData;
+
+      return {
+        ...state,
+        userData : newValues
       };
     }
 

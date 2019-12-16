@@ -3,7 +3,7 @@ import * as NTypes from "./types";
 export const InitialState : NTypes.NotificationState = {
     message : "Blank message dialog",
     color : "light",
-    isVisible : true
+    isVisible : false
 };
 
 export function notificationReducer (state : NTypes.NotificationState = InitialState, action : NTypes.NotificationSectionActionTypes) : NTypes.NotificationState {

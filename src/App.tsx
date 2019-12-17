@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import { Home } from "./component/example/home";
 import { SmartExampleList } from "./component/example/smart-example-list";
-import { NavbarDumpView } from "./component/Navbar/NavbarDumpView";
 import { LoginDisplay } from "./component/Login/dumbLogin";
 import { RestaurantsListView } from "./component/Restaurants/dumbRestaurants";
 import { RestaurantDishesDumpView } from "./component/RestaurantDishes/RestaurantDishesDumpView";
@@ -11,10 +10,11 @@ import { PeacekeepersDetailedDumpView } from "./component/PeacekeepersDetailed/P
 import { DemandsView } from "./component/Demands/DumbDemands";
 import NotificationInitializer from "./component/Notification/NotificationSmartView";
 import RegisterViewInitializer from "./component/Register/RegisterSmartComponent";
+import NavbarInitializer from "./component/Navbar/NavbarSmartView";
 
 const App: React.FC = () => (
     <Router>
-      <NavbarDumpView />
+      <NavbarInitializer />
       <Switch>
         <Redirect exact from = "/" to = "/login"/>
         <Route path = "/districts" exact component = {RestaurantsListView } />

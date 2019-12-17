@@ -26,6 +26,12 @@ class NotificationSmartView extends React.Component<NotificationComponentState> 
         }, 7000);
     }
 
+    componentDidUpdate() {
+        setTimeout(() => {
+            this.performAutoHideNotification()
+        }, 7000);
+    }
+
     render() {
         return (
             <NotificationDumpView {...this.props} />

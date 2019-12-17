@@ -5,19 +5,23 @@ import { NotificationState } from "./NotificationSection/types";
 import { notificationReducer } from "./NotificationSection/reducers";
 import { RegisterState } from "./RegisterSection/types";
 import { registerReducer } from "./RegisterSection/reducer";
+import { LoginState } from "./LoginSection/types";
+import { loginReducer } from "./LoginSection/reducer";
 
 // ex: prodListReducer : ProductListState;
 export interface GlobalState {
     restDishesReducer : RestaurantDishesState,
     notReducer : NotificationState,
-    registerReducerGlobal : RegisterState
+    registerReducerGlobal : RegisterState,
+    loginReducerGlobal : LoginState
 }
 
 // ex: prodListReducer : productListReducer
 const rootReducer = combineReducers({
     restDishesReducer : restaurantDishesReducer,
     notReducer : notificationReducer,
-    registerReducerGlobal : registerReducer
+    registerReducerGlobal : registerReducer,
+    loginReducerGlobal : loginReducer
 });
 
 // Lipseste partea de Saga

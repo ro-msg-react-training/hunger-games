@@ -1,0 +1,44 @@
+#navbarLogo {
+  margin: 4px;
+  width: auto;
+  height: auto;
+}
+#navbarLogoLink:hover {
+  background-color: #3b3b3b !important;
+}
+.navbarButtons {
+  background-color: #363636 !important;
+  border-color: transparent !important;
+  color: #e6e6e6 !important;
+}
+.navbarButtons:hover {
+  background-color: #404040 !important;
+  border-color: transparent !important;
+  color: white !important;
+}
+#PageNavbar {
+  margin-bottom: 50px;
+}
+.userIcon {
+  font-size: large;
+  margin-right: 0.5rem;
+}
+.userName {
+  max-width: 120px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+}
+.inversedColors {
+  color: rgba(226, 226, 226, 0.8);
+}
+.inversedColors:hover {
+  color: #fff;
+}
+.helloTributeUsername {
+  color: rgba(226, 226, 226, 0.8) !important;
+}
+.helloTributeUsername:hover {
+  color: #fff !important;
+}

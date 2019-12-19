@@ -27,19 +27,19 @@ export const NavbarDumpView: React.FC<NavbarComponentState> = (props: NavbarComp
                     <div className={"navbar-menu"}>
                         <div className="navbar-start">
                             <div className="navbar-item">
-                                <Link to="/districts" className = "inversedColors">
+                                <Link to="/districts" className="inversedColors">
                                     Districts
                             </Link>
                             </div>
 
                             <div className="navbar-item">
-                                <Link to="/demands" className = "inversedColors">
+                                <Link to="/demands" className="inversedColors">
                                     Demands
                             </Link>
                             </div>
 
                             <div className="navbar-item">
-                                <Link to="/peacekeepers" className = "inversedColors">
+                                <Link to="/peacekeepers" className="inversedColors">
                                     Peacekeepers
                             </Link>
                             </div>
@@ -48,16 +48,18 @@ export const NavbarDumpView: React.FC<NavbarComponentState> = (props: NavbarComp
                         <div className="navbar-end">
                             <div className="navbar-item has-dropdown is-hoverable">
                                 <div className="navbar-link is-arrowless">
-                                    <div className = "level inversedColors has-text-centered">
-                                        <div className = "level-item level-left userIcon"><FaRegUserCircle /></div>
-                                        <div className = "level-item level-right userName">johndoe</div>
+                                    <div className="level inversedColors has-text-centered">
+                                        <div className="level-item level-left userIcon"><FaRegUserCircle /></div>
+                                        <div className="level-item level-right userName">{props.loggedInUserDetails.username}</div>
                                     </div>
                                 </div>
 
                                 <div className="navbar-dropdown is-boxed">
-                                    <div className="navbar-item button is-fullwidth navbarButtons" onClick = {() => props.logout()}>
-                                        Game over
-                                    </div>
+                                    <Link to="/login">
+                                        <div className="navbar-item button is-fullwidth navbarButtons" onClick={() => props.logout()}>
+                                            Game over
+                                        </div>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

@@ -19,7 +19,6 @@ const App: React.FC = () => (
         <Redirect exact from = "/" to = "/login"/>
         <Route path = "/districts" exact component = {RestaurantsListView } />
         <Route path = "/districts/:id" exact render = {(props) => <RestaurantDishesDumpView {...props}/>} />
-        <Route path = "/demands" exact component = {PeacekeepersDumpView} />
         <Route path = "/demands" exact component = {DemandsView} />
         <Route path = "/peacekeepers" exact component = {Home} />
         <Route path = "/peacekeepers/:id" exact component = {Home} />
@@ -28,7 +27,7 @@ const App: React.FC = () => (
         <Route exact path="/login" component={LoginDisplay}/>
         <Route exact path="/register" component={RegisterDisplay}/>
       </Switch>
-      <NotificationDumpView message = "Successfully placed order!" color = "success" isVisible = {true}/>
+      {/* <NotificationDumpView message = "Successfully placed order!" color = "success" isVisible = {true}/> */}
     </Router>
 );
 

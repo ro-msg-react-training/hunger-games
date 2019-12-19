@@ -30,13 +30,7 @@ export interface IUserOrders {
 }
 
 // Comanda mare de mancare
-export interface IOrders {
-    restaurant : IRestaurant,
-    userOrders : IUserOrders[],
-    contor : number,
-    order_id : number,
-    placed_order_user : IUser
-}
+
 export interface IUserOrders{
     user_order_id:number,
     food:IFood,
@@ -48,4 +42,20 @@ export interface IOrders {
     contor : number,
     order_id : number,
     placed_order_user : IUser
+}
+export interface RestaurantDemands{
+    name:string,
+    id:number
+}
+export interface FoodDemands{
+    food_name:string,
+    food_price:number
+}
+export interface UserDemands{
+    username:string,
+}
+export interface IDemands{
+    restaurant:RestaurantDemands,
+    food:FoodDemands,
+    user:UserDemands
 }

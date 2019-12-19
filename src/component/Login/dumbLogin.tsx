@@ -16,12 +16,12 @@ export const LoginDisplay = (props: IDumbLogin) => {
       <div className="hero-body">
         <div className="container has-text-centered">
           <div className="column is-4 is-offset-4">
-            <div className="box">
+            <div className="box loginBox">
               <div className="title has-text-white is-family-sand-serif">
                 Hunger Games
               </div>
               <figure className="avatar">
-                <img src={logo} />
+                <img src={logo} alt = "Website Logo, The Mockingkay"/>
               </figure>
               <form>
                 <div className="field">

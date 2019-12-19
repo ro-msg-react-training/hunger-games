@@ -1,0 +1,138 @@
+.customHeadSpacing {
+    margin-top: 0.13rem;
+}
+
+#orderRestaurantImage {
+    width: 450px;
+    height: 120px;
+    object-fit: cover;
+}
+
+.CustomHeaderBox {
+    max-width: 450px;
+    height: auto;
+    background-color: rgb(213, 99, 7);
+    padding : 0;
+    -webkit-box-shadow: 0 7px 14px 7px rgba(rgb(10, 10, 10), 1);
+    -moz-box-shadow: 0 7px 14px 7px rgba(rgb(10, 10, 10), 1);
+    box-shadow: 0 7px 14px 7px rgba(rgb(10, 10, 10), 1);
+
+    /* aparent este nevoie si de astea ca sa fie intotdeauna rotunjit acolo */
+    border-bottom-right-radius: 16px;
+    border-bottom-left-radius: 16px;
+
+    margin-bottom: 4rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+.CustomStatsBox {
+    max-width: 450px;
+    height: auto;
+    background-color: hsl(0, 0, 21%);
+    padding : 0;
+    -webkit-box-shadow: 0 -7px 14px 4px rgba(rgb(10, 10, 10), 1);
+    -moz-box-shadow: 0 -7px 14px 4px rgba(rgb(10, 10, 10), 1);
+    box-shadow: 0 -7px 14px 4px rgba(rgb(10, 10, 10), 1);
+
+    /* aparent este nevoie si de astea ca sa fie intotdeauna rotunjit acolo */
+    border-top-right-radius: 16px;
+    border-top-left-radius: 16px;
+
+    padding-right: 1rem;
+    padding-left: 1rem;
+
+    position: fixed;
+    width: 50%;
+    bottom: 0.5px;
+    align-self: center;
+}
+
+#paymentScreenRestaurantName {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#paymentScreenStatsBar {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.dropdown {
+    display: flex;
+  
+    .dropdown-trigger,
+    .dropdown-menu {
+      width: 100%;
+    }
+}
+
+div.columns {
+    margin-right: 0;
+}
+
+.bottomDropDownContent {
+    background-color: hsl(0, 0, 21%);
+
+    -webkit-box-shadow: 0 -1px 4px 1px rgba(rgb(10, 10, 10), 0.7), inset 0 -6px 6px -4px rgba(rgb(10, 10, 10), 1);
+    -moz-box-shadow: 0 -1px 4px 1px rgba(rgb(10, 10, 10), 0.7), inset 0 -6px 6px -4px rgba(rgb(10, 10, 10), 1);
+    box-shadow: 0 -1px 4px 1px rgba(rgb(10, 10, 10), 0.7), inset 0 -6px 6px -4px rgba(rgb(10, 10, 10), 1);
+
+    padding : 0;
+
+    border-top-right-radius: 16px;
+    border-top-left-radius: 16px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px
+}
+
+.topDropDownContent {
+    background-color: rgb(197, 90, 3);
+
+    -webkit-box-shadow: 0 3px 4px 3px rgba(rgb(10, 10, 10), 1), inset 0 6px 6px -4px rgba(rgb(10, 10, 10), 1);
+    -moz-box-shadow: 0 3px 4px 3px rgba(rgb(10, 10, 10), 1), inset 0 6px 6px -4px rgba(rgb(10, 10, 10), 1);
+    box-shadow: 0 3px 4px 3px rgba(rgb(10, 10, 10), 1), inset 0 6px 6px -4px rgba(rgb(10, 10, 10), 1);
+
+    padding : 0;
+
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    border-bottom-right-radius: 16px;
+    border-bottom-left-radius: 16px;
+}
+
+.dropdown-item {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.closeOrderButton {
+    position: fixed;
+    top: 5.5rem;
+    right: 0;
+
+    background-color: rgba(rgb(20, 177, 6), 0.9) !important;
+    color: rgba(rgb(22, 22, 22), 1) !important;
+
+    -webkit-box-shadow: 0 3px 8px 3px rgba(rgb(10, 10, 10), 1);
+    -moz-box-shadow: 0 3px 8px 3px rgba(rgb(10, 10, 10), 1);
+    box-shadow: 0 3px 8px 3px rgba(rgb(10, 10, 10), 1);
+
+    border-top-left-radius: 14px;
+    border-bottom-left-radius: 14px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    
+    border-style: none !important;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.closeOrderButton:hover {
+    background-color: rgba(rgb(20, 177, 6), 1) !important;  //rgb(226, 111, 3) !important;
+    color: black !important;
+}

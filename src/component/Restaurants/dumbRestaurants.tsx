@@ -103,7 +103,7 @@ export const RestaurantsListView = (props: IDumbRestaurant) => {
 
   }
   let products = [...restaurantList].map((restaurant, key) => (
-    <div>
+    <div key = {"Restaurant " + restaurant.id}>
       {restaurantWithOrWithoutOrders(restaurant, 0)}
     </div>
   ));

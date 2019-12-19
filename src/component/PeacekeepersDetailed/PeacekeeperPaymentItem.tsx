@@ -25,9 +25,9 @@ export const PeacekeeperPaymentItemDumpView: React.FC<MyPaymentItem> = (props: M
         }
     }
 
-    let cardActionIconProps : ThisElemetInterface = {
-        user1 : false,
-        user2 : false
+    let cardActionIconProps: ThisElemetInterface = {
+        user1: false,
+        user2: false
     }
 
     return (
@@ -40,11 +40,11 @@ export const PeacekeeperPaymentItemDumpView: React.FC<MyPaymentItem> = (props: M
                     <div className="UserOrderDetails">
                         <div className="control">
                             <div className="level cardActionsLevel">
-                                <div className = "level-item level-left is-pulled-left">
+                                <div className="level-item level-left is-pulled-left">
                                     <p className="has-text-grey is-size-7"> Food name </p>
                                 </div>
-                                <div className = "level-item level-right is-pulled-right">
-                                    <CardActionIcon {...cardActionIconProps}/>
+                                <div className="level-item level-right is-pulled-right">
+                                    <CardActionIcon {...cardActionIconProps} />
                                 </div>
                             </div>
                             <textarea className="textarea has-fixed-size has-text-grey-light singleOrderFoodName userOrderDetailsText" readOnly rows={2} value={props.singleOrder.food.food_name + props.singleOrder.food.food_name + props.singleOrder.food.food_name} />
@@ -56,20 +56,22 @@ export const PeacekeeperPaymentItemDumpView: React.FC<MyPaymentItem> = (props: M
                         </div>
 
                         <table className="table is-narrow userOrderPaymentDetails userOrderDetailsText is-fullwidth">
-                            <tr className="has-text-grey">
-                                <td className="userOrderPaymentDetailsTD littleExtraPaddingRight has-text-centered">Cost</td>
-                                <td className="userOrderPaymentDetailsTD has-text-centered">Payed</td>
-                                <td className="userOrderPaymentDetailsTD has-text-centered">Change</td>
-                            </tr>
-                            <tr className="has-text-grey-light">
-                                <td className="userOrderPaymentDetailsTD littleExtraPaddingRight has-text-centered">{props.singleOrder.food.price + " lei"}</td>
-                                <td className="userOrderPaymentDetailsTD has-text-centered">
-                                    <input {...inputProperties} />
-                                </td>
-                                <td className="userOrderPaymentDetailsTD has-text-centered">
-                                    <input {...inputProperties} />
-                                </td>
-                            </tr>
+                            <tbody>
+                                <tr className="has-text-grey">
+                                    <td className="userOrderPaymentDetailsTD littleExtraPaddingRight has-text-centered">Cost</td>
+                                    <td className="userOrderPaymentDetailsTD has-text-centered">Payed</td>
+                                    <td className="userOrderPaymentDetailsTD has-text-centered">Change</td>
+                                </tr>
+                                <tr className="has-text-grey-light">
+                                    <td className="userOrderPaymentDetailsTD littleExtraPaddingRight has-text-centered">{props.singleOrder.food.price + " lei"}</td>
+                                    <td className="userOrderPaymentDetailsTD has-text-centered">
+                                        <input {...inputProperties} />
+                                    </td>
+                                    <td className="userOrderPaymentDetailsTD has-text-centered">
+                                        <input {...inputProperties} />
+                                    </td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
                 </div>

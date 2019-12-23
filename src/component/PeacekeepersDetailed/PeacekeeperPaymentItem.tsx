@@ -47,7 +47,7 @@ export const PeacekeeperPaymentItemDumpView: React.FC<MyPaymentItem> = (props: M
                                     <CardActionIcon {...cardActionIconProps} />
                                 </div>
                             </div>
-                            <textarea className="textarea has-fixed-size has-text-grey-light singleOrderFoodName userOrderDetailsText" readOnly rows={2} value={props.singleOrder.food.food_name + props.singleOrder.food.food_name + props.singleOrder.food.food_name} />
+                            <textarea className="textarea has-fixed-size has-text-grey-light singleOrderFoodName userOrderDetailsText" readOnly rows={2} value={props.singleOrder.food.food_name} />
                         </div>
 
                         <div className="orderedByContainer">

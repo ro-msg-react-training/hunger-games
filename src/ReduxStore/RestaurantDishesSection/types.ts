@@ -1,8 +1,8 @@
-import { IUser, IFood, IRestaurant } from "../../model/entites";
+import { IUser, IRestaurant } from "../../model/entites";
 
 export interface RestaurantDishesState {
     currentUser : IUser;
-    availableFoods : IFood[];
+    currentRestaurant : IRestaurant;
 }
 
 export const LOAD_FOODS = "LOAD_FOODS";

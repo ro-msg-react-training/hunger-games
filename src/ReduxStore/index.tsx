@@ -7,10 +7,13 @@ import { RegisterState } from "./RegisterSection/types";
 import { registerReducer } from "./RegisterSection/reducer";
 import { LoginState } from "./LoginSection/types";
 import { loginReducer } from "./LoginSection/reducer";
+import { RestaurantsComponentState } from "../component/Restaurants/RestaurantsSmartComponent";
+import { restaurantListReducer } from "./RestaurantListSection/reducer";
 
 // ex: prodListReducer : ProductListState;
 export interface GlobalState {
     restDishesReducer : RestaurantDishesState,
+    restReducer: RestaurantsComponentState,
     notReducer : NotificationState,
     registerReducerGlobal : RegisterState,
     loginReducerGlobal : LoginState
@@ -19,6 +22,7 @@ export interface GlobalState {
 // ex: prodListReducer : productListReducer
 const rootReducer = combineReducers({
     restDishesReducer : restaurantDishesReducer,
+    restReducer: restaurantListReducer,
     notReducer : notificationReducer,
     registerReducerGlobal : registerReducer,
     loginReducerGlobal : loginReducer

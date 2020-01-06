@@ -4,19 +4,21 @@ import { IRestaurant } from "../../model/entites";
 import restaurantList from "../../MockupData/restaurants.json";
 import "../../styles/restaurants.scss";
 import { getRandomImage } from "../../Helpers/loadRandomImages";
+import { RestaurantsComponentState } from "./RestaurantsSmartComponent";
 
 export interface IDumbRestaurant {
   restaurantsList: IRestaurant[];
+  restaurantOrders:Map<string,number>;
 }
-export const RestaurantsListView = (props: IDumbRestaurant) => {
-  let restaurantsImageAndOrderNumber = (free: boolean, restId: IRestaurant) => {
+export const RestaurantsListView = (props: RestaurantsComponentState) => {
+  let restaurantsImageAndOrderNumber = (ordersNo: number, restId: IRestaurant) => {
     let restaurant;
-    if (free === false) {
+    if (ordersNo !=0) {
       restaurant = (
         <Link to={`/districts/${restId.id}`}>
           <div>
             <div className="tag is-warning  has-text-weight-bold" id="tagOrders">
-              1
+            {ordersNo}
           </div>
             <img id="restarantImg" src={getRandomImage("restaurants")} alt="Restaurant" />
           </div>
@@ -27,7 +29,7 @@ export const RestaurantsListView = (props: IDumbRestaurant) => {
         <Link to={`/districts/${restId.id}`}>
           <div>
             <div className="tag is-white has-text-weight-bold  " id="tagOrders">
-              1
+             0
           </div>
             <img id="restarantImg" src={getRandomImage("restaurants")} alt="Restaurant" />
           </div>
@@ -42,7 +44,7 @@ export const RestaurantsListView = (props: IDumbRestaurant) => {
       restaurantStyle = (
         <div className="content-with-orders">
           <div className="restaurant">
-            <figure>{restaurantsImageAndOrderNumber(false, restaurant)}</figure>
+            <figure>{restaurantsImageAndOrderNumber(Number(props.restaurantOrders.get(restaurant.restaurant_name)), restaurant)}</figure>
             <div className="details-restaurant">
               <div className="columns ">
                 <div className="column">
@@ -72,7 +74,7 @@ export const RestaurantsListView = (props: IDumbRestaurant) => {
       restaurantStyle = (
         <div className="content-without-orders ">
           <div className="restaurant">
-            <figure>{restaurantsImageAndOrderNumber(true, restaurant)}</figure>
+            <figure>{restaurantsImageAndOrderNumber(Number(props.restaurantOrders.get(restaurant.restaurant_name)), restaurant)}</figure>
             <div className="details-restaurant">
               <div className="columns ">
                 <div className="column">
@@ -102,7 +104,7 @@ export const RestaurantsListView = (props: IDumbRestaurant) => {
     return restaurantStyle;
 
   }
-  let products = [...restaurantList].map((restaurant, key) => (
+  let products = [...props.restaurants].map((restaurant, key) => (
     <div key = {"Restaurant " + restaurant.id}>
       {restaurantWithOrWithoutOrders(restaurant, 0)}
     </div>

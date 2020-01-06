@@ -1,9 +1,6 @@
 import React from "react";
 import {
   IRestaurant,
-  IFood,
-  IOrders,
-  IUserOrders,
   IDemands,
   FoodDemands,
   UserDemands
@@ -18,7 +15,6 @@ export interface IDumbDemands {
 }
 export const DemandsView = (props: IDumbDemands) => {
   let displayOrders = (food: FoodDemands, user: UserDemands) => {
-    console.log(food.food_name);
     return (
       <div className="ordersGrid ">
         <div className="box ">

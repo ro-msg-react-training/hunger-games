@@ -31,12 +31,6 @@ export interface IUserOrders {
 }
 
 // Comanda mare de mancare
-
-export interface IUserOrders{
-    user_order_id:number,
-    food:IFood,
-    user:IUser
-}
 export interface IOrders {
     restaurant : IRestaurant,
     userOrders : IUserOrders[],

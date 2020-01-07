@@ -5,19 +5,19 @@
 }
 
 .priceColorClass {
-    color : hsl(32, 86%, 48%);
+    color : rgba(rgb(228, 129, 17), 1);
     margin-bottom: 1em;
 }
 
-#addDishButton {
-    background-color: hsl(32, 69%, 46%);
+.addDishButtonActive {
+    background-color: rgba(rgb(198, 123, 36), 1);
     color: rgb(233, 233, 233);
     border-style: none;
 }
 
-#addDishButton:hover {
-    background-color: hsl(32, 69%, 44%);
-    color: rgb(224, 224, 224);
+.addDishButtonActive:hover {
+    background-color: rgba(rgb(228, 129, 17), 1);
+    color: rgb(241, 241, 241);
     border-style: none;
 }
 

@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { IRestaurant } from "../../model/entites";
-import restaurantList from "../../MockupData/restaurants.json";
 import "../../styles/restaurants.scss";
 import { getRandomImage } from "../../Helpers/loadRandomImages";
 import { RestaurantsComponentState } from "./RestaurantsSmartComponent";
@@ -15,9 +14,7 @@ export const RestaurantsListView = (props: RestaurantsComponentState) => {
   let restaurantsImageAndOrderNumber = (ordersNo: number, restId: IRestaurant) => {
     let restaurant;
     ordersNo=20;
-    console.log(ordersNo)
     if (ordersNo > 0) {
-      console.log(ordersNo);
       if(arrayOfOrdersNo.find( element => element == ordersNo)){
         if(arrayOfOrdersNo.find( element => element > ordersNo)){
           restaurant = (

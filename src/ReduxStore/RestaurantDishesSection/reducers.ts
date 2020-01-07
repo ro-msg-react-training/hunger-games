@@ -15,7 +15,8 @@ export const initialState: RDTypes.RestaurantDishesState = {
         "closing_hour": "00:00 PM",
         "image": "http://dummyimage.com/137x180.jpg/ff4444/ffffff",
         "food_list": []
-    }
+    },
+    isOutsideOfWorkingHours : false
 };
 
 export function restaurantDishesReducer(state: RDTypes.RestaurantDishesState = initialState, action: RDTypes.RestaurantDishesActionTypes): RDTypes.RestaurantDishesState {
@@ -23,7 +24,8 @@ export function restaurantDishesReducer(state: RDTypes.RestaurantDishesState = i
         case RDTypes.LOAD_FOODS: {
             return {
                 currentUser: action.currentUser,
-                currentRestaurant: action.restaurant
+                currentRestaurant: action.restaurant,
+                isOutsideOfWorkingHours : action.isOutsideOfWorkingHours
             };
         }
 

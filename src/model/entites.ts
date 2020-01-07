@@ -4,6 +4,7 @@ export interface IRestaurant {
     adress: string;
     opening_hour: string;
     closing_hour: string;
+    orders: number,
     image: string;
     food_list: IFood[];
 }

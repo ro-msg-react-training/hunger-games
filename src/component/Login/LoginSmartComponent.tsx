@@ -1,5 +1,5 @@
 import React from "react";
-import { LoginDisplay } from "./dumbLogin";
+import { LoginDisplay } from "./LoginDumbComponent";
 import { GlobalState } from "../../ReduxStore";
 import { connect } from "react-redux";
 import { compose, setDisplayName } from "recompose";

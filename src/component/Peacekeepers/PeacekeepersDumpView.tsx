@@ -7,7 +7,7 @@ export const PeacekeepersDumpView: React.FC<PeacekeepersViewState> = (props : Pe
             <div className="hero-head customHeroHead">
             <div className="container">
                     <div className="columns is-multiline is-fluid is-mobile is-centered">
-                        {props.loadOrdersList(props)}
+                        {props.generateOrdersList(props)}
                     </div>
                 </div>
             </div>

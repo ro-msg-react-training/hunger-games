@@ -27,7 +27,9 @@ export interface IUser {
 export interface IUserOrders {
     user_order_id : number,
     food : IFood,
-    user : IUser
+    user : IUser,
+    payed : number,
+    change : number
 }
 
 // Comanda mare de mancare

@@ -11,12 +11,12 @@ import { OrderCard } from "./OrderCard";
 export interface PeacekeepersViewState {
     match : any;
     placedOrders : IOrders[];
-    loadOrdersList: (props: PeacekeepersViewState) => ReactNode;
+    generateOrdersList: (props: PeacekeepersViewState) => ReactNode;
 }
 
 class PeacekeepersSmartView extends React.Component<PeacekeepersViewState> {
     componentDidMount() {
-        this.props.loadOrdersList(this.props);
+        this.props.generateOrdersList(this.props);
     }
 
     render() {
@@ -31,7 +31,7 @@ const mapStateToProps = (state : GlobalState) => ({
 });
 
 const mapDispatchToProps = (dispatch : Dispatch) => ({
-    loadOrdersList : (props : PeacekeepersViewState) : ReactNode => {
+    generateOrdersList : (props : PeacekeepersViewState) : ReactNode => {
         if (props.placedOrders.length === 0) {
             return (
                 <NoItemsFound message = "Nothing to show for now. Check back later..."/>

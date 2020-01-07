@@ -6,12 +6,9 @@ import { NoItemsFound } from "../Peacekeepers/NoItemsFound";
 import { PeacekeeperPaymentItemDumpView, MyPaymentItem } from "./PeacekeeperPaymentItem";
 import { FaLayerGroup } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { PeacekeepersDetailedViewState } from "./PeacekeepersDetailedSmartView";
 
-export interface PeacekeepersState {
-    match?: any;
-}
-
-export const PeacekeepersDetailedDumpView: React.FC<PeacekeepersState> = (props: PeacekeepersState) => {
+export const PeacekeepersDetailedDumpView: React.FC<PeacekeepersDetailedViewState> = (props: PeacekeepersDetailedViewState) => {
     // Nu ar trebui implementat asa *
     let ordersArray: IOrders[] = Object(Orders);
     let userOrdersFromCurrentRestaurant: IOrders = ordersArray[findIndividualOder(ordersArray, props.match.params.id)];

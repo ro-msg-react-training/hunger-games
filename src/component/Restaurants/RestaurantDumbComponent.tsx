@@ -11,9 +11,64 @@ export interface IDumbRestaurant {
   restaurantOrders:Map<string,number>;
 }
 export const RestaurantsListView = (props: RestaurantsComponentState) => {
+  let arrayOfOrdersNo:number[]=[1,2,40];
   let restaurantsImageAndOrderNumber = (ordersNo: number, restId: IRestaurant) => {
     let restaurant;
-    if (ordersNo !=0) {
+    ordersNo=20;
+    console.log(ordersNo)
+    if (ordersNo > 0) {
+      console.log(ordersNo);
+      if(arrayOfOrdersNo.find( element => element == ordersNo)){
+        if(arrayOfOrdersNo.find( element => element > ordersNo)){
+          restaurant = (
+            <Link to={`/districts/${restId.id}`}>
+              <div>
+                <div className="tag is-white has-text-weight-bold  " id="tagOrders">
+                {ordersNo}
+              </div>
+                <img id="restarantImg" src={getRandomImage("restaurants")} alt="Restaurant" />
+              </div>
+            </Link>
+          );
+        }else{
+          restaurant = (
+            <Link to={`/districts/${restId.id}`}>
+              <div>
+                <div className="tag is-warning  has-text-weight-bold" id="tagOrders">
+                {ordersNo}
+              </div>
+                <img id="restarantImg" src={getRandomImage("restaurants")} alt="Restaurant" />
+              </div>
+            </Link>
+          );
+        }
+      }else{
+        arrayOfOrdersNo.push(ordersNo);
+        if(arrayOfOrdersNo.find( element => element > ordersNo)){
+          console.log("am gasit mai mare" )
+          restaurant = (
+            <Link to={`/districts/${restId.id}`}>
+              <div>
+                <div className="tag is-white has-text-weight-bold  " id="tagOrders">
+                {ordersNo}
+              </div>
+                <img id="restarantImg" src={getRandomImage("restaurants")} alt="Restaurant" />
+              </div>
+            </Link>
+          );
+        }else{
+          restaurant = (
+            <Link to={`/districts/${restId.id}`}>
+              <div>
+                <div className="tag is-warning  has-text-weight-bold" id="tagOrders">
+                {ordersNo}
+              </div>
+                <img id="restarantImg" src={getRandomImage("restaurants")} alt="Restaurant" />
+              </div>
+            </Link>
+          );
+        }
+      }
       restaurant = (
         <Link to={`/districts/${restId.id}`}>
           <div>
@@ -28,9 +83,7 @@ export const RestaurantsListView = (props: RestaurantsComponentState) => {
       restaurant = (
         <Link to={`/districts/${restId.id}`}>
           <div>
-            <div className="tag is-white has-text-weight-bold  " id="tagOrders">
-             0
-          </div>
+            
             <img id="restarantImg" src={getRandomImage("restaurants")} alt="Restaurant" />
           </div>
         </Link>

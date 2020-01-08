@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
-import { PeacekeepersDumpView } from "../component/Peacekeepers/PeacekeepersDumpView";
 import { PeacekeepersDetailedDumpView } from "../component/PeacekeepersDetailed/PeacekeepersDetailedDumpView";
 import { DemandsView } from "../component/Demands/DemandsDumbComponent";
 import NotificationInitializer from "../component/Notification/NotificationSmartView";
@@ -10,6 +9,7 @@ import LoginViewInitializer from "../component/Login/LoginSmartComponent";
 import { AppComponentState } from "./AppSmartComponent";
 import RestaurantDishesViewInitializer from "../component/RestaurantDishes/RestaurantDishesSmartView";
 import RestaurantsInitializer from "../component/Restaurants/RestaurantsSmartComponent";
+import PeacekeepersViewInitializer from "../component/Peacekeepers/PeacekeepersSmartView";
 
 const App: React.FC<AppComponentState> = (props: AppComponentState) => {
   if (!props.userIsLoggedIn) {
@@ -35,7 +35,7 @@ const App: React.FC<AppComponentState> = (props: AppComponentState) => {
           <Route path="/districts/:id" exact render={(props) => <RestaurantDishesViewInitializer {...props} />} />
           <Route path="/districts" exact component={RestaurantsInitializer} />
           <Route path="/demands" exact component={DemandsView} />
-          <Route path="/peacekeepers" exact component={PeacekeepersDumpView} />
+          <Route path="/peacekeepers" exact component={PeacekeepersViewInitializer} />
           <Route path="/peacekeepers/:id" exact render={(props) => <PeacekeepersDetailedDumpView {...props} />} />
           <Route exact path="/login" component={LoginViewInitializer} />
           <Route exact path="/register" component={RegisterViewInitializer} />

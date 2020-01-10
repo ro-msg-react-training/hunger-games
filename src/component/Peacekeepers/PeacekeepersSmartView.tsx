@@ -5,7 +5,7 @@ import { GlobalState } from "../../ReduxStore";
 import { Dispatch } from "redux";
 import { compose, setDisplayName } from "recompose";
 import { connect } from "react-redux";
-import { NoItemsFound } from "./NoItemsFound";
+import { NoItemsFound } from "../../Helpers/NoItemsFound";
 import { OrderCard } from "./OrderCard";
 
 export interface PeacekeepersViewState {

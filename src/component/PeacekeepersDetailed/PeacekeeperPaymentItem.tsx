@@ -58,7 +58,7 @@ export const PeacekeeperPaymentItemDumpView: React.FC<PKDSingleCardState> = (pro
                                         <input {...inputProperties} onFocus={(ev : SyntheticEvent) => props.onFieldFocused(props, props.singleOrder.user_order_id-1, ev)} onBlur={(ev : SyntheticEvent) => props.onFieldLostFocus(props, props.singleOrder.user_order_id-1)} onChange={(event : SyntheticEvent) => props.onChangeAuxPayedAmount(props, props.singleOrder.user_order_id-1, event)}/>
                                     </td>
                                     <td className="userOrderPaymentDetailsTD has-text-centered">
-                                        {props.singleOrder.change + " lei"}
+                                        {props.singleOrder.change + (props.singleOrder.change === 1 ? " leu" : " lei")}
                                     </td>
                                 </tr>
                             </tbody>

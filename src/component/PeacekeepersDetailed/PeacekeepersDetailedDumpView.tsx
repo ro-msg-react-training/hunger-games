@@ -39,7 +39,7 @@ export const PeacekeepersDetailedDumpView: React.FC<PeacekeepersDetailedViewStat
                         </div>
                     </div>
 
-                    <div className={props.enableCloseOrderButton(props) ? "button closeOrderButton" : "is-hidden"}>
+                    <div className={props.enableCloseOrderButton(props) ? "button closeOrderButton" : "is-hidden"} onClick = {() => props.onClickCloseOrderButton(props)}>
                         <span className="icon">
                             <i className="fa fa-check-circle"></i>
                         </span>

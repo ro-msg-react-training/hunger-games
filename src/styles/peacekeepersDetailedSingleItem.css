@@ -99,10 +99,10 @@
   margin-bottom: 0 !important;
 }
 .paymentCardActionIcon {
-  font-size: xx-small;
+  font-size: x-small;
   color: #7a7a7a;
 }
 .paymentCardActionIcon:hover {
-  font-size: x-small;
+  font-size: smaller;
   color: #b5b5b5;
 }

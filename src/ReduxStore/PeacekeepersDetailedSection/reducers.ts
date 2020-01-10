@@ -13,7 +13,7 @@ export function peacekeepersDetailedReducer(state: PKDTypes.PeacekeepersDetailed
         case PKDTypes.LOAD_ORDER: {
             return {
                 currentUser: action.currentLoggedInUser,
-                currentOrder: retrieveOrder(action.order_id),
+                currentOrder: {...retrieveOrder(action.order_id)},
                 hasUserPlacedTheOrder: checkOrderUserValidity(action.currentLoggedInUser.id, action.order_id)
             }
         }
@@ -59,9 +59,8 @@ function retrieveOrder(orderId: number): IOrders {
     currentOrder.peopleLeftToPay = calculateNumberOfPeopleLeftToPay(currentOrder.userOrders);
     currentOrder.peopleLeftToReceiveChange = calculateNumberOfPeopleLeftToReceiveChange(currentOrder.userOrders);
     currentOrder.totalOrderCost = calculateTotalOrdersCost(currentOrder);
+    currentOrder.haveAllChangesBeenAcquitted = checkForRemainingChanges(currentOrder);
 
-    console.log("Retrieve Order -------------------------------");
-    console.log(ordersArray[orderId - 1]);
     return {...ordersArray[orderId - 1]};
 }
 
@@ -102,11 +101,10 @@ function changeCardStatus(orderId: number, cardID: number): IOrders {
     }
 
     // Updating stats
-    console.log("Updating stats - ChangeCardStatus - initial state ->");
-    console.log(currentOrder);
+    currentOrder.peopleLeftToPay = calculateNumberOfPeopleLeftToPay(currentOrder.userOrders);
+    currentOrder.peopleLeftToReceiveChange = calculateNumberOfPeopleLeftToReceiveChange(currentOrder.userOrders);
+    currentOrder.totalOrderCost = calculateTotalOrdersCost(currentOrder);
     currentOrder.haveAllChangesBeenAcquitted = checkForRemainingChanges(currentOrder);
-    console.log("Updating stats - CheckAllChangesQcquitted - after ->");
-    console.log(currentOrder);
 
     return currentOrder;
 }
@@ -135,21 +133,26 @@ function paymentFieldLostFocus(orderId: number, cardID: number): IOrders {
     let auxValue: string = currentCard.auxPayedValue;
 
     // If the entered value is a number, than we can proceed with saving it
-    if (+auxValue !== null) {
-        currentCard.payed = +auxValue;
-        currentCard.auxPayedValue = currentCard.auxPayedValue + " lei";
+    if (!isNaN(+auxValue)) {
+        currentCard.payed = Math.abs(+auxValue);
+        currentCard.auxPayedValue = currentCard.payed + (currentCard.payed === 1 ? " leu" : " lei");
 
         // if we actually need to have a change at all
-        if(currentCard.payed >= currentCard.food.price) {
-            currentCard.change = currentCard.payed >= 0 ? Math.abs(currentCard.payed - currentCard.food.price) : 0;
-        }
+        if(currentCard.payed !== currentCard.food.price) {
 
+            if(currentCard.payed <= currentCard.food.price) {
+                currentCard.change = 0;
+            } else {
+                currentCard.change = Math.abs(currentCard.payed - currentCard.food.price);
+            }
+
+            currentCard.receivedChange = false;
+        } else {
         // if user payed the whole food price, then update the card status as well
-        if(currentCard.payed === currentCard.food.price) {
             currentCard.receivedChange = true;
         }
     } else {    // otherwise we revert back to the initial value
-        currentCard.auxPayedValue = new Number(currentCard.payed).toString() + " lei";
+        currentCard.auxPayedValue = currentCard.payed + (currentCard.payed === 1 ? " leu" : " lei");
     }
 
     // Update stats
@@ -166,7 +169,7 @@ function calculateNumberOfPeopleLeftToPay(userOrdersArray : IUserOrders[]) : num
 
     userOrdersArray.forEach(
         (order : IUserOrders) => {
-            if(order.payed === 0) {
+            if(order.payed < order.food.price) {
                 result += 1;
             }
         }
@@ -180,7 +183,7 @@ function calculateNumberOfPeopleLeftToReceiveChange(userOrdersArray : IUserOrder
     
     userOrdersArray.forEach(
         (order : IUserOrders) => {
-            if(!order.receivedChange) {
+            if(order.payed > order.food.price) {
                 result += 1;
             }
         }
@@ -192,15 +195,10 @@ function calculateNumberOfPeopleLeftToReceiveChange(userOrdersArray : IUserOrder
 // Are there remaining changes/payments to be made?
 function checkForRemainingChanges(currentOrder : IOrders) : boolean {
     let response : boolean = false;
-    console.log("********* CheckChangesFunction - initial state ->");
-    console.log(currentOrder);
     
     if(currentOrder.peopleLeftToPay == 0 && currentOrder.peopleLeftToReceiveChange == 0) {
         response = true;
     }
-
-    console.log("********* CheckChangesFunction - result ->");
-    console.log(response);
 
     return response;
 }

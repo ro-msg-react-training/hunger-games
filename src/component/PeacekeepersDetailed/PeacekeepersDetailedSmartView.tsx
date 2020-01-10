@@ -21,6 +21,7 @@ export interface PeacekeepersDetailedViewState {
     onFieldLostFocus: (props: PKDSingleCardState, userOrderId: number) => void;
     onChangeAuxPayedAmount: (props: PKDSingleCardState, userOrderId: number, eventValue: SyntheticEvent) => void;
     enableCloseOrderButton: (props : PeacekeepersDetailedViewState) => boolean;
+    onClickCloseOrderButton: (props : PeacekeepersDetailedViewState) => boolean;
 }
 
 export interface PKDSingleCardState {
@@ -124,6 +125,10 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
         }
 
         return response;
+    },
+
+    onClickCloseOrderButton: (props : PeacekeepersDetailedViewState) => {
+        alert("This order will be closed shortly and disappear from the list.");
     }
 });
 

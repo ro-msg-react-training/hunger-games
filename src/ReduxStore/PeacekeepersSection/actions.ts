@@ -8,9 +8,15 @@ export function addOrderToList(placedOrder : IOrders) : PKTypes.PeacekeepersActi
     };
 }
 
-export function closeOrder(completedOrder : IOrders) : PKTypes.PeacekeepersActionTypes {
+export function closeOrder(orderId : number) : PKTypes.PeacekeepersActionTypes {
     return {
         type : PKTypes.CLOSE_ORDER,
-        orderClosing : completedOrder
+        orderId : orderId
+    };
+}
+
+export function loadMainOrderList() : PKTypes.PeacekeepersActionTypes {
+    return {
+        type : PKTypes.LOAD_MAIN_ORDER_LIST
     };
 }

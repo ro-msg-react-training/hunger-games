@@ -47,11 +47,14 @@ export interface IOrders {
     peopleLeftToReceiveChange : number;
     totalOrderCost : number;
     haveAllChangesBeenAcquitted : boolean;
+    orderIsActive : boolean;
 }
+
 export interface RestaurantDemands{
     name:string;
     id:number;
 }
+
 export interface FoodDemands{
     food_name:string;
     food_price:number;
@@ -59,6 +62,7 @@ export interface FoodDemands{
 export interface UserDemands{
     username:string;
 }
+
 export interface IDemands{
     restaurant:RestaurantDemands;
     food:FoodDemands;
@@ -94,5 +98,6 @@ export const emptyOrder : IOrders = {
     peopleLeftToPay : 0,
     peopleLeftToReceiveChange : 0,
     totalOrderCost : 0,
-    haveAllChangesBeenAcquitted : false
+    haveAllChangesBeenAcquitted : false,
+    orderIsActive : true
 }

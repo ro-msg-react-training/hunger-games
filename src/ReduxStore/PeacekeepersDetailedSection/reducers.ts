@@ -1,8 +1,8 @@
 import * as PKDTypes from "./types";
 import { IOrders, emptyUser, emptyOrder, IUserOrders } from "../../model/entites";
-import Orders from '../../MockupData/orders.json';
 
 export const initialState: PKDTypes.PeacekeepersDetailedState = {
+    mainOrdersList : [emptyOrder],
     currentUser: emptyUser,
     currentOrder: emptyOrder,
     hasUserPlacedTheOrder: false
@@ -10,39 +10,47 @@ export const initialState: PKDTypes.PeacekeepersDetailedState = {
 
 export function peacekeepersDetailedReducer(state: PKDTypes.PeacekeepersDetailedState = initialState, action: PKDTypes.PeacekeepersDetailedActionTypes): PKDTypes.PeacekeepersDetailedState {
     switch (action.type) {
+        case PKDTypes.LOAD_ORDERS_TO_DETAILED_VIEW: {
+            return {
+                ...state,
+            mainOrdersList : {...loadOrdersListData(action.orderListData)}
+            }
+        }
+
         case PKDTypes.LOAD_ORDER: {
             return {
+                ...state,
                 currentUser: action.currentLoggedInUser,
-                currentOrder: {...retrieveOrder(action.order_id)},
-                hasUserPlacedTheOrder: checkOrderUserValidity(action.currentLoggedInUser.id, action.order_id)
+                currentOrder: {...retrieveOrder(state.mainOrdersList, action.order_id)},
+                hasUserPlacedTheOrder: checkOrderUserValidity(state.mainOrdersList, action.currentLoggedInUser.id, action.order_id)
             }
         }
 
         case PKDTypes.CHANGE_PAYED_AMOUNT: {
             return {
                 ...state,
-                currentOrder: { ...changeAmountPayed(action.orderId, action.cardId, action.payed) }
+                currentOrder: { ...changeAmountPayed(state.mainOrdersList, action.orderId, action.cardId, action.payed) }
             }
         }
 
         case PKDTypes.CHANGE_CARD_STATUS: {
             return {
                 ...state,
-                currentOrder: { ...changeCardStatus(action.orderId, action.cardId) }
+                currentOrder: { ...changeCardStatus(state.mainOrdersList, action.orderId, action.cardId) }
             }
         }
 
         case PKDTypes.PAYMENT_FIELD_IS_FOCUSED: {
             return {
                 ...state,
-                currentOrder: { ...paymentFieldIsFocused(action.orderId, action.cardId) }
+                currentOrder: { ...paymentFieldIsFocused(state.mainOrdersList, action.orderId, action.cardId) }
             }
         }
 
         case PKDTypes.PAYMENT_FIELD_LOST_FOCUS: {
             return {
                 ...state,
-                currentOrder: { ...paymentFieldLostFocus(action.orderId, action.cardId) }
+                currentOrder: { ...paymentFieldLostFocus(state.mainOrdersList, action.orderId, action.cardId) }
             }
         }
 
@@ -52,8 +60,8 @@ export function peacekeepersDetailedReducer(state: PKDTypes.PeacekeepersDetailed
     }
 }
 
-function retrieveOrder(orderId: number): IOrders {
-    let ordersArray: IOrders[] = Object(Orders);
+function retrieveOrder(mainOrdersList : IOrders[], orderId: number): IOrders {
+    let ordersArray: IOrders[] = mainOrdersList;
     let currentOrder : IOrders = ordersArray[orderId - 1];
 
     currentOrder.peopleLeftToPay = calculateNumberOfPeopleLeftToPay(currentOrder.userOrders);
@@ -76,15 +84,15 @@ function calculateTotalOrdersCost(ordersArray: IOrders): number {
     return total;
 }
 
-function checkOrderUserValidity(loggedInUserId: number, orderUserId: number): boolean {
+function checkOrderUserValidity(mainOrdersList : IOrders[], loggedInUserId: number, orderUserId: number): boolean {
     let validity: boolean = false;
 
-    validity = loggedInUserId === retrieveOrder(orderUserId).placed_order_user.id ? true : false;
+    validity = loggedInUserId === retrieveOrder(mainOrdersList, orderUserId).placed_order_user.id ? true : false;
     return validity;
 }
 
-function changeCardStatus(orderId: number, cardID: number): IOrders {
-    let currentOrder: IOrders = retrieveOrder(orderId);
+function changeCardStatus(mainOrdersList : IOrders[], orderId: number, cardID: number): IOrders {
+    let currentOrder: IOrders = retrieveOrder(mainOrdersList, orderId);
     let currentCard: IUserOrders = currentOrder.userOrders[cardID];
 
     // If user clicks on button and the status is still in progress(users hasn't yet received the change)
@@ -109,8 +117,8 @@ function changeCardStatus(orderId: number, cardID: number): IOrders {
     return currentOrder;
 }
 
-function paymentFieldIsFocused(orderId: number, cardID: number): IOrders {
-    let currentOrder: IOrders = retrieveOrder(orderId);
+function paymentFieldIsFocused(mainOrdersList : IOrders[], orderId: number, cardID: number): IOrders {
+    let currentOrder: IOrders = retrieveOrder(mainOrdersList, orderId);
     let currentCard: IUserOrders = currentOrder.userOrders[cardID];
 
     currentCard.auxPayedValue = currentCard.auxPayedValue.split(" ")[0];
@@ -118,8 +126,8 @@ function paymentFieldIsFocused(orderId: number, cardID: number): IOrders {
     return currentOrder;
 }
 
-function changeAmountPayed(orderId: number, cardID: number, amountPayed: string): IOrders {
-    let currentOrder: IOrders = retrieveOrder(orderId);
+function changeAmountPayed(mainOrdersList : IOrders[], orderId: number, cardID: number, amountPayed: string): IOrders {
+    let currentOrder: IOrders = retrieveOrder(mainOrdersList, orderId);
     let currentCard: IUserOrders = currentOrder.userOrders[cardID];
 
     currentCard.auxPayedValue = amountPayed;
@@ -127,8 +135,8 @@ function changeAmountPayed(orderId: number, cardID: number, amountPayed: string)
     return currentOrder;
 }
 
-function paymentFieldLostFocus(orderId: number, cardID: number): IOrders {
-    let currentOrder: IOrders = retrieveOrder(orderId);
+function paymentFieldLostFocus(mainOrdersList : IOrders[], orderId: number, cardID: number): IOrders {
+    let currentOrder: IOrders = retrieveOrder(mainOrdersList, orderId);
     let currentCard: IUserOrders = currentOrder.userOrders[cardID];
     let auxValue: string = currentCard.auxPayedValue;
 
@@ -201,4 +209,9 @@ function checkForRemainingChanges(currentOrder : IOrders) : boolean {
     }
 
     return response;
+}
+
+function loadOrdersListData(orderListData : IOrders[]) : IOrders[] {
+    let localReducerOrdersList : IOrders[] = orderListData;
+    return {...localReducerOrdersList};
 }

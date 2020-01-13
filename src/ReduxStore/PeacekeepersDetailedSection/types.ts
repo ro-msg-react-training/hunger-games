@@ -1,11 +1,13 @@
 import { IOrders, IUser } from "../../model/entites";
 
 export interface PeacekeepersDetailedState {
+    mainOrdersList : IOrders[];
     currentUser : IUser;
     currentOrder : IOrders;
     hasUserPlacedTheOrder : boolean;
 }
 
+export const LOAD_ORDERS_TO_DETAILED_VIEW = "LOAD_ORDERS_TO_DETAILED_VIEW";
 export const LOAD_ORDER = "LOAD_ORDER";
 export const CHANGE_PAYED_AMOUNT = "CHANGE_PAYED_AMOUNT";
 export const CHANGE_CARD_STATUS = "CHANGE_CARD_STATUS";
@@ -43,4 +45,9 @@ export interface PKDPaymentFieldLostFocusAction {
     cardId : number
 }
 
-export type PeacekeepersDetailedActionTypes = PKDLoadUserOrdersAction | PKDChangePayedAmountAction | PKDChangeCardStatusAction | PKDPaymentFieldIsFocusedAction | PKDPaymentFieldLostFocusAction;
+export interface PKDLoadOrdersToDetaileViewAction {
+    type : typeof LOAD_ORDERS_TO_DETAILED_VIEW,
+    orderListData : IOrders[]
+}
+
+export type PeacekeepersDetailedActionTypes = PKDLoadUserOrdersAction | PKDChangePayedAmountAction | PKDChangeCardStatusAction | PKDPaymentFieldIsFocusedAction | PKDPaymentFieldLostFocusAction | PKDLoadOrdersToDetaileViewAction;

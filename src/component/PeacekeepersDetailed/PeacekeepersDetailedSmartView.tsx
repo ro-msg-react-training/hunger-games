@@ -5,12 +5,15 @@ import { Dispatch } from "redux";
 import { compose, setDisplayName } from "recompose";
 import { connect } from "react-redux";
 import { IOrders, IUser, IUserOrders } from "../../model/entites";
-import { loadOrder, changeCardStatus, paymentFieldIsFocused, changePayedAmount, paymentFieldLostFocus } from "../../ReduxStore/PeacekeepersDetailedSection/actions";
+import { loadOrder, changeCardStatus, paymentFieldIsFocused, changePayedAmount, paymentFieldLostFocus, loadOrdersToDetaildView } from "../../ReduxStore/PeacekeepersDetailedSection/actions";
 import { NoItemsFound } from "../../Helpers/NoItemsFound";
 import { PeacekeeperPaymentItemDumpView } from "./PeacekeeperPaymentItem";
+import { closeOrder } from "../../ReduxStore/PeacekeepersSection/actions";
+import { showNotification } from "../../ReduxStore/NotificationSection/actions";
 
 export interface PeacekeepersDetailedViewState {
     match: any;
+    mainOrdersList : IOrders[];
     currentUser: IUser;
     currentOrder: IOrders;
     hasUserPlacedTheOrder: boolean;
@@ -21,7 +24,7 @@ export interface PeacekeepersDetailedViewState {
     onFieldLostFocus: (props: PKDSingleCardState, userOrderId: number) => void;
     onChangeAuxPayedAmount: (props: PKDSingleCardState, userOrderId: number, eventValue: SyntheticEvent) => void;
     enableCloseOrderButton: (props : PeacekeepersDetailedViewState) => boolean;
-    onClickCloseOrderButton: (props : PeacekeepersDetailedViewState) => boolean;
+    onClickCloseOrderButton: (props : PeacekeepersDetailedViewState, orderId : number) => boolean;
 }
 
 export interface PKDSingleCardState {
@@ -54,6 +57,7 @@ class PeacekeepersDetailedSmartView extends React.Component<PeacekeepersDetailed
 }
 
 const mapStateToProps = (state: GlobalState) => ({
+    mainOrdersList : state.peacekeeperReducerGlobal.placedOrders,
     currentUser: state.loginReducerGlobal.userData,
     currentOrder: state.peacekeeperDetailedReducerGlobal.currentOrder,
     hasUserPlacedTheOrder: state.peacekeeperDetailedReducerGlobal.hasUserPlacedTheOrder,
@@ -64,6 +68,7 @@ const mapStateToProps = (state: GlobalState) => ({
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
     loadOrderData: (props: PeacekeepersDetailedViewState) => {
+        dispatch(loadOrdersToDetaildView(props.mainOrdersList));
         dispatch(loadOrder(props.match.params.id, props.currentUser));
     },
 
@@ -127,8 +132,9 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
         return response;
     },
 
-    onClickCloseOrderButton: (props : PeacekeepersDetailedViewState) => {
-        alert("This order will be closed shortly and disappear from the list.");
+    onClickCloseOrderButton: (props : PeacekeepersDetailedViewState, orderId : number) => {
+        dispatch(closeOrder(orderId));
+        dispatch(showNotification("Successfully closed order!", "success"));
     }
 });
 

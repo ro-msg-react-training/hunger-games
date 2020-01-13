@@ -39,7 +39,7 @@ const mapDispatchToProps = (dispatch : Dispatch) => ({
         } else {
             let ordersCards: JSX.Element[] = [];
 
-            ordersCards = props.placedOrders.map(
+            ordersCards = [...props.placedOrders].map(
                 (order: IOrders) =>
                     <OrderCard {...order} key = {"towardsOrder_" + order.order_id}/>
             );

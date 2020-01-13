@@ -204,7 +204,8 @@
         "peopleLeftToPay" : 0,
         "peopleLeftToReceiveChange" : 0,
         "totalOrderCost" : 0,
-        "haveAllChangesBeenAcquitted" : false
+        "haveAllChangesBeenAcquitted" : false,
+        "orderIsActive" : true
     },
     {
         "order_id": 2,
@@ -335,7 +336,8 @@
           "peopleLeftToPay" : 0,
           "peopleLeftToReceiveChange" : 0,
           "totalOrderCost" : 0,
-          "haveAllChangesBeenAcquitted" : false
+          "haveAllChangesBeenAcquitted" : false,
+          "orderIsActive" : true
     },
     {
         "order_id": 3,
@@ -511,6 +513,7 @@
           "peopleLeftToPay" : 0,
           "peopleLeftToReceiveChange" : 0,
           "totalOrderCost" : 0,
-          "haveAllChangesBeenAcquitted" : false
+          "haveAllChangesBeenAcquitted" : false,
+          "orderIsActive" : true
     }
 ]

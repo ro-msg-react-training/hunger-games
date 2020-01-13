@@ -1,4 +1,4 @@
-#orderCardImage {
+.orderCardImageActive {
   width: 350px;
   height: 210px;
   object-fit: fill;
@@ -6,22 +6,54 @@
   border-top-right-radius: 6px;
   margin-bottom: 0;
 }
+.inactiveOrderText {
+  width: 350px;
+  position: absolute;
+  top: 12.4px;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 1;
+  text-align: center;
+  padding: 5.67rem;
+  font-size: larger;
+  color: rgba(255, 255, 255, 0.9);
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
 .orderCardText {
   padding: 1.25rem;
   padding-top: 0;
   padding-bottom: 0.8rem;
 }
-.OrderBox {
+.OrderBoxActive {
   background-color: #383838 !important;
   padding: 0;
   -webkit-box-shadow: 0px 7px 15px -0.9px #161616;
   -moz-box-shadow: 0px 7px 15px -0.9px #161616;
   box-shadow: 0px 7px 15px -0.9px #161616;
+  transition: 0.5s ease-in;
 }
-.OrderBox:hover {
+.OrderBoxActive:hover {
   -webkit-box-shadow: 0px 7px 15px -0.9px rgba(212, 121, 17, 0.5);
   -moz-box-shadow: 0px 7px 15px -0.9px rgba(212, 121, 17, 0.5);
   box-shadow: 0px 7px 15px -0.9px rgba(212, 121, 17, 0.5);
+  transition: 0.5s ease-out;
+}
+.OrderBoxInactive {
+  background-color: #313131 !important;
+  padding: 0;
+  -webkit-box-shadow: 0px 7px 15px -0.9px #161616;
+  -moz-box-shadow: 0px 7px 15px -0.9px #161616;
+  box-shadow: 0px 7px 15px -0.9px #161616;
+  transition: 0.3s ease-in;
+}
+.OrderBoxInactive:hover {
+  -webkit-box-shadow: 0px 7px 15px -1px #000;
+  -moz-box-shadow: 0px 7px 15px -1px #000;
+  box-shadow: 0px 7px 15px -1px #000;
+  transition: 0.3s ease-out;
+}
+.OrderBoxInactive:hover .inactiveOrderText {
+  color: #fff;
 }
 #restaurantTitle {
   display: inline-block;

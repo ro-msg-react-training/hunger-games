@@ -22,6 +22,7 @@
   border-bottom-left-radius: 12px;
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
+  transition: 0.2s ease-in;
 }
 .CustomBoxRed:hover {
   -webkit-box-shadow: 0px 15px 15px -10px rgba(212, 121, 17, 0.5),
@@ -30,6 +31,7 @@
     15px 0px 15px -15px red, -15px 0px 15px -10px #161616;
   box-shadow: 0px 15px 15px -10px rgba(212, 121, 17, 0.5),
     15px 0px 15px -15px red, -15px 0px 15px -10px #161616;
+  transition: 0.2s ease-out;
 }
 .CustomBoxGreen {
   height: 190px;
@@ -46,6 +48,7 @@
   border-bottom-left-radius: 12px;
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
+  transition: 0.2s ease-in;
 }
 .CustomBoxGreen:hover {
   -webkit-box-shadow: 0px 15px 15px -10px rgba(212, 121, 17, 0.5),
@@ -54,6 +57,7 @@
     15px 0px 15px -15px #15ff00, -15px 0px 15px -10px #161616;
   box-shadow: 0px 15px 15px -10px rgba(212, 121, 17, 0.5),
     15px 0px 15px -15px #15ff00, -15px 0px 15px -10px #161616;
+  transition: 0.2s ease-out;
 }
 .UserOrderDetails {
   height: 190px;

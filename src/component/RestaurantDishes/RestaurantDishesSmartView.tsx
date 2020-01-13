@@ -57,7 +57,7 @@ const getOpeningHour = (openingHours: string): Date => {
     // Setting the corresponding hour and minute for the Date object. Checking for PM status
     if (openingHourString[1] === "PM") {
         // if the hour is past 12
-        if (+openingHoursStringSplit[0] != 12) {
+        if (+openingHoursStringSplit[0] !== 12) {
             // then add 12 the to value
             openingHourTime.setHours(+openingHoursStringSplit[0] + 12);
         } else {
@@ -84,7 +84,7 @@ const getClosingHour = (closingHours: string): Date => {
     // Setting the corresponding hour and minute for the Date object. Checking for PM status
     if (closingHourString[1] === "PM") {
         // if the hour is past 12
-        if (+closinggHoursStringSplit[0] != 12) {
+        if (+closinggHoursStringSplit[0] !== 12) {
             // then add 12 the to value
             closingHourTime.setHours(+closinggHoursStringSplit[0] + 12);
         } else {

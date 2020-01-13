@@ -39,11 +39,13 @@ export const PeacekeepersDetailedDumpView: React.FC<PeacekeepersDetailedViewStat
                         </div>
                     </div>
 
-                    <div className={props.enableCloseOrderButton(props) ? "button closeOrderButton" : "is-hidden"} onClick = {() => props.onClickCloseOrderButton(props)}>
-                        <span className="icon">
-                            <i className="fa fa-check-circle"></i>
-                        </span>
-                        <span className="has-text-weight-medium">Close order</span>
+                    <div className={props.enableCloseOrderButton(props) ? "button closeOrderButton" : "is-hidden"} onClick={() => props.onClickCloseOrderButton(props, props.currentOrder.order_id)}>
+                        <Link to="/peacekeepers" className="button closeOrderButton">
+                            <span className="icon">
+                                <i className="fa fa-check-circle"></i>
+                            </span>
+                            <span className="has-text-weight-medium">Close order</span>
+                        </Link>
                     </div>
                 </div>
                 <div className="hero-body"></div>
@@ -77,7 +79,7 @@ export const PeacekeepersDetailedDumpView: React.FC<PeacekeepersDetailedViewStat
         );
     } else {
         return (
-            <NoItemsFound message = "Nothing to show for now. Check back later..."/>
+            <NoItemsFound message="Nothing to show for now. Check back later..." />
         );
     }
 }

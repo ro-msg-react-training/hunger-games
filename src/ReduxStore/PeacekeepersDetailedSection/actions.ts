@@ -1,5 +1,5 @@
 import * as PKDTypes from "./types";
-import { IUser } from "../../model/entites";
+import { IUser, IOrders } from "../../model/entites";
 
 export function loadOrder(order_id : number, loggedInUser : IUser) : PKDTypes.PeacekeepersDetailedActionTypes {
     return {
@@ -39,5 +39,12 @@ export function paymentFieldLostFocus(orderId : number, cardId : number) : PKDTy
         type : PKDTypes.PAYMENT_FIELD_LOST_FOCUS,
         orderId : orderId,
         cardId : cardId
+    };
+}
+
+export function loadOrdersToDetaildView(orderListData : IOrders[]) : PKDTypes.PeacekeepersDetailedActionTypes {
+    return {
+        type : PKDTypes.LOAD_ORDERS_TO_DETAILED_VIEW,
+        orderListData : orderListData
     };
 }

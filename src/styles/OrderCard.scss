@@ -1,4 +1,4 @@
-#orderCardImage {
+.orderCardImageActive {
     width: 350px;
     height: 210px;
 
@@ -9,24 +9,62 @@
     margin-bottom: 0;
 }
 
+.inactiveOrderText {
+    width: 350px;
+    position: absolute;
+    top: 12.4px;
+    background: rgba(rgb(0, 0, 0), 0.5);
+    opacity: 1;
+    text-align: center;
+    padding: 5.67rem;
+
+    font-size: larger;
+    color: rgba(rgb(255,255,255), 0.9);
+
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
 .orderCardText {
     padding : 1.25rem;
     padding-top : 0;
     padding-bottom: 0.8rem;
 }
 
-.OrderBox {
+.OrderBoxActive {
     background-color: hsl(0, 0%, 22%) !important;
     padding : 0;
     -webkit-box-shadow: 0px 7px 15px -0.9px rgba(rgb(22, 22, 22), 1);
     -moz-box-shadow: 0px 7px 15px -0.9px rgba(rgb(22, 22, 22), 1);
     box-shadow: 0px 7px 15px -0.9px rgba(rgb(22, 22, 22), 1);
+    transition: .5s ease-in;
 }
 
-.OrderBox:hover {
-    -webkit-box-shadow: 0px 7px 15px -0.9px rgba(hsl(32, 85%, 45%), 0.5);
-    -moz-box-shadow: 0px 7px 15px -0.9px rgba(hsl(32, 85%, 45%), 0.5);
-    box-shadow: 0px 7px 15px -0.9px rgba(hsl(32, 85%, 45%), 0.5);
+.OrderBoxActive:hover {
+    -webkit-box-shadow: 0px 7px 15px -0.9px rgba(rgb(212, 121, 17), 0.5);
+    -moz-box-shadow: 0px 7px 15px -0.9px rgba(rgb(212, 121, 17), 0.5);
+    box-shadow: 0px 7px 15px -0.9px rgba(rgb(212, 121, 17), 0.5);
+    transition: .5s ease-out;
+}
+
+.OrderBoxInactive {
+    background-color: rgba(rgb(49, 49, 49), 1) !important;
+    padding : 0;
+    -webkit-box-shadow: 0px 7px 15px -0.9px rgba(rgb(22, 22, 22), 1);
+    -moz-box-shadow: 0px 7px 15px -0.9px rgba(rgb(22, 22, 22), 1);
+    box-shadow: 0px 7px 15px -0.9px rgba(rgb(22, 22, 22), 1);
+    transition: .3s ease-in;
+}
+
+.OrderBoxInactive:hover {
+    -webkit-box-shadow: 0px 7px 15px -1px rgba(rgb(0, 0, 0), 1);
+    -moz-box-shadow: 0px 7px 15px -1px rgba(rgb(0, 0, 0), 1);
+    box-shadow: 0px 7px 15px -1px rgba(rgb(0, 0, 0), 1);
+    transition: .3s ease-out;
+
+    .inactiveOrderText {
+        color: rgba(rgb(255, 255, 255), 1);
+    }
 }
 
 #restaurantTitle {

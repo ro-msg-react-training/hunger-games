@@ -7,13 +7,16 @@ import { RegisterState } from "./RegisterSection/types";
 import { registerReducer } from "./RegisterSection/reducer";
 import { LoginState } from "./LoginSection/types";
 import { loginReducer } from "./LoginSection/reducer";
+import { NavbarState } from "./NavbarSection/types";
+import { navbarReducer } from "./NavbarSection/reducers";
 
 // ex: prodListReducer : ProductListState;
 export interface GlobalState {
     restDishesReducer : RestaurantDishesState,
     notReducer : NotificationState,
     registerReducerGlobal : RegisterState,
-    loginReducerGlobal : LoginState
+    loginReducerGlobal : LoginState,
+    navReducerGlobal : NavbarState
 }
 
 // ex: prodListReducer : productListReducer
@@ -21,7 +24,8 @@ const rootReducer = combineReducers({
     restDishesReducer : restaurantDishesReducer,
     notReducer : notificationReducer,
     registerReducerGlobal : registerReducer,
-    loginReducerGlobal : loginReducer
+    loginReducerGlobal : loginReducer,
+    navReducerGlobal : navbarReducer
 });
 
 // Lipseste partea de Saga

@@ -25,9 +25,9 @@
   height: auto;
   background-color: #363636;
   padding: 0;
-  -webkit-box-shadow: 0 -7px 14px 4px #0a0a0a;
-  -moz-box-shadow: 0 -7px 14px 4px #0a0a0a;
-  box-shadow: 0 -7px 14px 4px #0a0a0a;
+  -webkit-box-shadow: 0 -3px 147px 4px #0a0a0a;
+  -moz-box-shadow: 0 -3px 14px 4px #0a0a0a;
+  box-shadow: 0 -3px 14px 4px #0a0a0a;
   border-top-right-radius: 16px;
   border-top-left-radius: 16px;
   padding-right: 1rem;

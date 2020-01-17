@@ -39,19 +39,19 @@ let restaurantsArray: IRestaurant[] = Object(Restaurants);
 let correspondingRestaurant: IRestaurant = getCurrentRestaurant(restaurantsArray);
 
 return (
-    <section className="hero is-dark is-bold is-fullheight is-family-sans-serif">
+    <div className="hero is-dark custom-scroll-bar is-bold is-family-sans-serif">
         <div className="hero-head">
             <div className="container is-fluid has-text-centered has-text-weight-semibold is-size-4 restaurantHeader">
                 {correspondingRestaurant.restaurant_name}
             </div>
-        </div>
-        <div className="hero-body">
             <div className="container">
                 <div className="subtitle">
                     {generateDishesList(correspondingRestaurant.food_list)}
                 </div>
             </div>
         </div>
-    </section>
+        <div className="hero-body"></div>
+        <div className="hero-foot"></div>
+    </div>
 );
 }

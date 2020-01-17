@@ -43,7 +43,7 @@
 }
 
 .inversedColors:hover {
-    color : rgba(rgb(255, 255, 255), 1);
+    color : rgba(rgb(245, 245, 245), 1);
 }
 
 .helloTributeUsername {
@@ -52,4 +52,13 @@
 
 .helloTributeUsername:hover {
     color : rgba(rgb(255, 255, 255), 1) !important;
+}
+
+.active-tab {
+    color : white !important;
+    font-weight: 500;
+}
+
+.active-tab:hover {
+    color : rgba(rgb(243, 243, 243), 1) !important;
 }

@@ -17,6 +17,7 @@ export interface LoginComponentState {
     onLoginClick: (props: LoginComponentState) => void;
     isLoggedIn: boolean;
     history: any;
+    onKeyPressedWhileInputIsFocused: (props: LoginComponentState, e : React.KeyboardEvent<HTMLInputElement>) => void;
 }
 
 class LoginSmartView extends React.Component<LoginComponentState> {    
@@ -89,6 +90,14 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
     onLoginClick: (props: LoginComponentState) => {
         if (checkInputFields(dispatch, props.userData)) {
             findUserAndLogin(props, dispatch, props.userData);
+        }
+    },
+
+    onKeyPressedWhileInputIsFocused: (props: LoginComponentState, e : React.KeyboardEvent<HTMLInputElement>) => {
+        if(e.key === "Enter") {
+            if (checkInputFields(dispatch, props.userData)) {
+                findUserAndLogin(props, dispatch, props.userData);
+            }
         }
     }
 });

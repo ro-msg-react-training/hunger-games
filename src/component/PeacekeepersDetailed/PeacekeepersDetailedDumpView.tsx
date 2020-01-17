@@ -65,7 +65,7 @@ export const PeacekeepersDetailedDumpView: React.FC<PeacekeepersState> = (props:
         }
     }
     return (
-        <div className="hero is-dark is-bold is-fullheight is-fullwidth is-family-sans-serif">
+        <div className="hero is-dark is-bold custom-scroll-bar is-family-sans-serif">
             <div className="hero-head customHeadSpacing">
                 <div className="container CustomHeaderBox has-text-centered">
                     <div className="dropdown is-hoverable">

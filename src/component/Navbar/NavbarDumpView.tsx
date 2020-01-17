@@ -27,19 +27,19 @@ export const NavbarDumpView: React.FC<NavbarComponentState> = (props: NavbarComp
                     <div className={"navbar-menu"}>
                         <div className="navbar-start">
                             <div className="navbar-item">
-                                <Link to="/districts" className="inversedColors">
+                                <Link to="/districts" className={props.activeTab === "districts" ? "active-tab" : "inversedColors"} onClick={() => props.setActiveTab(props, "districts")}>
                                     Districts
                             </Link>
                             </div>
 
                             <div className="navbar-item">
-                                <Link to="/demands" className="inversedColors">
+                                <Link to="/demands" className={props.activeTab === "demands" ? "active-tab" : "inversedColors"} onClick={() => props.setActiveTab(props, "demands")}>
                                     Demands
                             </Link>
                             </div>
 
                             <div className="navbar-item">
-                                <Link to="/peacekeepers" className="inversedColors">
+                                <Link to="/peacekeepers" className={props.activeTab === "peacekeepers" ? "active-tab" : "inversedColors"} onClick={() => props.setActiveTab(props, "peacekeepers")}>
                                     Peacekeepers
                             </Link>
                             </div>

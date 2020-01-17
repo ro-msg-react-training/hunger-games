@@ -28,20 +28,20 @@ const App: React.FC<AppComponentState> = (props: AppComponentState) => {
     );
   } else {
     return (
-      <Router>
-        <NavbarInitializer />
-        <Switch>
-          <Redirect exact from="/" to="/districts" />
-          <Route path="/districts" exact component={RestaurantsListView} />
-          <Route path="/districts/:id" exact render={(props) => <RestaurantDishesDumpView {...props} />} />
-          <Route path="/demands" exact component={DemandsView} />
-          <Route path="/peacekeepers" exact component={PeacekeepersDumpView} />
-          <Route path="/peacekeepers/:id" exact render={(props) => <PeacekeepersDetailedDumpView {...props} />} />
-          <Route exact path="/login" component={LoginViewInitializer} />
-          <Route exact path="/register" component={RegisterViewInitializer} />
-        </Switch>
-        <NotificationInitializer />
-      </Router>
+        <Router>
+          <NavbarInitializer />
+          <Switch>
+            <Redirect exact from="/" to="/districts" />
+            <Route path="/districts" exact component={RestaurantsListView} />
+            <Route path="/districts/:id" exact render={(props) => <RestaurantDishesDumpView {...props} />} />
+            <Route path="/demands" exact component={DemandsView} />
+            <Route path="/peacekeepers" exact component={PeacekeepersDumpView} />
+            <Route path="/peacekeepers/:id" exact render={(props) => <PeacekeepersDetailedDumpView {...props} />} />
+            <Route exact path="/login" component={LoginViewInitializer} />
+            <Route exact path="/register" component={RegisterViewInitializer} />
+          </Switch>
+          <NotificationInitializer />
+        </Router>
     );
   };
 }

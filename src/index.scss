@@ -1,3 +1,30 @@
-@import './utilities.scss';
+@import "./utilities.scss";
 
-@import './node_modules/bulma/bulma.sass';
+@import "./node_modules/bulma/bulma.sass";
+
+html {
+  overflow-y: hidden;
+}
+
+.custom-scroll-bar {
+  height: 100vh;
+  overflow-y: auto;
+}
+
+div.custom-scroll-bar::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+div.custom-scroll-bar::-webkit-scrollbar-track {
+  background-color: rgba(rgb(255, 0, 0), 0);
+  // background-image: linear-gradient(#363636 , #424142); /* Standard syntax (must be last) */
+}
+
+div.custom-scroll-bar::-webkit-scrollbar-thumb {
+  background-color: rgba(rgb(22, 22, 22), 1);
+  border-radius: 16px;
+}
+
+div.custom-scroll-bar::-webkit-scrollbar-thumb:hover {
+  background: rgba(rgb(36, 36, 36), 1);
+}

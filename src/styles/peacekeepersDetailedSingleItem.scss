@@ -15,9 +15,9 @@
     width: 450px;
     background-color: hsl(0, 0%, 21%);
     padding : 0;
-    -webkit-box-shadow: 15px 0px 15px -15px rgba(rgb(255, 0, 0), 0.9), 0px 7px 15px -0.9px rgba(rgb(22, 22, 22), 1);
-    -moz-box-shadow: 15px 0px 15px -15px rgba(rgb(255, 0, 0), 0.91), 0px 7px 15px -0.9px rgba(rgb(22, 22, 22), 1);
-    box-shadow: 15px 0px 15px -15px rgba(rgb(255, 0, 0), 0.9), 0px 7px 15px -0.9px rgba(rgb(22, 22, 22), 1);
+    -webkit-box-shadow: 15px 0px 15px -15px rgba(rgb(255, 0, 0), 0.9), 0px 10px 15px -7px rgba(rgb(22, 22, 22), 1);
+    -moz-box-shadow: 15px 0px 15px -15px rgba(rgb(255, 0, 0), 0.91), 0px 10px 15px -7px rgba(rgb(22, 22, 22), 1);
+    box-shadow: 15px 0px 15px -15px rgba(rgb(255, 0, 0), 0.9), 0px 10px 15px -7px rgba(rgb(22, 22, 22), 1);
 
     /* aparent este nevoie si de astea ca sa fie intotdeauna rotunjit acolo */
     border-top-left-radius: 12px;
@@ -27,9 +27,9 @@
 }
 
 .CustomBoxRed:hover {
-    -webkit-box-shadow: 0px 15px 15px -10px rgba(hsl(32, 85%, 45%), 0.5), 15px 0px 15px -15px rgba(rgb(255, 0, 0), 1), -15px 0px 15px -10px rgba(rgb(22, 22, 22), 1);
-    -moz-box-shadow: 0px 15px 15px -10px rgba(hsl(32, 85%, 45%), 0.5), 15px 0px 15px -15px rgba(rgb(255, 0, 0), 1), -15px 0px 15px -10px rgba(rgb(22, 22, 22), 1);
-    box-shadow: 0px 15px 15px -10px rgba(hsl(32, 85%, 45%), 0.5), 15px 0px 15px -15px rgba(rgb(255, 0, 0), 1), -15px 0px 15px -10px rgba(rgb(22, 22, 22), 1);
+    -webkit-box-shadow: 0px 10px 15px -7px rgba(hsl(32, 85%, 45%), 0.5), 15px 0px 15px -15px rgba(rgb(255, 0, 0), 1), -15px 0px 15px -10px rgba(rgb(22, 22, 22), 1);
+    -moz-box-shadow: 0px 10px 15px -7px rgba(hsl(32, 85%, 45%), 0.5), 15px 0px 15px -15px rgba(rgb(255, 0, 0), 1), -15px 0px 15px -10px rgba(rgb(22, 22, 22), 1);
+    box-shadow: 0px 10px 15px -7px rgba(hsl(32, 85%, 45%), 0.5), 15px 0px 15px -15px rgba(rgb(255, 0, 0), 1), -15px 0px 15px -10px rgba(rgb(22, 22, 22), 1);
 }
 
 .CustomBoxGreen {
@@ -37,9 +37,9 @@
     width: 450px;
     background-color: hsl(0, 0%, 21%);
     padding : 0;
-    -webkit-box-shadow: 15px 0px 15px -15px rgba(rgb(21, 255, 0), 0.9), 0px 7px 15px -0.9px rgba(rgb(22, 22, 22), 1);
-    -moz-box-shadow: 15px 0px 15px -15px rgba(rgb(21, 255, 0), 0.9), 0px 7px 15px -0.9px rgba(rgb(22, 22, 22), 1);
-    box-shadow: 15px 0px 15px -15px rgba(rgb(21, 255, 0), 0.9), 0px 7px 15px -0.9px rgba(rgb(22, 22, 22), 1);
+    -webkit-box-shadow: 15px 0px 15px -15px rgba(rgb(21, 255, 0), 0.9), 0px 10px 15px -7px rgba(rgb(22, 22, 22), 1);
+    -moz-box-shadow: 15px 0px 15px -15px rgba(rgb(21, 255, 0), 0.9), 0px 10px 15px -7px rgba(rgb(22, 22, 22), 1);
+    box-shadow: 15px 0px 15px -15px rgba(rgb(21, 255, 0), 0.9), 0px 10px 15px -7px rgba(rgb(22, 22, 22), 1);
 
     /* aparent este nevoie si de astea ca sa fie intotdeauna rotunjit acolo */
     border-top-left-radius: 12px;
@@ -49,9 +49,9 @@
 }
 
 .CustomBoxGreen:hover {
-    -webkit-box-shadow: 0px 15px 15px -10px rgba(hsl(32, 85%, 45%), 0.5), 15px 0px 15px -15px rgba(rgb(21, 255, 0), 1), -15px 0px 15px -10px rgba(rgb(22, 22, 22), 1);
-    -moz-box-shadow: 0px 15px 15px -10px rgba(hsl(32, 85%, 45%), 0.5), 15px 0px 15px -15px rgba(rgb(21, 255, 0), 1), -15px 0px 15px -10px rgba(rgb(22, 22, 22), 1);
-    box-shadow: 0px 15px 15px -10px rgba(hsl(32, 85%, 45%), 0.5), 15px 0px 15px -15px rgba(rgb(21, 255, 0), 1), -15px 0px 15px -10px rgba(rgb(22, 22, 22), 1);
+    -webkit-box-shadow: 0px 10px 15px -7px rgba(hsl(32, 85%, 45%), 0.5), 15px 0px 15px -15px rgba(rgb(21, 255, 0), 1), -15px 0px 15px -10px rgba(rgb(22, 22, 22), 1);
+    -moz-box-shadow: 0px 10px 15px -7px rgba(hsl(32, 85%, 45%), 0.5), 15px 0px 15px -15px rgba(rgb(21, 255, 0), 1), -15px 0px 15px -10px rgba(rgb(22, 22, 22), 1);
+    box-shadow: 0px 10px 15px -7px rgba(hsl(32, 85%, 45%), 0.5), 15px 0px 15px -15px rgba(rgb(21, 255, 0), 1), -15px 0px 15px -10px rgba(rgb(22, 22, 22), 1);
 }
 
 .UserOrderDetails {

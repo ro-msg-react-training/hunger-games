@@ -6,6 +6,7 @@ export interface PeacekeepersState {
 
 export const ADD_ORDER = "ADD_ORDER";
 export const CLOSE_ORDER = "CLOSE_ORDER";
+export const LOAD_MAIN_ORDER_LIST = "LOAD_MAIN_ORDER_LIST";
 
 export interface PKAddOrderAction {
     type : typeof ADD_ORDER,
@@ -14,7 +15,11 @@ export interface PKAddOrderAction {
 
 export interface PKCloseOrderAction {
     type : typeof CLOSE_ORDER,
-    orderClosing : IOrders
+    orderId : number
 }
 
-export type PeacekeepersActionTypes = PKAddOrderAction | PKCloseOrderAction;
+export interface PKLoadMainOrderListAction {
+    type : typeof LOAD_MAIN_ORDER_LIST
+}
+
+export type PeacekeepersActionTypes = PKAddOrderAction | PKCloseOrderAction | PKLoadMainOrderListAction;

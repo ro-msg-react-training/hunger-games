@@ -5,18 +5,18 @@ import { GlobalState } from "../../ReduxStore";
 import { Dispatch } from "redux";
 import { compose, setDisplayName } from "recompose";
 import { connect } from "react-redux";
-import { NoItemsFound } from "./NoItemsFound";
+import { NoItemsFound } from "../../Helpers/NoItemsFound";
 import { OrderCard } from "./OrderCard";
 
 export interface PeacekeepersViewState {
     match : any;
     placedOrders : IOrders[];
-    loadOrdersList: (props: PeacekeepersViewState) => ReactNode;
+    generateOrdersList: (props: PeacekeepersViewState) => ReactNode;
 }
 
 class PeacekeepersSmartView extends React.Component<PeacekeepersViewState> {
     componentDidMount() {
-        this.props.loadOrdersList(this.props);
+        this.props.generateOrdersList(this.props);
     }
 
     render() {
@@ -31,7 +31,7 @@ const mapStateToProps = (state : GlobalState) => ({
 });
 
 const mapDispatchToProps = (dispatch : Dispatch) => ({
-    loadOrdersList : (props : PeacekeepersViewState) : ReactNode => {
+    generateOrdersList : (props : PeacekeepersViewState) : ReactNode => {
         if (props.placedOrders.length === 0) {
             return (
                 <NoItemsFound message = "Nothing to show for now. Check back later..."/>
@@ -39,7 +39,7 @@ const mapDispatchToProps = (dispatch : Dispatch) => ({
         } else {
             let ordersCards: JSX.Element[] = [];
 
-            ordersCards = props.placedOrders.map(
+            ordersCards = [...props.placedOrders].map(
                 (order: IOrders) =>
                     <OrderCard {...order} key = {"towardsOrder_" + order.order_id}/>
             );

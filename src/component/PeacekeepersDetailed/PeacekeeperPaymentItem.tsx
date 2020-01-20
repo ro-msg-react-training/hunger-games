@@ -1,20 +1,15 @@
-import React from "react";
-import { IUserOrders } from "../../model/entites";
+import React, { SyntheticEvent } from "react";
 import { getRandomImage } from "../../Helpers/loadRandomImages";
 import "../../styles/peacekeepersDetailedSingleItem.scss";
-import { CardActionIcon, ThisElemetInterface } from "./CardActionIcon";
+import { CardActionIcon } from "./CardActionIcon";
+import { PKDSingleCardState } from "./PeacekeepersDetailedSmartView";
 
-export interface MyPaymentItem {
-    singleOrder: IUserOrders;
-    isFullyPaidFor: boolean;
-}
-
-export const PeacekeeperPaymentItemDumpView: React.FC<MyPaymentItem> = (props: MyPaymentItem) => {
+export const PeacekeeperPaymentItemDumpView: React.FC<PKDSingleCardState> = (props: PKDSingleCardState) => {
     let inputProperties: any = {
         type: "text",
-        maxLength: 7,
+        maxLength: 3,
         placeholder: "0",
-        defaultValue: "31 lei",
+        value: props.singleOrder.auxPayedValue,
         className: "input financeInputField is-static has-text-grey-light has-text-centered"
     }
 
@@ -25,14 +20,9 @@ export const PeacekeeperPaymentItemDumpView: React.FC<MyPaymentItem> = (props: M
         }
     }
 
-    let cardActionIconProps: ThisElemetInterface = {
-        user1: false,
-        user2: false
-    }
-
     return (
         <div className="column is-narrow">
-            <div className={(props.isFullyPaidFor ? "CustomBoxGreen " : "CustomBoxRed ") + "level"}>
+            <div className={(props.singleOrder.receivedChange ? "CustomBoxGreen " : "CustomBoxRed ") + "level"}>
                 <div className="level-left level-item">
                     <img className="customFoodPaymentImage" src={getRandomImage("foods")} alt={"imageForFood" + props.singleOrder.food.id_food} />
                 </div>
@@ -43,8 +33,8 @@ export const PeacekeeperPaymentItemDumpView: React.FC<MyPaymentItem> = (props: M
                                 <div className="level-item level-left is-pulled-left">
                                     <p className="has-text-grey is-size-7"> Food name </p>
                                 </div>
-                                <div className="level-item level-right is-pulled-right">
-                                    <CardActionIcon {...cardActionIconProps} />
+                                <div className={props.didUserPlaceOrder ? "level-item level-right is-pulled-right" : "is-hidden"} onClick = {() => props.changeCardStatus(props, props.singleOrder.user_order_id-1)}>
+                                    <CardActionIcon {...props.iconStatus} />
                                 </div>
                             </div>
                             <textarea className="textarea has-fixed-size has-text-grey-light singleOrderFoodName userOrderDetailsText" readOnly rows={2} value={props.singleOrder.food.food_name} />
@@ -65,10 +55,10 @@ export const PeacekeeperPaymentItemDumpView: React.FC<MyPaymentItem> = (props: M
                                 <tr className="has-text-grey-light">
                                     <td className="userOrderPaymentDetailsTD littleExtraPaddingRight has-text-centered">{props.singleOrder.food.price + " lei"}</td>
                                     <td className="userOrderPaymentDetailsTD has-text-centered">
-                                        <input {...inputProperties} />
+                                        <input {...inputProperties} onFocus={(ev : SyntheticEvent) => props.onFieldFocused(props, props.singleOrder.user_order_id-1, ev)} onBlur={(ev : SyntheticEvent) => props.onFieldLostFocus(props, props.singleOrder.user_order_id-1)} onChange={(event : SyntheticEvent) => props.onChangeAuxPayedAmount(props, props.singleOrder.user_order_id-1, event)}/>
                                     </td>
                                     <td className="userOrderPaymentDetailsTD has-text-centered">
-                                        <input {...inputProperties} />
+                                        {props.singleOrder.change + (props.singleOrder.change === 1 ? " leu" : " lei")}
                                     </td>
                                 </tr>
                             </tbody>

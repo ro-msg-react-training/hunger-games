@@ -22,13 +22,14 @@ export const PeacekeepersDumpView: React.FC = () => {
             );
         }
     }
-
+import { PeacekeepersViewState } from "./PeacekeepersSmartView.js"
+export const PeacekeepersDumpView: React.FC<PeacekeepersViewState> = (props : PeacekeepersViewState) => {
     return (
         <div className="hero is-dark is-bold custom-scroll-bar is-family-sans-serif">
             <div className="hero-head customHeroHead">
                 <div className="container">
                     <div className="columns is-multiline is-fluid is-mobile is-centered">
-                        {generateOrdersList()}
+                        {props.generateOrdersList(props)}
                     </div>
                 </div>
             </div>

@@ -13,7 +13,7 @@
 .CustomBoxRed {
     height: 190px;
     width: 450px;
-    background-color: hsl(0, 0%, 21%);
+    background-color: rgba(rgb(54, 54, 54), 1);
     padding : 0;
     -webkit-box-shadow: 15px 0px 15px -15px rgba(rgb(255, 0, 0), 0.9), 0px 10px 15px -7px rgba(rgb(22, 22, 22), 1);
     -moz-box-shadow: 15px 0px 15px -15px rgba(rgb(255, 0, 0), 0.91), 0px 10px 15px -7px rgba(rgb(22, 22, 22), 1);
@@ -24,18 +24,24 @@
     border-bottom-left-radius: 12px;
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;
+
+    transition: .2s ease-in;
 }
 
 .CustomBoxRed:hover {
     -webkit-box-shadow: 0px 10px 15px -7px rgba(hsl(32, 85%, 45%), 0.5), 15px 0px 15px -15px rgba(rgb(255, 0, 0), 1), -15px 0px 15px -10px rgba(rgb(22, 22, 22), 1);
     -moz-box-shadow: 0px 10px 15px -7px rgba(hsl(32, 85%, 45%), 0.5), 15px 0px 15px -15px rgba(rgb(255, 0, 0), 1), -15px 0px 15px -10px rgba(rgb(22, 22, 22), 1);
     box-shadow: 0px 10px 15px -7px rgba(hsl(32, 85%, 45%), 0.5), 15px 0px 15px -15px rgba(rgb(255, 0, 0), 1), -15px 0px 15px -10px rgba(rgb(22, 22, 22), 1);
+    -webkit-box-shadow: 0px 15px 15px -10px rgba(hsl(32, 85%, 45%), 0.5), 15px 0px 15px -15px rgba(rgb(255, 0, 0), 1), -15px 0px 15px -10px rgba(rgb(22, 22, 22), 1);
+    -moz-box-shadow: 0px 15px 15px -10px rgba(hsl(32, 85%, 45%), 0.5), 15px 0px 15px -15px rgba(rgb(255, 0, 0), 1), -15px 0px 15px -10px rgba(rgb(22, 22, 22), 1);
+    box-shadow: 0px 15px 15px -10px rgba(hsl(32, 85%, 45%), 0.5), 15px 0px 15px -15px rgba(rgb(255, 0, 0), 1), -15px 0px 15px -10px rgba(rgb(22, 22, 22), 1);
+    transition: .2s ease-out;
 }
 
 .CustomBoxGreen {
     height: 190px;
     width: 450px;
-    background-color: hsl(0, 0%, 21%);
+    background-color: rgba(rgb(54, 54, 54), 1);
     padding : 0;
     -webkit-box-shadow: 15px 0px 15px -15px rgba(rgb(21, 255, 0), 0.9), 0px 10px 15px -7px rgba(rgb(22, 22, 22), 1);
     -moz-box-shadow: 15px 0px 15px -15px rgba(rgb(21, 255, 0), 0.9), 0px 10px 15px -7px rgba(rgb(22, 22, 22), 1);
@@ -46,12 +52,18 @@
     border-bottom-left-radius: 12px;
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;
+
+    transition: .2s ease-in;
 }
 
 .CustomBoxGreen:hover {
     -webkit-box-shadow: 0px 10px 15px -7px rgba(hsl(32, 85%, 45%), 0.5), 15px 0px 15px -15px rgba(rgb(21, 255, 0), 1), -15px 0px 15px -10px rgba(rgb(22, 22, 22), 1);
     -moz-box-shadow: 0px 10px 15px -7px rgba(hsl(32, 85%, 45%), 0.5), 15px 0px 15px -15px rgba(rgb(21, 255, 0), 1), -15px 0px 15px -10px rgba(rgb(22, 22, 22), 1);
     box-shadow: 0px 10px 15px -7px rgba(hsl(32, 85%, 45%), 0.5), 15px 0px 15px -15px rgba(rgb(21, 255, 0), 1), -15px 0px 15px -10px rgba(rgb(22, 22, 22), 1);
+    -webkit-box-shadow: 0px 15px 15px -10px rgba(hsl(32, 85%, 45%), 0.5), 15px 0px 15px -15px rgba(rgb(21, 255, 0), 1), -15px 0px 15px -10px rgba(rgb(22, 22, 22), 1);
+    -moz-box-shadow: 0px 15px 15px -10px rgba(hsl(32, 85%, 45%), 0.5), 15px 0px 15px -15px rgba(rgb(21, 255, 0), 1), -15px 0px 15px -10px rgba(rgb(22, 22, 22), 1);
+    box-shadow: 0px 15px 15px -10px rgba(hsl(32, 85%, 45%), 0.5), 15px 0px 15px -15px rgba(rgb(21, 255, 0), 1), -15px 0px 15px -10px rgba(rgb(22, 22, 22), 1);
+    transition: .2s ease-out;
 }
 
 .UserOrderDetails {
@@ -109,11 +121,11 @@
 }
 
 .paymentCardActionIcon {
-    font-size: xx-small;
+    font-size: x-small;
     color : rgba(rgb(122, 122, 122), 1);
 }
 
 .paymentCardActionIcon:hover {
-    font-size: x-small;
+    font-size: smaller;
     color : rgba(rgb(181, 181, 181), 1);
 }

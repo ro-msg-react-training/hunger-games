@@ -18,13 +18,13 @@ export const NavbarDumpView: React.FC<NavbarComponentState> = (props: NavbarComp
                         </Link>
 
                         <div role="button" className="navbar-burger" aria-label="menu" aria-expanded="false">
-                            <span aria-hidden="true"></span>
-                            <span aria-hidden="true"></span>
-                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true">asd</span>
+                            <span aria-hidden="true">asd</span>
+                            <span aria-hidden="true">asd</span>
                         </div>
                     </div>
 
-                    <div className={"navbar-menu"}>
+                    <div className={"navbar-menu is-active"}>
                         <div className="navbar-start">
                             <div className="navbar-item">
                                 <Link to="/districts" className={props.activeTab === "districts" ? "active-tab" : "inversedColors"} onClick={() => props.setActiveTab(props, "districts")}>

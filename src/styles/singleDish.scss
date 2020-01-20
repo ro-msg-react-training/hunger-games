@@ -5,19 +5,19 @@
 }
 
 .priceColorClass {
-    color : hsl(32, 86%, 48%);
+    color : rgba(rgb(213, 99, 7), 1);
     margin-bottom: 1em;
 }
 
-#addDishButton {
-    background-color: hsl(32, 69%, 46%);
+.addDishButtonActive {
+    background-color: rgba(rgb(213, 99, 7), 1);
     color: rgb(233, 233, 233);
     border-style: none;
 }
 
-#addDishButton:hover {
-    background-color: hsl(32, 69%, 44%);
-    color: rgb(224, 224, 224);
+.addDishButtonActive:hover {
+    background-color: rgba(rgb(231, 108, 7), 1);
+    color: rgb(241, 241, 241);
     border-style: none;
 }
 
@@ -30,6 +30,7 @@
     max-height: 110px;
 
     object-fit: fill;
+    transition: .3s ease-in;
 }
 
 .dishImage:hover {
@@ -37,4 +38,5 @@
     max-height: 130px;
 
     object-fit: fill;
+    transition: .3s ease-out;
 }

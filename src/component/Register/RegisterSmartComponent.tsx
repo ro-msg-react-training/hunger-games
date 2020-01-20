@@ -1,6 +1,6 @@
 import React from "react";
 import { IUser } from "../../model/entites";
-import { RegisterDumpView } from "./dumbRegister";
+import { RegisterDumpView } from "../Register/RegisterDumbComponent";
 import { GlobalState } from "../../ReduxStore";
 import { Dispatch } from "redux";
 import { setDisplayName, compose } from "recompose";

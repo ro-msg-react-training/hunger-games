@@ -1,9 +1,9 @@
 .restaurantHeader {
     color : hsl(0, 0%, 12%);
-    background-color: hsl(32, 85%, 45%);
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    padding : 0.5rem;
+    background-color: rgba(rgb(213, 99, 7), 1);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding : 1rem;
     -webkit-box-shadow: 0px 14px 15px -0.9px rgba(rgb(14, 14, 14), 1);
     -moz-box-shadow: 0px 14px 15px -0.9px rgba(rgb(14, 14, 14), 1);
     box-shadow: 0px 14px 15px -0.9px rgba(rgb(14, 14, 14), 1);
@@ -22,6 +22,8 @@
     -webkit-box-shadow: 0px 8px 44px -7px rgba(rgb(17, 17, 17), 0.8);
     -moz-box-shadow: 0px 8px 44px -7px rgba(rgb(17, 17, 17), 0.8);
     box-shadow: 0px 8px 44px -7px rgba(rgb(17, 17, 17), 0.8);
+
+    transition: .2s ease-in;
 }
 
 .foodContainer:hover {
@@ -37,4 +39,6 @@
     -webkit-box-shadow: 0 1px 14px -1px rgba(hsl(32, 85%, 45%), 0.8);
     -moz-box-shadow: 0 1px 14px -1px rgba(hsl(32, 85%, 45%), 0.8);
     box-shadow: 0 1px 14px -1px rgba(hsl(32, 85%, 45%), 0.8);
+
+    transition: .2s ease-out;
 }

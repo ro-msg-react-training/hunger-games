@@ -19,6 +19,7 @@ export interface RegisterComponentState {
     onEmailChange: (props: RegisterComponentState, value: string) => void;
     saveUserData: (props: RegisterComponentState) => void;
     history: any;
+    onKeyPressedWhileInputIsFocused: (props: RegisterComponentState, e : React.KeyboardEvent<HTMLInputElement>) => void;
 }
 
 class RegisterSmartView extends React.Component<RegisterComponentState> {
@@ -113,6 +114,26 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
                 }
             } else {
                 dispatch(showNotification("Already registered account!", "warning"));
+            }
+        }
+    },
+
+    onKeyPressedWhileInputIsFocused: (props: RegisterComponentState, e : React.KeyboardEvent<HTMLInputElement>) => {
+        if(e.key === "Enter") {
+            if (checkInputFields(dispatch, props.userInfo)) {
+                if (!checkUser(props.userInfo)) {   //checks for already existing user, in order to register the new account
+                    dispatch(showNotification("User  " + props.userInfo.username + " created successfully!", "success"));
+                    dispatch(registerEventHandler(props.userInfo));
+    
+                    if (checkUser(props.userInfo)) { //check for existing user, in order to perform login
+                        dispatch(loginEventHandler(props.userInfo));
+                        dispatch(loginFromRegiterEventHandler(props.userInfo));
+                    } else {
+                        dispatch(showNotification("Could not perform login!", "danger"));
+                    }
+                } else {
+                    dispatch(showNotification("Already registered account!", "warning"));
+                }
             }
         }
     }

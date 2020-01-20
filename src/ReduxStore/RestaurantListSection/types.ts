@@ -1,8 +1,8 @@
 import { IRestaurant } from "../../model/entites";
 
 export interface RestaurantListState {
-  currentRestaurant:IRestaurant;
-  nrOfOrders:number
+  restaurantOrders:Map<string,number>,
+  restaurants:IRestaurant[],
 }
 export const CHANGE_ORDERS_NUMBER = "CHANGE_ORDERS_NUMBER";
 

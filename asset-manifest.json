@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/hunger-games/static/css/main.a34be71d.chunk.css",
+    "main.js": "/hunger-games/static/js/main.a8ca4838.chunk.js",
+    "main.js.map": "/hunger-games/static/js/main.a8ca4838.chunk.js.map",
+    "runtime-main.js": "/hunger-games/static/js/runtime-main.9344b175.js",
+    "runtime-main.js.map": "/hunger-games/static/js/runtime-main.9344b175.js.map",
+    "static/js/2.2313d038.chunk.js": "/hunger-games/static/js/2.2313d038.chunk.js",
+    "static/js/2.2313d038.chunk.js.map": "/hunger-games/static/js/2.2313d038.chunk.js.map",
+    "index.html": "/hunger-games/index.html",
+    "precache-manifest.14d29d90ceee5dcc50ac9eb9a74dfd01.js": "/hunger-games/precache-manifest.14d29d90ceee5dcc50ac9eb9a74dfd01.js",
+    "service-worker.js": "/hunger-games/service-worker.js",
+    "static/css/main.a34be71d.chunk.css.map": "/hunger-games/static/css/main.a34be71d.chunk.css.map",
+    "static/js/2.2313d038.chunk.js.LICENSE": "/hunger-games/static/js/2.2313d038.chunk.js.LICENSE",
+    "static/media/login.scss": "/hunger-games/static/media/background.ad47af29.jpg",
+    "static/media/bigMac1.jpg": "/hunger-games/static/media/bigMac1.25274990.jpg",
+    "static/media/food2.jpg": "/hunger-games/static/media/food2.d9bf01f9.jpg",
+    "static/media/food3.jpg": "/hunger-games/static/media/food3.e7d1ae11.jpg",
+    "static/media/food4.jpg": "/hunger-games/static/media/food4.93853019.jpg",
+    "static/media/logo.png": "/hunger-games/static/media/logo.83cf2da1.png",
+    "static/media/no_image_found.png": "/hunger-games/static/media/no_image_found.7f1d3fc9.png",
+    "static/media/pizza1.jpg": "/hunger-games/static/media/pizza1.29483d95.jpg",
+    "static/media/salad1.jpg": "/hunger-games/static/media/salad1.e5e568ab.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9344b175.js",
+    "static/js/2.2313d038.chunk.js",
+    "static/css/main.a34be71d.chunk.css",
+    "static/js/main.a8ca4838.chunk.js"
+  ]
+}

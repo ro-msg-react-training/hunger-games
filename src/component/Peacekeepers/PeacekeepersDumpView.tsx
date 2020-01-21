@@ -3,7 +3,7 @@ import React from "react";
 
 export const PeacekeepersDumpView: React.FC<PeacekeepersViewState> = (props : PeacekeepersViewState) => {
     return (
-        <section className="hero is-dark is-bold is-fullheight is-family-sans-serif">
+        <div className="hero is-dark is-bold custom-scroll-bar is-family-sans-serif">
             <div className="hero-head customHeroHead">
             <div className="container">
                     <div className="columns is-multiline is-fluid is-mobile is-centered">
@@ -13,6 +13,6 @@ export const PeacekeepersDumpView: React.FC<PeacekeepersViewState> = (props : Pe
             </div>
             <div className="hero-body"></div>
             <div className="hero-foot"></div>
-        </section>
+        </div>
     );
 }

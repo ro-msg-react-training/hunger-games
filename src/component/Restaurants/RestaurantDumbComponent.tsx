@@ -42,7 +42,6 @@ export const RestaurantsListView = (props: RestaurantsComponentState) => {
       }else{
         arrayOfOrdersNo.push(ordersNo);
         if(arrayOfOrdersNo.find( element => element > ordersNo)){
-          console.log("am gasit mai mare" )
           restaurant = (
             <Link to={`/districts/${restId.id}`}>
               <div>

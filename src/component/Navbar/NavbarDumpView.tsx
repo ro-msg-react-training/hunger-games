@@ -11,7 +11,7 @@ export const NavbarDumpView: React.FC<NavbarComponentState> = (props: NavbarComp
             <div id="PageNavbar">
                 <nav className="navbar is-dark is-fixed-top" role="navigation" aria-label="main navigation">
                     <div className="navbar-brand">
-                        <Link to="/" id="navbarLogoLink">
+                        <Link to="/" id="navbarLogoLink" onClick={() => props.setActiveTab(props, "districts")}>
                             <div className="navbar-item">
                                 <img id="navbarLogo" src={Logo} alt="Web site logo" />
                             </div>

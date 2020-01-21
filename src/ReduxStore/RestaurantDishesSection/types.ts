@@ -2,7 +2,8 @@ import { IUser, IFood, IRestaurant } from "../../model/entites";
 
 export interface RestaurantDishesState {
     currentUser : IUser;
-    availableFoods : IFood[];
+    currentRestaurant : IRestaurant;
+    isOutsideOfWorkingHours : boolean;
 }
 
 export const LOAD_FOODS = "LOAD_FOODS";
@@ -10,7 +11,8 @@ export const LOAD_FOODS = "LOAD_FOODS";
 export interface RDLoadFoodsAction {
     type : typeof LOAD_FOODS,
     restaurant : IRestaurant,
-    currentUser : IUser
+    currentUser : IUser,
+    isOutsideOfWorkingHours : boolean
 }
 
 export type RestaurantDishesActionTypes = RDLoadFoodsAction;

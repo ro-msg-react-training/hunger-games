@@ -161,11 +161,16 @@ export const RestaurantsListView = (props: RestaurantsComponentState) => {
   ));
   return (
     <React.Fragment>
-      <section className="hero is-dark is-fullheight is-fullwidth is-bold">
-        <div id="content" >
-          <div className="restaurants_list">{products}</div>
+      <div className="hero is-dark custom-scroll-bar is-bold">
+        <div className="hero-head">
+          <div id="content" >
+            <div className="restaurants_list">{products}</div>
+          </div>
         </div>
-      </section>
+
+        <div className="hero-body"></div>
+        <div className="hero-foot"></div>
+      </div>
     </React.Fragment>
   );
 };

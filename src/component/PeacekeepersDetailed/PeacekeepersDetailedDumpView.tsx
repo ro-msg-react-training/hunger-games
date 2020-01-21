@@ -1,83 +1,15 @@
 import React from "react";
 import "../../styles/peacekeepersDetailedMainView.scss";
-import { NoItemsFound } from "../../Helpers/NoItemsFound";
 import { FaLayerGroup } from "react-icons/fa";
 import { Link } from "react-router-dom";
-
-export interface PeacekeepersState {
-    match?: any;
-}
-
-export const PeacekeepersDetailedDumpView: React.FC<PeacekeepersState> = (props: PeacekeepersState) => {
-    // Nu ar trebui implementat asa *
-    let ordersArray: IOrders[] = Object(Orders);
-    let userOrdersFromCurrentRestaurant: IOrders = ordersArray[findIndividualOder(ordersArray, props.match.params.id)];
-
-    function findIndividualOder(array: IOrders[], receivedId: number): number {
-        let arrayIndex: number = 0;
-
-        for (let i: number = 0; i < array.length; i++) {
-            if (array[i].order_id == receivedId) {
-                arrayIndex = i;
-                break;
-            }
-        }
-
-        return arrayIndex;
-    }
-
-    function calculateTotalOrdersCost(ordersArray: IOrders): number {
-        let total: number = 0;
-
-        ordersArray.userOrders.forEach(
-            order => {
-                total += order.food.price;
-            }
-        );
-
-        return total;
-    }
-
-    const generatePaymentCards = () => {
-        let ordersArray: IOrders[] = Object(Orders);
-        let userOrdersFromCurrentRestaurant: IOrders = ordersArray[findIndividualOder(ordersArray, props.match.params.id)];
-        let ordersCards: JSX.Element[] = [];
-
-        if (userOrdersFromCurrentRestaurant !== null) {
-            ordersCards = userOrdersFromCurrentRestaurant.userOrders.map(
-                (order: IUserOrders) => {
-                    let paymentItemValues: MyPaymentItem = {} as any;
-                    paymentItemValues.isFullyPaidFor = true;
-                    paymentItemValues.singleOrder = order;
-
-                    return <PeacekeeperPaymentItemDumpView {...paymentItemValues} key={"Payment Card " + order.user_order_id} />;
-                }
-            );
-
-            return ordersCards;
-        } else {
-            return (
-                <NoItemsFound message="Nothing to show here" />
-            );
-        }
-    }
-    return (
-        <div className="hero is-dark is-bold custom-scroll-bar is-family-sans-serif">
-            <div className="hero-head customHeadSpacing">
-                <div className="container CustomHeaderBox has-text-centered">
-                    <div className="dropdown is-hoverable">
-                        <div className="dropdown-trigger">
-                            <div id="paymentScreenRestaurantName" className="has-text-black-ter has-text-weight-medium is-size-5" aria-controls="additionalOrderInfoDrop">
-                                <Link className="has-text-black-ter" to={"/districts/" + userOrdersFromCurrentRestaurant.restaurant.id}>
-                                    {userOrdersFromCurrentRestaurant.restaurant.restaurant_name}
-                                </Link>
 import { PeacekeepersDetailedViewState } from "./PeacekeepersDetailedSmartView";
 import { isNullOrUndefined } from "util";
+import { NoItemsFound } from "../../Helpers/NoItemsFound";
 
 export const PeacekeepersDetailedDumpView: React.FC<PeacekeepersDetailedViewState> = (props: PeacekeepersDetailedViewState) => {
     if (!isNullOrUndefined(props.currentOrder)) {
         return (
-            <div className="hero is-dark is-bold is-fullheight is-fullwidth is-family-sans-serif">
+            <div className="hero is-dark is-bold custom-scroll-bar is-family-sans-serif">
                 <div className="hero-head customHeadSpacing">
                     <div className="container CustomHeaderBox has-text-centered">
                         <div className="dropdown is-hoverable">

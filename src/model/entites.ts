@@ -86,7 +86,7 @@ export const emptyRestaurant : IRestaurant = {
     closing_hour: "Default restaurant closing hour",
     orders: 0,
     image: NoImageFound,
-    food_list: [],
+    food_list: []
 }
 
 export const emptyOrder : IOrders = {

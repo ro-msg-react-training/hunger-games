@@ -81,7 +81,11 @@
                 "email": "Dorita Sare",
                 "username": "dsare0",
                 "password": "GaM1P7d"
-            }
+            },
+            "payed": 0,
+            "change": 0,
+            "receivedChange": false,
+            "auxPayedValue" : "0 lei"
           }, {
             "user_order_id": 2,
             "food": {
@@ -96,7 +100,11 @@
                 "email": "Joellen Eadmeades",
                 "username": "jeadmeades1",
                 "password": "InlERcLM0w7L"
-            }
+            },
+            "payed": 0,
+            "change": 0,
+            "receivedChange": false,
+            "auxPayedValue" : "0 lei"
           }, {
             "user_order_id": 3,
             "food": {
@@ -111,7 +119,11 @@
                 "email": "Eve Newcom",
                 "username": "enewcom2",
                 "password": "ZIEghe"
-            }
+            },
+            "payed": 0,
+            "change": 0,
+            "receivedChange": false,
+            "auxPayedValue" : "0 lei"
           }, {
             "user_order_id": 4,
             "food": {
@@ -126,7 +138,11 @@
                 "email": "Kristo Kristoffersson",
                 "username": "kkristoffersson3",
                 "password": "sphNX6bKDG"
-            }
+            },
+            "payed": 0,
+            "change": 0,
+            "receivedChange": false,
+            "auxPayedValue" : "0 lei"
           }, {
             "user_order_id": 5,
             "food": {
@@ -141,7 +157,11 @@
                 "email": "Hermione Egan",
                 "username": "hegan4",
                 "password": "hgd94T"
-            }
+            },
+            "payed": 0,
+            "change": 0,
+            "receivedChange": false,
+            "auxPayedValue" : "0 lei"
           }, {
             "user_order_id": 6,
             "food": {
@@ -156,7 +176,11 @@
                 "email": "Edna Verner",
                 "username": "everner6",
                 "password": "rJv1FClTo9"
-            }
+            },
+            "payed": 0,
+            "change": 0,
+            "receivedChange": false,
+            "auxPayedValue" : "0 lei"
           }, {
             "user_order_id": 7,
             "food": {
@@ -171,8 +195,17 @@
                 "email": "Yuma Bedberry",
                 "username": "ybedberry5",
                 "password": "jXJs083f"
-            }
-          }]
+            },
+            "payed": 0,
+            "change": 0,
+            "receivedChange": false,
+            "auxPayedValue" : "0 lei"
+          }],
+        "peopleLeftToPay" : 0,
+        "peopleLeftToReceiveChange" : 0,
+        "totalOrderCost" : 0,
+        "haveAllChangesBeenAcquitted" : false,
+        "orderIsActive" : true
     },
     {
         "order_id": 2,
@@ -256,7 +289,11 @@
                 "email": "Evangeline Itzcovichch",
                 "username": "eitzcovichch8",
                 "password": "l9nD7L"
-            }
+            },
+            "payed": 0,
+            "change": 0,
+            "receivedChange": false,
+            "auxPayedValue" : "0 lei"
           }, {
             "user_order_id": 2,
             "food": {
@@ -271,7 +308,11 @@
                 "email": "test@mail.com",
                 "username": "testuser",
                 "password": "password"
-            }
+            },
+            "payed": 0,
+            "change": 0,
+            "receivedChange": false,
+            "auxPayedValue" : "0 lei"
           }, {
             "user_order_id": 3,
             "food": {
@@ -286,8 +327,17 @@
                 "email": "johndoe@mail.com",
                 "username": "johndoe",
                 "password": "password"
-            }
-          }]
+            },
+            "payed": 0,
+            "change": 0,
+            "receivedChange": false,
+            "auxPayedValue" : "0 lei"
+          }],
+          "peopleLeftToPay" : 0,
+          "peopleLeftToReceiveChange" : 0,
+          "totalOrderCost" : 0,
+          "haveAllChangesBeenAcquitted" : false,
+          "orderIsActive" : true
     },
     {
         "order_id": 3,
@@ -378,7 +428,11 @@
                 "email": "test@mail.com",
                 "username": "testuser",
                 "password": "password"
-            }
+            },
+            "payed": 0,
+            "change": 0,
+            "receivedChange": false,
+            "auxPayedValue" : "0 lei"
           }, {
             "user_order_id": 2,
             "food": {
@@ -393,7 +447,11 @@
                 "email": "Zondra Attryde",
                 "username": "zattryde9",
                 "password": "gxjnKdG2zy"
-            }
+            },
+            "payed": 0,
+            "change": 0,
+            "receivedChange": false,
+            "auxPayedValue" : "0 lei"
           }, {
             "user_order_id": 3,
             "food": {
@@ -408,7 +466,11 @@
                 "email": "Evangeline Itzcovichch",
                 "username": "eitzcovichch8",
                 "password": "l9nD7L"
-            }
+            },
+            "payed": 0,
+            "change": 0,
+            "receivedChange": false,
+            "auxPayedValue" : "0 lei"
           }, {
             "user_order_id": 4,
             "food": {
@@ -423,7 +485,11 @@
                 "email": "Salmon Brisland",
                 "username": "sbrisland7",
                 "password": "Rgud5KEQ"
-            }
+            },
+            "payed": 0,
+            "change": 0,
+            "receivedChange": false,
+            "auxPayedValue" : "0 lei"
           }, {
             "user_order_id": 5,
             "food": {
@@ -438,7 +504,16 @@
                 "email": "johndoe@mail.com",
                 "username": "johndoe",
                 "password": "password"
-            }
-          }]
+            },
+            "payed": 0,
+            "change": 0,
+            "receivedChange": false,
+            "auxPayedValue" : "0 lei"
+          }],
+          "peopleLeftToPay" : 0,
+          "peopleLeftToReceiveChange" : 0,
+          "totalOrderCost" : 0,
+          "haveAllChangesBeenAcquitted" : false,
+          "orderIsActive" : true
     }
 ]

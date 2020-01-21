@@ -6,6 +6,7 @@
         "opening_hour": "10:38 AM",
         "closing_hour": "1:30 PM",
         "image": "http://dummyimage.com/137x180.jpg/ff4444/ffffff",
+        "orders":0,
         "food_list": [
             {
                 "id_restaurant": 1,
@@ -64,6 +65,7 @@
         "adress": "55 Anhalt Junction",
         "opening_hour": "10:59 AM",
         "closing_hour": "5:28 PM",
+        "orders":0,
         "image": "http://dummyimage.com/242x162.bmp/dddddd/000000",
         "food_list": [
             {
@@ -123,6 +125,7 @@
         "adress": "3 Sundown Lane",
         "opening_hour": "10:08 AM",
         "closing_hour": "5:41 PM",
+        "orders":0,
         "image": "http://dummyimage.com/129x187.jpg/cc0000/ffffff",
         "food_list": [
             {
@@ -175,6 +178,7 @@
         "adress": "0306 Shopko Drive",
         "opening_hour": "11:56 AM",
         "closing_hour": "11:25 PM",
+        "orders":0,
         "image": "http://dummyimage.com/144x199.png/5fa2dd/ffffff",
         "food_list": [
             {
@@ -234,6 +238,7 @@
         "adress": "29083 Warner Street",
         "opening_hour": "10:34 AM",
         "closing_hour": "2:59 PM",
+        "orders":0,
         "image": "http://dummyimage.com/103x115.bmp/ff4444/ffffff",
         "food_list": [
             {
@@ -300,6 +305,7 @@
         "adress": "1675 Porter Pass",
         "opening_hour": "9:18 AM",
         "closing_hour": "3:46 PM",
+        "orders":0,
         "image": "http://dummyimage.com/141x201.jpg/5fa2dd/ffffff",
         "food_list": [
             {
@@ -359,6 +365,7 @@
         "adress": "249 Express Way",
         "opening_hour": "8:51 AM",
         "closing_hour": "12:23 PM",
+        "orders":0,
         "image": "http://dummyimage.com/235x211.png/5fa2dd/ffffff",
         "food_list": [
             {
@@ -404,6 +411,7 @@
         "adress": "2 Express Alley",
         "opening_hour": "8:15 AM",
         "closing_hour": "3:40 PM",
+        "orders":0,
         "image": "http://dummyimage.com/148x189.jpg/cc0000/ffffff",
         "food_list": [
             {
@@ -456,6 +464,7 @@
         "adress": "78 Riverside Park",
         "opening_hour": "9:55 AM",
         "closing_hour": "4:36 PM",
+        "orders":0,
         "image": "http://dummyimage.com/240x176.jpg/5fa2dd/ffffff",
         "food_list": [
             {
@@ -515,6 +524,7 @@
         "adress": "7 High Crossing Parkway",
         "opening_hour": "11:44 AM",
         "closing_hour": "5:59 PM",
+        "orders":0,
         "image": "http://dummyimage.com/160x242.bmp/cc0000/ffffff",
         "food_list": [
             {
@@ -581,6 +591,7 @@
         "adress": "5 Colorado Plaza",
         "opening_hour": "11:36 AM",
         "closing_hour": "4:15 PM",
+        "orders":0,
         "image": "http://dummyimage.com/185x159.jpg/dddddd/000000",
         "food_list": [
             {
@@ -647,6 +658,7 @@
         "adress": "66 Hazelcrest Park",
         "opening_hour": "11:45 AM",
         "closing_hour": "1:28 PM",
+        "orders":0,
         "image": "http://dummyimage.com/105x114.bmp/dddddd/000000",
         "food_list": [
             {

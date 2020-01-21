@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
-
 import { DemandsView } from "../component/Demands/DemandsDumbComponent";
 import NotificationInitializer from "../component/Notification/NotificationSmartView";
 import RegisterViewInitializer from "../component/Register/RegisterSmartComponent";

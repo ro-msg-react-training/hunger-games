@@ -24,18 +24,18 @@ export const LoginDisplay: React.FC<LoginComponentState> = (props: LoginComponen
                 <form>
                   <div className="field">
                     <div className="control">
-                      <input className="input" type="email" placeholder="Nickname" value={userName} onChange={(e) => { props.onUsernameChange(props, e.target.value); setUsername(e.target.value.trim()); }} />
+                      <input className="input" type="email" placeholder="Nickname" autoFocus value={userName} onChange={(e) => { props.onUsernameChange(props, e.target.value); setUsername(e.target.value.trim()); }} onKeyPress = {(e : React.KeyboardEvent<HTMLInputElement>) => props.onKeyPressedWhileInputIsFocused(props, e)}/>
                     </div>
                   </div>
 
                   <div className="field">
                     <div className="control">
-                      <input className="input" type="password" placeholder="Secret code" value={password} onChange={(e) => { props.onPasswordChange(props, e.target.value); setPassword(e.target.value.trim()); }} />
+                      <input className="input" type="password" placeholder="Secret code" value={password} onChange={(e) => { props.onPasswordChange(props, e.target.value); setPassword(e.target.value.trim()); }} onKeyPress = {(e : React.KeyboardEvent<HTMLInputElement>) => props.onKeyPressedWhileInputIsFocused(props, e)}/>
                     </div>
                   </div>
                   <div className="field"></div>
 
-                  <input id="buttonLogin" className="button is-block is-info is-medium is-fullwidth" readOnly defaultValue = "Enter food arena" autoFocus onClick={() => { props.onLoginClick(props); setPassword(""); setUsername(""); }}/>
+                  <input id="buttonLogin" className="button is-block is-info is-medium is-fullwidth" readOnly value = "Enter food arena" onClick={() => { props.onLoginClick(props); setPassword(""); setUsername(""); }} onKeyPress = {(e : React.KeyboardEvent<HTMLInputElement>) => props.onKeyPressedWhileInputIsFocused(props, e)}/>
 
                   <p className="has-text-white">
                     <br></br>

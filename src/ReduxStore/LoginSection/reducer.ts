@@ -3,10 +3,10 @@ import { IUser } from "../../model/entites";
 
 export const initialState: LTypes.LoginState = {
   userData: {
-    id : 0,
-    email : "",
-    username: "",
-    password: ""
+    id : 11,
+    email : "test@mail.com",
+    username: "testuser",
+    password: "password"
   },
   isLoggedIn: false,
   activateNavbar: false

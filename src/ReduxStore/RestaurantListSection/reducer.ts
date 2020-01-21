@@ -1,9 +1,10 @@
 import * as RLTypes from "./types";
 import restaurantList from "../../MockupData/restaurants.json";
+import RestaurantsInitializer from "../../component/Restaurants/RestaurantsSmartComponent";
 
 export const initialState: RLTypes.RestaurantListState = {
-  restaurantOrders:new Map<string,number>(),
-  restaurants:[...restaurantList]
+  restaurantOrders:{} as any,
+  restaurants:Object(restaurantList),
 };
 
 export function restaurantListReducer(
@@ -12,11 +13,16 @@ export function restaurantListReducer(
 ): RLTypes.RestaurantListState {
   switch (action.type) {
     case RLTypes.CHANGE_ORDERS_NUMBER: {
-      let contorOrders:number=Number(state.restaurantOrders.get(action.currentRestaurant.restaurant_name));
+      for(let i =0;i<state.restaurants.length;i++){
+        if(state.restaurants[i].restaurant_name===action.currentRestaurant.restaurant_name){
+          state.restaurants[i].orders+= 1;
+        }
+      }
       return {
-        restaurantOrders:state.restaurantOrders.set(action.currentRestaurant.restaurant_name,contorOrders),
-        restaurants:state.restaurants
+        restaurantOrders:state.restaurantOrders,
+        restaurants:[...state.restaurants]
       };
+      
     }
     default:
       return state;

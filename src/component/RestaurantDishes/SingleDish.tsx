@@ -26,7 +26,7 @@ export const SingleDish: React.FC<SingleDishState> = (props: SingleDishState) =>
                     <div className="priceColorClass has-text-weight-medium">
                         {props.currentFood.price} lei
                     </div>
-                    <div className="button is-rounded" id="addDishButton" onClick = {() => props.addFoodToDemandsOnClick(props, props.currentFood)}>
+                    <div className="button is-rounded" id="addDishButton" onClick = {() =>{props.incrementOrdersForRestaurant(props.currentRestaurant); console.log(props.currentRestaurant); props.addFoodToDemandsOnClick(props, props.currentFood)}}>
                         <span className="icon">
                             <i className="fa fa-plus" />
                         </span>

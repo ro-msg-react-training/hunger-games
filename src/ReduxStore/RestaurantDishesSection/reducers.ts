@@ -13,6 +13,7 @@ export const initialState: RDTypes.RestaurantDishesState = {
         "adress": "Unknown address",
         "opening_hour": "00:00 AM",
         "closing_hour": "00:00 PM",
+        "orders":0,
         "image": "http://dummyimage.com/137x180.jpg/ff4444/ffffff",
         "food_list": []
     }

@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import { IRestaurant, IUser, IFood } from '../../model/entites.js';
 import { loadFoodsList } from '../../ReduxStore/RestaurantDishesSection/actions';
 import { SingleDish } from './SingleDish';
+import { ChangeNumberOfOrdersEventHandler } from '../../ReduxStore/RestaurantListSection/actions';
 
 export interface RestaurantDishesState {
     match : any;
@@ -16,11 +17,14 @@ export interface RestaurantDishesState {
     loadCurrentRestaurantFoods: (props : RestaurantDishesState) => void;
     generateDishesList : (props : RestaurantDishesState,dishesForCurrentRestaurant: IFood[]) => ReactNode;
     addFoodToDemandsOnClick: (props : SingleDishState, selectedFood : IFood) => void;
+    incrementOrdersForRestaurant:(restaurant:IRestaurant)=>void;
 }
 
 export interface SingleDishState {
     currentFood : IFood;
+    currentRestaurant:IRestaurant;
     addFoodToDemandsOnClick: (props : SingleDishState, selectedFood : IFood) => void;
+    incrementOrdersForRestaurant:(restaurant:IRestaurant)=>void;
 }
 
 class RestaurantDishesSmartView extends React.Component<RestaurantDishesState> {
@@ -46,7 +50,7 @@ const getCurrentRestaurant = (props : RestaurantDishesState, resArray: IRestaura
 
 const mapStateToProps = (state : GlobalState) => ({
     loggedInUser : state.restDishesReducer.currentUser,
-    currentRestaurant : state.restDishesReducer.currentRestaurant
+    currentRestaurant : state.restDishesReducer.currentRestaurant,
 });
 
 const mapDispatchToProps = (dispatch : Dispatch) => ({
@@ -65,8 +69,10 @@ const mapDispatchToProps = (dispatch : Dispatch) => ({
         } else {
             let foodCards : JSX.Element[] = [];
             let singleDishProps : SingleDishState = {
+                currentRestaurant:props.currentRestaurant,
                 currentFood : {} as any,
-                addFoodToDemandsOnClick : {} as any
+                addFoodToDemandsOnClick : {} as any,
+                incrementOrdersForRestaurant:props.incrementOrdersForRestaurant.bind({} as any) ,
             }
 
             dishesForCurrentRestaurant.map(
@@ -89,6 +95,9 @@ const mapDispatchToProps = (dispatch : Dispatch) => ({
 
     addFoodToDemandsOnClick : (props : SingleDishState, selectedFood : IFood) => {
         console.log("Food " + selectedFood.id_food + " added to demands!");
+    },
+    incrementOrdersForRestaurant:(restaurant:IRestaurant)=>{
+        dispatch(ChangeNumberOfOrdersEventHandler(restaurant));
     }
 });
 

@@ -20,3 +20,10 @@ export function updateLoginUserValues(newUserValues : IUser) : LTypes.LoginActio
     newUserValues: newUserValues
   };
 }
+
+// export function loginInfoProvider(): LTypes.LLoginInfo {
+//   return {
+//     type: LTypes.LOGIN_INFO,
+//     userInfo: userData
+//   };
+// }

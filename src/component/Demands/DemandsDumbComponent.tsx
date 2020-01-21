@@ -10,7 +10,7 @@ import "../../styles/demands.scss";
 import orders from "../../MockupData/demands.json";
 
 export interface IDumbDemands {
-  restaurantsList: IRestaurant[];
+  // restaurantsList: IRestaurant[];
   orders: IDemands[];
 }
 export const DemandsView = (props: IDumbDemands) => {

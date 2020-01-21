@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import { IRestaurant, IUser, IFood } from '../../model/entites.js';
 import { loadFoodsList } from '../../ReduxStore/RestaurantDishesSection/actions';
 import { SingleDish } from './SingleDish';
+import { ChangeNumberOfOrdersEventHandler } from '../../ReduxStore/RestaurantListSection/actions';
 
 export interface RestaurantDishesState {
     match: any;
@@ -16,12 +17,15 @@ export interface RestaurantDishesState {
     loadCurrentRestaurantFoods: (props: RestaurantDishesState) => void;
     generateDishesList: (props: RestaurantDishesState, dishesForCurrentRestaurant: IFood[]) => ReactNode;
     addFoodToDemandsOnClick: (props: SingleDishState, selectedFood: IFood) => void;
+    incrementOrdersForRestaurant:(restaurant:IRestaurant)=>void;
 }
 
 export interface SingleDishState {
     currentFood: IFood;
     addFoodToDemandsOnClick: (props: SingleDishState, selectedFood: IFood) => void;
     isOutsideOfWorkingHours: boolean;
+    incrementOrdersForRestaurant:(restaurant:IRestaurant)=>void;
+    currentRestaurant: IRestaurant;
 }
 
 class RestaurantDishesSmartView extends React.Component<RestaurantDishesState> {
@@ -137,7 +141,9 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
             let singleDishProps: SingleDishState = {
                 currentFood: {} as any,
                 addFoodToDemandsOnClick: {} as any,
-                isOutsideOfWorkingHours: isCurrentTimeInWorkingHours(props.currentRestaurant.opening_hour, props.currentRestaurant.closing_hour)
+                isOutsideOfWorkingHours: isCurrentTimeInWorkingHours(props.currentRestaurant.opening_hour, props.currentRestaurant.closing_hour),
+                incrementOrdersForRestaurant: props.incrementOrdersForRestaurant.bind({} as any),
+                currentRestaurant : props.currentRestaurant
             }
 
             dishesForCurrentRestaurant.map(
@@ -158,7 +164,11 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
     },
 
     addFoodToDemandsOnClick: (props: SingleDishState, selectedFood: IFood) => {
-        console.log("Food " + selectedFood.id_food + " added to demands!");
+        //
+    },
+
+    incrementOrdersForRestaurant:(restaurant:IRestaurant)=>{
+        dispatch(ChangeNumberOfOrdersEventHandler(restaurant));
     }
 });
 

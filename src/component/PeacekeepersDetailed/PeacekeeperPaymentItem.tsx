@@ -13,7 +13,7 @@ export const PeacekeeperPaymentItemDumpView: React.FC<PKDSingleCardState> = (pro
         className: "input financeInputField is-static has-text-grey-light has-text-centered"
     }
 
-    if (!true) {
+    if (props.currentUserId !== props.singleOrder.user.user_id && !props.didUserPlaceOrder) {
         inputProperties = {
             ...inputProperties,
             readOnly: {}
@@ -33,7 +33,7 @@ export const PeacekeeperPaymentItemDumpView: React.FC<PKDSingleCardState> = (pro
                                 <div className="level-item level-left is-pulled-left">
                                     <p className="has-text-grey is-size-7"> Food name </p>
                                 </div>
-                                <div className={props.didUserPlaceOrder ? "level-item level-right is-pulled-right" : "is-hidden"} onClick = {() => props.changeCardStatus(props, props.singleOrder.cart_item_id-1)}>
+                                <div className={props.didUserPlaceOrder ? "level-item level-right is-pulled-right" : "is-hidden"} onClick = {() => props.changeCardStatus(props, props.singleOrder.cart_item_id)}>
                                     <CardActionIcon {...props.iconStatus} />
                                 </div>
                             </div>
@@ -42,7 +42,7 @@ export const PeacekeeperPaymentItemDumpView: React.FC<PKDSingleCardState> = (pro
 
                         <div className="orderedByContainer">
                             <p className="has-text-grey is-size-7"> Ordered by </p>
-                            <p className="has-text-grey-light userOrderDetailsText">{props.singleOrder.user.username}</p>
+                            <p className={props.currentUserId === props.singleOrder.user.user_id ? "has-text-grey-light userOrderDetailsText currentUserHasPlacedUserOder" : "has-text-grey-light userOrderDetailsText"}>{props.singleOrder.user.username}</p>
                         </div>
 
                         <table className="table is-narrow userOrderPaymentDetails userOrderDetailsText is-fullwidth">
@@ -55,7 +55,7 @@ export const PeacekeeperPaymentItemDumpView: React.FC<PKDSingleCardState> = (pro
                                 <tr className="has-text-grey-light">
                                     <td className="userOrderPaymentDetailsTD littleExtraPaddingRight has-text-centered">{props.singleOrder.food.food_price + " lei"}</td>
                                     <td className="userOrderPaymentDetailsTD has-text-centered">
-                                        <input {...inputProperties} onFocus={(ev : SyntheticEvent) => props.onFieldFocused(props, props.singleOrder.cart_item_id-1, ev)} onBlur={(ev : SyntheticEvent) => props.onFieldLostFocus(props, props.singleOrder.cart_item_id-1)} onChange={(event : SyntheticEvent) => props.onChangeAuxPayedAmount(props, props.singleOrder.cart_item_id-1, event)}/>
+                                        <input {...inputProperties} onFocus={(ev : SyntheticEvent) => props.onFieldFocused(props, props.singleOrder.cart_item_id, ev)} onBlur={(ev : SyntheticEvent) => props.onFieldLostFocus(props, props.singleOrder.cart_item_id)} onChange={(event : SyntheticEvent) => props.onChangeAuxPayedAmount(props, props.singleOrder.cart_item_id, event)}/>
                                     </td>
                                     <td className="userOrderPaymentDetailsTD has-text-centered">
                                         {props.singleOrder.change + (props.singleOrder.change === 1 ? " leu" : " lei")}

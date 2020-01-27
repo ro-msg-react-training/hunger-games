@@ -1,8 +1,5 @@
 import * as DTypes from "./types";
 import {
-  RestaurantDemands,
-  FoodDemands,
-  UserDemands,
   emptyRestaurantDemands,
   emptyFoodDemands,
   emptyUserDemands,
@@ -50,6 +47,18 @@ export function demandsOrdersReducer(
         listOfOrders:[...state.listOfOrders]
       };
     }
+
+    case DTypes.REMOVE_ORDER_ON_RESTAURANT: {
+      let itemsToRemove: IDemands[] = action.itemsToRemove;
+      for(let i=0;i<itemsToRemove.length;i++){
+        const index = state.listOfOrders.indexOf(itemsToRemove[i],0);
+       state.listOfOrders.splice(index, 1);
+      }
+      return {
+        listOfOrders:[...state.listOfOrders]
+      };
+    }
+
     default:
       return state;
   }

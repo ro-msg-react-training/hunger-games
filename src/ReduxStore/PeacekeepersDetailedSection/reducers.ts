@@ -70,7 +70,6 @@ function retrieveOrder(mainOrdersList : IOrders[], orderId: number): IOrders {
     currentOrder.haveAllChangesBeenAcquitted = checkForRemainingChanges(currentOrder);
     currentOrder.userOrders= ordersArray[orderId-1].userOrders;
  
-    
     return currentOrder;
 }
 
@@ -83,7 +82,6 @@ function checkOrderUserValidity(mainOrdersList : IOrders[], loggedInUserId: numb
 }
 
 function changeCardStatus(mainOrdersList : IOrders[], orderId: number, cardID: number): IOrders {
-    console.log("cartId"+ cardID)
     let currentOrder: IOrders = retrieveOrder(mainOrdersList, orderId);
     let currentCard: IUserOrders = currentOrder.userOrders[cardID];
 
@@ -194,7 +192,7 @@ function calculateNumberOfPeopleLeftToReceiveChange(userOrdersArray : IUserOrder
 function checkForRemainingChanges(currentOrder : IOrders) : boolean {
     let response : boolean = false;
     
-    if(currentOrder.peopleLeftToPay == 0 && currentOrder.peopleLeftToReceiveChange == 0) {
+    if(currentOrder.peopleLeftToPay === 0 && currentOrder.peopleLeftToReceiveChange === 0) {
         response = true;
     }
 

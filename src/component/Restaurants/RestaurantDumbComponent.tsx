@@ -13,10 +13,8 @@ export const RestaurantsListView = (props: RestaurantsComponentState) => {
   let arrayOfOrdersNo:number[]= [...props.restaurants].map((restaurant, key) => (restaurant.orders_count));
   let restaurantsImageAndOrderNumber = (ordersNo: number, restId: IRestaurant) => {
     let restaurant;
-    console.log(ordersNo);
     if (ordersNo > 0) {
-      console.log(ordersNo);
-      if(arrayOfOrdersNo.find( element => {return element == ordersNo})!=null){
+      if(arrayOfOrdersNo.find( element => {return element === ordersNo})!=null){
         if(arrayOfOrdersNo.find( element =>{return  element > ordersNo})!=null){
           restaurant = (
             <Link to={`/districts/${restId.id}`}>
@@ -67,16 +65,6 @@ export const RestaurantsListView = (props: RestaurantsComponentState) => {
           );
         }
       }
-      // restaurant = (
-      //   <Link to={`/districts/${restId.id}`}>
-      //     <div>
-      //       <div className="tag is-warning  has-text-weight-bold" id="tagOrders">
-      //       {ordersNo}
-      //     </div>
-      //       <img id="restarantImg" src={getRandomImage("restaurants")} alt="Restaurant" />
-      //     </div>
-      //   </Link>
-      // );
     } else {
       restaurant = (
         <Link to={`/districts/${restId.id}`}>
@@ -91,7 +79,7 @@ export const RestaurantsListView = (props: RestaurantsComponentState) => {
   };
   let restaurantWithOrWithoutOrders = (restaurant: IRestaurant, nrOfOrders: number) => {
     let restaurantStyle;
-      if(nrOfOrders!=0 && (arrayOfOrdersNo.find( element =>{return  element > nrOfOrders})==null)){
+      if(nrOfOrders !== 0 && (arrayOfOrdersNo.find( element =>{return  element > nrOfOrders}) == null)){
       restaurantStyle = (
         <div className="content-with-orders">
           <div className="restaurant">

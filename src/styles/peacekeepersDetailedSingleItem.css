@@ -31,6 +31,12 @@
     15px 0px 15px -15px red, -15px 0px 15px -10px #161616;
   box-shadow: 0px 10px 15px -7px rgba(212, 121, 17, 0.5),
     15px 0px 15px -15px red, -15px 0px 15px -10px #161616;
+  -webkit-box-shadow: 0px 15px 15px -10px rgba(212, 121, 17, 0.5),
+    15px 0px 15px -15px red, -15px 0px 15px -10px #161616;
+  -moz-box-shadow: 0px 15px 15px -10px rgba(212, 121, 17, 0.5),
+    15px 0px 15px -15px red, -15px 0px 15px -10px #161616;
+  box-shadow: 0px 15px 15px -10px rgba(212, 121, 17, 0.5),
+    15px 0px 15px -15px red, -15px 0px 15px -10px #161616;
   transition: 0.2s ease-out;
 }
 .CustomBoxGreen {
@@ -56,6 +62,12 @@
   -moz-box-shadow: 0px 10px 15px -7px rgba(212, 121, 17, 0.5),
     15px 0px 15px -15px #15ff00, -15px 0px 15px -10px #161616;
   box-shadow: 0px 10px 15px -7px rgba(212, 121, 17, 0.5),
+    15px 0px 15px -15px #15ff00, -15px 0px 15px -10px #161616;
+  -webkit-box-shadow: 0px 15px 15px -10px rgba(212, 121, 17, 0.5),
+    15px 0px 15px -15px #15ff00, -15px 0px 15px -10px #161616;
+  -moz-box-shadow: 0px 15px 15px -10px rgba(212, 121, 17, 0.5),
+    15px 0px 15px -15px #15ff00, -15px 0px 15px -10px #161616;
+  box-shadow: 0px 15px 15px -10px rgba(212, 121, 17, 0.5),
     15px 0px 15px -15px #15ff00, -15px 0px 15px -10px #161616;
   transition: 0.2s ease-out;
 }
@@ -109,4 +121,8 @@
 .paymentCardActionIcon:hover {
   font-size: smaller;
   color: #b5b5b5;
+}
+.currentUserHasPlacedUserOder {
+  color: #fff !important;
+  font-weight: 500;
 }

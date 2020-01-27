@@ -19,7 +19,6 @@ export interface PeacekeepersDetailedViewState {
     currentOrder: IOrders;
     hasUserPlacedTheOrder: boolean;
     loadOrderData: (props: PeacekeepersDetailedViewState) => void;
-    // loadOrderData2: (props: PeacekeepersDetailedViewState) => void;
     generatePaymentCards: (props: PeacekeepersDetailedViewState) => ReactNode;
     changeCardStatus: (props: PKDSingleCardState, userOrderId: number) => void;
     onFieldFocused: (props: PKDSingleCardState, userOrderId: number, eventValue: SyntheticEvent) => void;
@@ -40,6 +39,7 @@ export interface PKDSingleCardState {
     onFieldFocused: (props: PKDSingleCardState, userOrderId: number, eventValue: SyntheticEvent) => void;
     onFieldLostFocus: (props: PKDSingleCardState, userOrderId: number) => void;
     onChangeAuxPayedAmount: (props: PKDSingleCardState, userOrderId: number, eventValue: SyntheticEvent) => void;
+    currentUserId : number;
 }
 
 export interface PKDCardActionItemState {
@@ -49,7 +49,6 @@ export interface PKDCardActionItemState {
 class PeacekeepersDetailedSmartView extends React.Component<PeacekeepersDetailedViewState> {
     componentDidMount() {
         this.props.loadOrderData(this.props);
-        // this.props.loadOrderData2(this.props);
     }
 
     render() {
@@ -74,17 +73,14 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
         dispatch(loadOrder(props.match.params.id, props.currentUser));
     },
 
-    // loadOrderData2: (props: PeacekeepersDetailedViewState) => {
-    //     dispatch(loadOrder(props.match.params.id, props.currentUser));
-    // },
     generatePaymentCards: (props: PeacekeepersDetailedViewState): ReactNode => {
         let ordersCards: JSX.Element[] = [];
         let testCurrentOrder:IOrders={} as IOrders;
         testCurrentOrder=cloneDeep(props.currentOrder);
+        
         if (testCurrentOrder.userOrders !== null) {
             ordersCards = props.currentOrder.userOrders.map(
                 (order: IUserOrders) => {
-                    console.log(order);
                     let paymentItemValues: PKDSingleCardState = {} as any;
                     paymentItemValues.singleOrder = order;
                     paymentItemValues.didUserPlaceOrder = props.hasUserPlacedTheOrder;
@@ -98,6 +94,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
                     paymentItemValues.onFieldFocused = props.onFieldFocused;
                     paymentItemValues.onFieldLostFocus = props.onFieldLostFocus;
                     paymentItemValues.onChangeAuxPayedAmount = props.onChangeAuxPayedAmount;
+                    paymentItemValues.currentUserId = props.currentUser.id;
 
                     return <PeacekeeperPaymentItemDumpView {...paymentItemValues} key={"Payment Card " + order.cart_item_id} />;
                 }

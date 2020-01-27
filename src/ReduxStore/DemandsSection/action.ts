@@ -18,3 +18,9 @@ export function removeOrderItemEvent( orderToRemove:IDemands,crtActiveUser:IUser
     };
   }
 
+  export function removeOrderOnRestaurantEvent( itemsToRemove:IDemands[]): DTypes.DemRemoveOrderOnRestaurant {
+    return {
+      type: DTypes.REMOVE_ORDER_ON_RESTAURANT,
+      itemsToRemove:itemsToRemove,
+    };
+  }

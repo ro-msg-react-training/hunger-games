@@ -1,6 +1,5 @@
 import * as RLTypes from "./types";
 import restaurantList from "../../MockupData/restaurants.json";
-import RestaurantsInitializer from "../../component/Restaurants/RestaurantsSmartComponent";
 
 export const initialState: RLTypes.RestaurantListState = {
   restaurantOrders:{} as any,
@@ -37,6 +36,20 @@ export function restaurantListReducer(
       };
       
     }
+
+    case RLTypes.RELOAD_ORDERS_NUMBER: {
+      for(let i =0;i<state.restaurants.length;i++){
+        if(state.restaurants[i].id===action.restaurant_id){
+          state.restaurants[i].orders_count= 0;
+        }
+      }
+      return {
+        restaurantOrders:state.restaurantOrders,
+        restaurants:[...state.restaurants]
+      };
+      
+    }
+
     default:
       return state;
   }

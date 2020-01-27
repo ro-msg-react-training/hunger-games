@@ -17,3 +17,10 @@ export function decreadseNumberOfOrdersEventHandler( currentRestaurant:Restauran
     };
   }
 
+  export function reloadNumberOfOrdersEventHandler( restaurant_id:number
+    ): RLTypes.RLReloadOrdersNumber {
+      return {
+        type: RLTypes.RELOAD_ORDERS_NUMBER,
+        restaurant_id:restaurant_id
+      };
+    }

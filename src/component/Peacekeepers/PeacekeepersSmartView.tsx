@@ -7,7 +7,6 @@ import { compose, setDisplayName } from "recompose";
 import { connect } from "react-redux";
 import { NoItemsFound } from "../../Helpers/NoItemsFound";
 import { OrderCard } from "./OrderCard";
-import { loadOrdersToDetaildView } from "../../ReduxStore/PeacekeepersDetailedSection/actions";
 
 export interface PeacekeepersViewState {
     match : any;

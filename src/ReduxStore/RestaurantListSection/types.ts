@@ -6,6 +6,8 @@ export interface RestaurantListState {
 }
 export const INCREASE_ORDERS_NUMBER = "INCREASE_ORDERS_NUMBER";
 export const DECREASE_ORDERS_NUMBER = "DECREASE_ORDERS_NUMBER";
+export const RELOAD_ORDERS_NUMBER = "RELOAD_ORDERS_NUMBER";
+
 
 export interface RLIncreaseOrdersNumberEvent {
   type: typeof INCREASE_ORDERS_NUMBER;
@@ -17,4 +19,9 @@ export interface RLDecreaseOrdersNumberEvent {
   currentRestaurant:RestaurantDemands,
 }
 
-export type RestaurantListActionTypes = RLIncreaseOrdersNumberEvent|RLDecreaseOrdersNumberEvent;
+export interface RLReloadOrdersNumber {
+  type: typeof RELOAD_ORDERS_NUMBER;
+  restaurant_id:number,
+}
+ 
+export type RestaurantListActionTypes = RLIncreaseOrdersNumberEvent|RLDecreaseOrdersNumberEvent|RLReloadOrdersNumber;

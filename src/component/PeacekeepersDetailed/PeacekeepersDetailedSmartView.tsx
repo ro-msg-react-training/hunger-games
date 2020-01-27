@@ -10,6 +10,7 @@ import { NoItemsFound } from "../../Helpers/NoItemsFound";
 import { PeacekeeperPaymentItemDumpView } from "./PeacekeeperPaymentItem";
 import { closeOrder } from "../../ReduxStore/PeacekeepersSection/actions";
 import { showNotification } from "../../ReduxStore/NotificationSection/actions";
+import { cloneDeep } from "lodash";
 
 export interface PeacekeepersDetailedViewState {
     match: any;
@@ -18,6 +19,7 @@ export interface PeacekeepersDetailedViewState {
     currentOrder: IOrders;
     hasUserPlacedTheOrder: boolean;
     loadOrderData: (props: PeacekeepersDetailedViewState) => void;
+    // loadOrderData2: (props: PeacekeepersDetailedViewState) => void;
     generatePaymentCards: (props: PeacekeepersDetailedViewState) => ReactNode;
     changeCardStatus: (props: PKDSingleCardState, userOrderId: number) => void;
     onFieldFocused: (props: PKDSingleCardState, userOrderId: number, eventValue: SyntheticEvent) => void;
@@ -47,6 +49,7 @@ export interface PKDCardActionItemState {
 class PeacekeepersDetailedSmartView extends React.Component<PeacekeepersDetailedViewState> {
     componentDidMount() {
         this.props.loadOrderData(this.props);
+        // this.props.loadOrderData2(this.props);
     }
 
     render() {
@@ -62,8 +65,7 @@ const mapStateToProps = (state: GlobalState) => ({
     currentOrder: state.peacekeeperDetailedReducerGlobal.currentOrder,
     hasUserPlacedTheOrder: state.peacekeeperDetailedReducerGlobal.hasUserPlacedTheOrder,
     peopleLeftToPay: state.peacekeeperDetailedReducerGlobal.currentOrder.peopleLeftToPay,
-    peopleLeftToReceiveChange: state.peacekeeperDetailedReducerGlobal.currentOrder.peopleLeftToReceiveChange,
-    totalOrderCost: state.peacekeeperDetailedReducerGlobal.currentOrder.totalOrderCost
+    peopleLeftToReceiveChange: state.peacekeeperDetailedReducerGlobal.currentOrder.peopleLeftToReceiveChange
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
@@ -72,12 +74,17 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
         dispatch(loadOrder(props.match.params.id, props.currentUser));
     },
 
+    // loadOrderData2: (props: PeacekeepersDetailedViewState) => {
+    //     dispatch(loadOrder(props.match.params.id, props.currentUser));
+    // },
     generatePaymentCards: (props: PeacekeepersDetailedViewState): ReactNode => {
         let ordersCards: JSX.Element[] = [];
-
-        if (props.currentOrder.userOrders !== null) {
+        let testCurrentOrder:IOrders={} as IOrders;
+        testCurrentOrder=cloneDeep(props.currentOrder);
+        if (testCurrentOrder.userOrders !== null) {
             ordersCards = props.currentOrder.userOrders.map(
                 (order: IUserOrders) => {
+                    console.log(order);
                     let paymentItemValues: PKDSingleCardState = {} as any;
                     paymentItemValues.singleOrder = order;
                     paymentItemValues.didUserPlaceOrder = props.hasUserPlacedTheOrder;
@@ -92,7 +99,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
                     paymentItemValues.onFieldLostFocus = props.onFieldLostFocus;
                     paymentItemValues.onChangeAuxPayedAmount = props.onChangeAuxPayedAmount;
 
-                    return <PeacekeeperPaymentItemDumpView {...paymentItemValues} key={"Payment Card " + order.user_order_id} />;
+                    return <PeacekeeperPaymentItemDumpView {...paymentItemValues} key={"Payment Card " + order.cart_item_id} />;
                 }
             );
 

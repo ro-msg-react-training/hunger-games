@@ -16,7 +16,7 @@ export const PeacekeepersDetailedDumpView: React.FC<PeacekeepersDetailedViewStat
                             <div className="dropdown-trigger">
                                 <div id="paymentScreenRestaurantName" className="has-text-black-ter has-text-weight-medium is-size-5" aria-controls="additionalOrderInfoDrop">
                                     <Link className="has-text-black-ter" to={"/districts/" + props.currentOrder.restaurant.id}>
-                                        {props.currentOrder.restaurant.restaurant_name}
+                                        {props.currentOrder.restaurant.name}
                                     </Link>
                                 </div>
                             </div>
@@ -56,7 +56,7 @@ export const PeacekeepersDetailedDumpView: React.FC<PeacekeepersDetailedViewStat
                         <div className="dropdown-trigger">
                             <div className="columns has-text-centered has-text-grey-light" aria-controls="dropdown-menu4">
                                 <div className="column">{props.currentOrder.userOrders.length} <FaLayerGroup className="is-size-7" /></div>
-                                <div className="column">{props.currentOrder.totalOrderCost + " lei"}</div>
+                                <div className="column">{props.currentOrder.restaurant.toPay + " lei"}</div>
                                 <div className="column">{props.currentOrder.peopleLeftToPay} <i className="fa fa-caret-down" /></div>
                                 <div className="column">{props.currentOrder.peopleLeftToReceiveChange} <i className="fa fa-caret-up" /></div>
                             </div>

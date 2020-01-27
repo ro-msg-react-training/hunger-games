@@ -5,15 +5,18 @@ import { GlobalState } from '../../ReduxStore/index.js';
 import { Dispatch } from 'redux';
 import { compose, setDisplayName } from 'recompose';
 import { connect } from 'react-redux';
-import { IRestaurant, IUser, IFood } from '../../model/entites.js';
+import { IRestaurant, IUser, IFood, IDemands } from '../../model/entites.js';
 import { loadFoodsList } from '../../ReduxStore/RestaurantDishesSection/actions';
 import { SingleDish } from './SingleDish';
-import { ChangeNumberOfOrdersEventHandler } from '../../ReduxStore/RestaurantListSection/actions';
+import { increadseNumberOfOrdersEventHandler } from '../../ReduxStore/RestaurantListSection/actions';
+import { newOrderItemEvent } from '../../ReduxStore/DemandsSection/action';
 
 export interface RestaurantDishesState {
     match: any;
     loggedInUser: IUser;
+    crtActiveUser:IUser;
     currentRestaurant: IRestaurant;
+    demands:IDemands[];
     loadCurrentRestaurantFoods: (props: RestaurantDishesState) => void;
     generateDishesList: (props: RestaurantDishesState, dishesForCurrentRestaurant: IFood[]) => ReactNode;
     addFoodToDemandsOnClick: (props: SingleDishState, selectedFood: IFood) => void;
@@ -22,10 +25,13 @@ export interface RestaurantDishesState {
 
 export interface SingleDishState {
     currentFood: IFood;
+    crtActiveUser:IUser;
+    currentUser:IUser;
     addFoodToDemandsOnClick: (props: SingleDishState, selectedFood: IFood) => void;
     isOutsideOfWorkingHours: boolean;
-    incrementOrdersForRestaurant:(restaurant:IRestaurant)=>void;
+    incrementOrdersForRestaurant:(restaurant:IRestaurant, selectedFood:IFood)=>void;
     currentRestaurant: IRestaurant;
+    demand:IDemands[];
 }
 
 class RestaurantDishesSmartView extends React.Component<RestaurantDishesState> {
@@ -119,7 +125,9 @@ const isCurrentTimeInWorkingHours = (openingHours : string, closingHours : strin
 const mapStateToProps = (state: GlobalState) => ({
     loggedInUser: state.restDishesReducer.currentUser,
     currentRestaurant: state.restDishesReducer.currentRestaurant,
-    isOutsideOfWorkingHours: state.restDishesReducer.isOutsideOfWorkingHours
+    isOutsideOfWorkingHours: state.restDishesReducer.isOutsideOfWorkingHours,
+    demands:state.demandsReducer.listOfOrders,
+    crtActiveUser:state.loginReducerGlobal.userData
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
@@ -140,10 +148,13 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
             let foodCards: JSX.Element[] = [];
             let singleDishProps: SingleDishState = {
                 currentFood: {} as any,
+                crtActiveUser:props.crtActiveUser,
+                currentUser:props.loggedInUser,
                 addFoodToDemandsOnClick: {} as any,
                 isOutsideOfWorkingHours: isCurrentTimeInWorkingHours(props.currentRestaurant.opening_hour, props.currentRestaurant.closing_hour),
                 incrementOrdersForRestaurant: props.incrementOrdersForRestaurant.bind({} as any),
-                currentRestaurant : props.currentRestaurant
+                currentRestaurant : props.currentRestaurant,
+                demand:props.demands,
             }
 
             dishesForCurrentRestaurant.map(
@@ -163,12 +174,14 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
         }
     },
 
-    addFoodToDemandsOnClick: (props: SingleDishState, selectedFood: IFood) => {
-        //
+    addFoodToDemandsOnClick: (props: SingleDishState) => {
+        // console.log(props.demand);
+        dispatch(newOrderItemEvent(props.currentRestaurant,props.currentFood,props.crtActiveUser));
+        // console.log(props.demand);
     },
 
-    incrementOrdersForRestaurant:(restaurant:IRestaurant)=>{
-        dispatch(ChangeNumberOfOrdersEventHandler(restaurant));
+    incrementOrdersForRestaurant:(restaurant:IRestaurant,selectedFood:IFood)=>{
+        dispatch(increadseNumberOfOrdersEventHandler(restaurant,selectedFood));
     }
 });
 

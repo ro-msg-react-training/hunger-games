@@ -10,6 +10,7 @@ import RestaurantDishesViewInitializer from "../component/RestaurantDishes/Resta
 import PeacekeepersDetailedViewInitializer from "../component/PeacekeepersDetailed/PeacekeepersDetailedSmartView";
 import PeacekeepersViewInitializer from "../component/Peacekeepers/PeacekeepersSmartView";
 import RestaurantsInitializer from "../component/Restaurants/RestaurantsSmartComponent";
+import DemandsInitializer from "../component/Demands/DemandsSmartComponent";
 
 const App: React.FC<AppComponentState> = (props: AppComponentState) => {
   if (!props.userIsLoggedIn) {
@@ -34,7 +35,7 @@ const App: React.FC<AppComponentState> = (props: AppComponentState) => {
             <Redirect exact from="/" to="/districts" />
             <Route path="/districts" exact component={RestaurantsInitializer} />
             <Route path="/districts/:id" exact render={(props) => <RestaurantDishesViewInitializer {...props} />} />
-            <Route path="/demands" exact component={DemandsView} />
+            <Route path="/demands" exact component={DemandsInitializer} />
             <Route path="/peacekeepers" exact component={PeacekeepersViewInitializer} />
             <Route path="/peacekeepers/:id" exact render={(props) => <PeacekeepersDetailedViewInitializer {...props} />} />
             <Route exact path="/login" component={LoginViewInitializer} />

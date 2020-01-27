@@ -10,7 +10,7 @@ export interface IDumbRestaurant {
   restaurantOrders:Map<string,number>;
 }
 export const RestaurantsListView = (props: RestaurantsComponentState) => {
-  let arrayOfOrdersNo:number[]= [...props.restaurants].map((restaurant, key) => (restaurant.orders));
+  let arrayOfOrdersNo:number[]= [...props.restaurants].map((restaurant, key) => (restaurant.orders_count));
   let restaurantsImageAndOrderNumber = (ordersNo: number, restId: IRestaurant) => {
     let restaurant;
     console.log(ordersNo);
@@ -95,7 +95,7 @@ export const RestaurantsListView = (props: RestaurantsComponentState) => {
       restaurantStyle = (
         <div className="content-with-orders">
           <div className="restaurant">
-            <figure>{restaurantsImageAndOrderNumber(restaurant.orders, restaurant)}</figure>
+            <figure>{restaurantsImageAndOrderNumber(restaurant.orders_count, restaurant)}</figure>
             <div className="details-restaurant">
               <div className="columns ">
                 <div className="column">
@@ -125,7 +125,7 @@ export const RestaurantsListView = (props: RestaurantsComponentState) => {
       restaurantStyle = (
         <div className="content-without-orders ">
           <div className="restaurant">
-            <figure>{restaurantsImageAndOrderNumber(restaurant.orders, restaurant)}</figure>
+            <figure>{restaurantsImageAndOrderNumber(restaurant.orders_count, restaurant)}</figure>
             <div className="details-restaurant">
               <div className="columns ">
                 <div className="column">
@@ -157,7 +157,7 @@ export const RestaurantsListView = (props: RestaurantsComponentState) => {
   }
   let restaurants = [...props.restaurants].map((restaurant, key) => (
     <div key = {"Restaurant " + restaurant.id}>
-      {restaurantWithOrWithoutOrders(restaurant, restaurant.orders)}
+      {restaurantWithOrWithoutOrders(restaurant, restaurant.orders_count)}
     </div>
   ));
   return (

@@ -5,7 +5,7 @@ import { IOrders } from "../../model/entites";
 let initialOrders: IOrders[] = Object(Orders);
 
 export const initialState: PKTypes.PeacekeepersState = {
-    placedOrders: [...initialOrders]
+    placedOrders: [] as IOrders[]
 };
 
 export function peacekeepersReducer(state: PKTypes.PeacekeepersState = initialState, action: PKTypes.PeacekeepersActionTypes): PKTypes.PeacekeepersState {

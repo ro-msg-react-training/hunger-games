@@ -1,5 +1,6 @@
 import * as PKDTypes from "./types";
 import { IOrders, emptyUser, emptyOrder, IUserOrders } from "../../model/entites";
+import { cloneDeep } from "lodash";
 
 export const initialState: PKDTypes.PeacekeepersDetailedState = {
     mainOrdersList : [emptyOrder],
@@ -21,7 +22,7 @@ export function peacekeepersDetailedReducer(state: PKDTypes.PeacekeepersDetailed
             return {
                 ...state,
                 currentUser: action.currentLoggedInUser,
-                currentOrder: {...retrieveOrder(state.mainOrdersList, action.order_id)},
+                currentOrder:{...retrieveOrder(state.mainOrdersList, action.order_id)},
                 hasUserPlacedTheOrder: checkOrderUserValidity(state.mainOrdersList, action.currentLoggedInUser.id, action.order_id)
             }
         }
@@ -62,27 +63,17 @@ export function peacekeepersDetailedReducer(state: PKDTypes.PeacekeepersDetailed
 
 function retrieveOrder(mainOrdersList : IOrders[], orderId: number): IOrders {
     let ordersArray: IOrders[] = mainOrdersList;
-    let currentOrder : IOrders = ordersArray[orderId - 1];
+    let currentOrder : IOrders = cloneDeep(ordersArray[orderId - 1]);
 
     currentOrder.peopleLeftToPay = calculateNumberOfPeopleLeftToPay(currentOrder.userOrders);
     currentOrder.peopleLeftToReceiveChange = calculateNumberOfPeopleLeftToReceiveChange(currentOrder.userOrders);
-    currentOrder.totalOrderCost = calculateTotalOrdersCost(currentOrder);
     currentOrder.haveAllChangesBeenAcquitted = checkForRemainingChanges(currentOrder);
-
-    return {...ordersArray[orderId - 1]};
+    currentOrder.userOrders= ordersArray[orderId-1].userOrders;
+ 
+    
+    return currentOrder;
 }
 
-function calculateTotalOrdersCost(ordersArray: IOrders): number {
-    let total: number = 0;
-
-    ordersArray.userOrders.forEach(
-        order => {
-            total += order.food.price;
-        }
-    );
-
-    return total;
-}
 
 function checkOrderUserValidity(mainOrdersList : IOrders[], loggedInUserId: number, orderUserId: number): boolean {
     let validity: boolean = false;
@@ -92,6 +83,7 @@ function checkOrderUserValidity(mainOrdersList : IOrders[], loggedInUserId: numb
 }
 
 function changeCardStatus(mainOrdersList : IOrders[], orderId: number, cardID: number): IOrders {
+    console.log("cartId"+ cardID)
     let currentOrder: IOrders = retrieveOrder(mainOrdersList, orderId);
     let currentCard: IUserOrders = currentOrder.userOrders[cardID];
 
@@ -103,7 +95,7 @@ function changeCardStatus(mainOrdersList : IOrders[], orderId: number, cardID: n
         currentCard.change = 0;
     } else {
         currentCard.receivedChange = true
-        currentCard.payed = currentCard.food.price;
+        currentCard.payed = currentCard.food.food_price;
         currentCard.auxPayedValue = currentCard.payed + " lei";
         currentCard.change = 0;
     }
@@ -111,7 +103,6 @@ function changeCardStatus(mainOrdersList : IOrders[], orderId: number, cardID: n
     // Updating stats
     currentOrder.peopleLeftToPay = calculateNumberOfPeopleLeftToPay(currentOrder.userOrders);
     currentOrder.peopleLeftToReceiveChange = calculateNumberOfPeopleLeftToReceiveChange(currentOrder.userOrders);
-    currentOrder.totalOrderCost = calculateTotalOrdersCost(currentOrder);
     currentOrder.haveAllChangesBeenAcquitted = checkForRemainingChanges(currentOrder);
 
     return currentOrder;
@@ -146,12 +137,12 @@ function paymentFieldLostFocus(mainOrdersList : IOrders[], orderId: number, card
         currentCard.auxPayedValue = currentCard.payed + (currentCard.payed === 1 ? " leu" : " lei");
 
         // if we actually need to have a change at all
-        if(currentCard.payed !== currentCard.food.price) {
+        if(currentCard.payed !== currentCard.food.food_price) {
 
-            if(currentCard.payed <= currentCard.food.price) {
+            if(currentCard.payed <= currentCard.food.food_price) {
                 currentCard.change = 0;
             } else {
-                currentCard.change = Math.abs(currentCard.payed - currentCard.food.price);
+                currentCard.change = Math.abs(currentCard.payed - currentCard.food.food_price);
             }
 
             currentCard.receivedChange = false;
@@ -166,7 +157,6 @@ function paymentFieldLostFocus(mainOrdersList : IOrders[], orderId: number, card
     // Update stats
     currentOrder.peopleLeftToPay = calculateNumberOfPeopleLeftToPay(currentOrder.userOrders);
     currentOrder.peopleLeftToReceiveChange = calculateNumberOfPeopleLeftToReceiveChange(currentOrder.userOrders);
-    currentOrder.totalOrderCost = calculateTotalOrdersCost(currentOrder);
     currentOrder.haveAllChangesBeenAcquitted = checkForRemainingChanges(currentOrder);
 
     return currentOrder;
@@ -177,7 +167,7 @@ function calculateNumberOfPeopleLeftToPay(userOrdersArray : IUserOrders[]) : num
 
     userOrdersArray.forEach(
         (order : IUserOrders) => {
-            if(order.payed < order.food.price) {
+            if(order.payed < order.food.food_price) {
                 result += 1;
             }
         }
@@ -191,7 +181,7 @@ function calculateNumberOfPeopleLeftToReceiveChange(userOrdersArray : IUserOrder
     
     userOrdersArray.forEach(
         (order : IUserOrders) => {
-            if(order.payed > order.food.price) {
+            if(order.payed > order.food.food_price) {
                 result += 1;
             }
         }
@@ -213,5 +203,6 @@ function checkForRemainingChanges(currentOrder : IOrders) : boolean {
 
 function loadOrdersListData(orderListData : IOrders[]) : IOrders[] {
     let localReducerOrdersList : IOrders[] = orderListData;
+    
     return {...localReducerOrdersList};
 }

@@ -10,6 +10,7 @@ import { loadFoodsList } from '../../ReduxStore/RestaurantDishesSection/actions'
 import { SingleDish } from './SingleDish';
 import { increadseNumberOfOrdersEventHandler } from '../../ReduxStore/RestaurantListSection/actions';
 import { newOrderItemEvent } from '../../ReduxStore/DemandsSection/action';
+import { showNotification } from '../../ReduxStore/NotificationSection/actions';
 
 export interface RestaurantDishesState {
     match: any;
@@ -175,9 +176,8 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
     },
 
     addFoodToDemandsOnClick: (props: SingleDishState) => {
-        // console.log(props.demand);
         dispatch(newOrderItemEvent(props.currentRestaurant,props.currentFood,props.crtActiveUser));
-        // console.log(props.demand);
+        dispatch(showNotification("Food successfully added to order", "success"));
     },
 
     incrementOrdersForRestaurant:(restaurant:IRestaurant,selectedFood:IFood)=>{

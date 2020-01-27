@@ -8,6 +8,7 @@ import { DemandsView } from "./DemandsDumbComponent";
 import { removeOrderItemEvent, removeOrderOnRestaurantEvent } from "../../ReduxStore/DemandsSection/action";
 import { decreadseNumberOfOrdersEventHandler, reloadNumberOfOrdersEventHandler } from "../../ReduxStore/RestaurantListSection/actions";
 import { addOrderToList } from "../../ReduxStore/PeacekeepersSection/actions";
+import { showNotification } from "../../ReduxStore/NotificationSection/actions";
 
 export interface DemandsComponentState {
     restaurantsList: IRestaurant[];
@@ -99,6 +100,8 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 
         dispatch(removeOrderOnRestaurantEvent(itemsToRemove));
         dispatch(reloadNumberOfOrdersEventHandler(restaruantId));
+
+        dispatch(showNotification("Order placed!", "success"));
     }
 });
 

@@ -4,7 +4,9 @@ import "../../styles/login.scss";
 import { RegisterComponentState } from "./RegisterSmartComponent";
 import { Redirect } from "react-router";
 
-export const RegisterDumpView: React.FC<RegisterComponentState> = (props: RegisterComponentState) => {
+export const RegisterDumpView: React.FC<RegisterComponentState> = (
+  props: RegisterComponentState
+) => {
   if (!props.activateNavbar) {
     return (
       <div className="content-Login">
@@ -24,26 +26,64 @@ export const RegisterDumpView: React.FC<RegisterComponentState> = (props: Regist
                       <p className="has-text-white">
                         {"Insert your desired nickname"}
                       </p>
-                      <input className="input" type="email" placeholder="Nickname" autoFocus defaultValue={props.userInfo.username} onChange={(e) => props.onUsernameChange(props, e.target.value)} onKeyPress={(e : React.KeyboardEvent<HTMLInputElement>) => props.onKeyPressedWhileInputIsFocused(props, e)}/>
+                      <input
+                        className="input"
+                        type="email"
+                        placeholder="Nickname"
+                        autoFocus
+                        defaultValue={props.userInfo.username}
+                        onChange={e =>
+                          props.onUsernameChange(props, e.target.value)
+                        }
+                        onKeyPress={(
+                          e: React.KeyboardEvent<HTMLInputElement>
+                        ) => props.onKeyPressedWhileInputIsFocused(props, e)}
+                      />
                     </div>
                   </div>
                   <div className="field">
                     <div className="control">
                       <p className="has-text-white">{"And your secret code"}</p>
-                      <input className="input" type="password" placeholder="Secret code" defaultValue={props.userInfo.password} onChange={(e) => props.onPasswordChange(props, e.target.value)} onKeyPress={(e : React.KeyboardEvent<HTMLInputElement>) => props.onKeyPressedWhileInputIsFocused(props, e)}/>
+                      <input
+                        className="input"
+                        type="password"
+                        placeholder="Secret code"
+                        defaultValue={props.userInfo.password}
+                        onChange={e =>
+                          props.onPasswordChange(props, e.target.value)
+                        }
+                        onKeyPress={(
+                          e: React.KeyboardEvent<HTMLInputElement>
+                        ) => props.onKeyPressedWhileInputIsFocused(props, e)}
+                      />
                     </div>
                   </div>
                   <div className="field">
                     <div className="control">
-                      <p className="has-text-white">
-                        {"Insert your e-mail"}
-                      </p>
-                      <input className="input" type="email" placeholder="user@msg.group" defaultValue={props.userInfo.email} onChange={(e) => props.onEmailChange(props, e.target.value)} onKeyPress={(e : React.KeyboardEvent<HTMLInputElement>) => props.onKeyPressedWhileInputIsFocused(props, e)}/>
+                      <p className="has-text-white">{"Insert your e-mail"}</p>
+                      <input
+                        className="input"
+                        type="email"
+                        placeholder="user@msg.group"
+                        defaultValue={props.userInfo.email}
+                        onChange={e =>
+                          props.onEmailChange(props, e.target.value)
+                        }
+                        onKeyPress={(
+                          e: React.KeyboardEvent<HTMLInputElement>
+                        ) => props.onKeyPressedWhileInputIsFocused(props, e)}
+                      />
                     </div>
                   </div>
                   <div className="field"></div>
-                  <div className="button is-block is-info is-medium is-fullwidth" id="buttonLogin"
-                    onClick={() => props.saveUserData(props)} onKeyPress={(e : React.KeyboardEvent<HTMLInputElement>) => props.onKeyPressedWhileInputIsFocused(props, e)}>
+                  <div
+                    className="button is-block is-info is-medium is-fullwidth"
+                    id="buttonLogin"
+                    onClick={() => props.saveUserData(props)}
+                    onKeyPress={(e: React.KeyboardEvent<HTMLInputElement>) =>
+                      props.onKeyPressedWhileInputIsFocused(props, e)
+                    }
+                  >
                     {"Join the games"}
                   </div>
                 </form>
@@ -54,12 +94,8 @@ export const RegisterDumpView: React.FC<RegisterComponentState> = (props: Regist
       </div>
     );
   } else if (props.activateNavbar) {
-    return (
-      <Redirect to="/districts" />
-    );
+    return <Redirect to="/districts" />;
   } else {
-    return (
-      <div></div>
-    );
+    return <div></div>;
   }
 };

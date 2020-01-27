@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  IRestaurant,
-  IDemands
-} from "../../model/entites";
+import { IRestaurant, IDemands } from "../../model/entites";
 import restaurantList from "../../MockupData/restaurants.json";
 import "../../styles/demands.scss";
 import { DemandsComponentState } from "./DemandsSmartComponent";
@@ -10,7 +7,16 @@ import { DemandsComponentState } from "./DemandsSmartComponent";
 export const DemandsView = (props: DemandsComponentState) => {
   let displayOrders = (crtItemOrder: IDemands) => {
     return (
-      <div className="ordersGrid " key={crtItemOrder.user.user_id + " " + crtItemOrder.restaurant.id + " " + crtItemOrder.food.food_id}>
+      <div
+        className="ordersGrid "
+        key={
+          crtItemOrder.user.user_id +
+          " " +
+          crtItemOrder.restaurant.id +
+          " " +
+          crtItemOrder.food.food_id
+        }
+      >
         <div className="box ">
           <div className="columns">
             <div className="column cancel is-narrow">
@@ -59,7 +65,8 @@ export const DemandsView = (props: DemandsComponentState) => {
   };
 
   let ordersForEachRestaurant = (rest: IRestaurant) => {
-    let i, j: number = 0;
+    let i,
+      j: number = 0;
     let crtRestaurantID: number;
     let arrayOrders: JSX.Element[] = [];
 
@@ -84,13 +91,15 @@ export const DemandsView = (props: DemandsComponentState) => {
           <div key={key}>
             <div className="orderDisplayItem ">
               <section className=" box status checks" id="sts">
-                <div className="statusOrder ">{"Order "}
-                  <span
-                    className="icon"
-                    onClick={() => {
-                      props.onSendOrderEvent(props, restaurant.id)
-                    }}
-                  >
+                <div
+                  className="statusOrder "
+                  onClick={() => {
+                    props.onSendOrderEvent(props, restaurant.id);
+                  }}
+                >
+                  {"Order "}
+
+                  <span className="icon">
                     <i className="fa fa-check fa-lg  "></i>
                   </span>
                 </div>
@@ -98,16 +107,21 @@ export const DemandsView = (props: DemandsComponentState) => {
               <div className="content ">
                 <div className="box demands">
                   {restaurant.restaurant_name + "  "}
-
                 </div>
                 <div className="columns">
                   <div className="order-info-quantity">
-                    {props.contorForRestaurants.find(order => order.restaurant_name === restaurant.restaurant_name)?.orders_count + "  "}
+                    {props.contorForRestaurants.find(
+                      order =>
+                        order.restaurant_name === restaurant.restaurant_name
+                    )?.orders_count + "  "}
                     <i className="fa fa-clone"></i>
                   </div>
 
                   <div className="order-info-price">
-                    {props.contorForRestaurants.find(order => order.restaurant_name === restaurant.restaurant_name)?.toPay + "  "}
+                    {props.contorForRestaurants.find(
+                      order =>
+                        order.restaurant_name === restaurant.restaurant_name
+                    )?.toPay + "  "}
                     <i className="fa fa-dollar"></i>
                   </div>
                 </div>

@@ -22,7 +22,10 @@ export interface RSaveUserDateEvent {
 
 export interface RUpdateTemporaryUser {
   type: typeof UPDATE_TEMPORARY_USER;
-  newUserValues : IUser;
+  newUserValues: IUser;
 }
 
-export type LoginActionTypes = RUserInputEvent | RSaveUserDateEvent | RUpdateTemporaryUser;
+export type LoginActionTypes =
+  | RUserInputEvent
+  | RSaveUserDateEvent
+  | RUpdateTemporaryUser;

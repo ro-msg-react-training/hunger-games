@@ -3,16 +3,19 @@ import { IUser } from "../../model/entites";
 
 export const initialState: LTypes.LoginState = {
   userData: {
-    id : 11,
-    email : "test@mail.com",
-    username: "testuser",
-    password: "password"
+    id: 0,
+    email: "",
+    username: "",
+    password: ""
   },
   isLoggedIn: false,
   activateNavbar: false
 };
 
-export function loginReducer(state: LTypes.LoginState = initialState, action: LTypes.LoginActionTypes): LTypes.LoginState {
+export function loginReducer(
+  state: LTypes.LoginState = initialState,
+  action: LTypes.LoginActionTypes
+): LTypes.LoginState {
   switch (action.type) {
     case LTypes.LOGIN_ACTION: {
       return {
@@ -25,8 +28,8 @@ export function loginReducer(state: LTypes.LoginState = initialState, action: LT
     case LTypes.LOGOUT_ACTION: {
       return {
         userData: {
-          id : 0,
-          email : "",
+          id: 0,
+          email: "",
           username: "",
           password: ""
         },
@@ -36,11 +39,11 @@ export function loginReducer(state: LTypes.LoginState = initialState, action: LT
     }
 
     case LTypes.LOGIN_UPDATE_TEMPORARY_USER: {
-      let newValues : IUser = action ? action.newUserValues : state.userData;
+      let newValues: IUser = action ? action.newUserValues : state.userData;
 
       return {
         ...state,
-        userData : newValues
+        userData: newValues
       };
     }
 

@@ -1,11 +1,15 @@
 import React from "react";
-import '../../styles/pageLoader.scss';
-import LoadingGif from '../../resources/loadingIndicatorGif.gif';
+import "../../styles/pageLoader.scss";
+import LoadingGif from "../../resources/loadingIndicatorGif.gif";
 
-export const PageLoader : React.FC = () =>{
-    return (
-        <div id = "PageLoaderDiv" className = "is-fullwidth is-fullheight">
-            <img src = {LoadingGif} id = "PageLoaderGif" alt = "Loading indicator is displayed"/>
-        </div>
-    );
-}
+export const PageLoader: React.FC = () => {
+  return (
+    <div id="PageLoaderDiv" className="is-fullwidth is-fullheight">
+      <img
+        src={LoadingGif}
+        id="PageLoaderGif"
+        alt="Loading indicator is displayed"
+      />
+    </div>
+  );
+};

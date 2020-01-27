@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from "react-router-dom";
 import NotificationInitializer from "../component/Notification/NotificationSmartView";
 import RegisterViewInitializer from "../component/Register/RegisterSmartComponent";
 import NavbarInitializer from "../component/Navbar/NavbarSmartView";
@@ -28,22 +33,34 @@ const App: React.FC<AppComponentState> = (props: AppComponentState) => {
     );
   } else {
     return (
-        <Router>
-          <NavbarInitializer />
-          <Switch>
-            <Redirect exact from="/" to="/districts" />
-            <Route path="/districts" exact component={RestaurantsInitializer} />
-            <Route path="/districts/:id" exact render={(props) => <RestaurantDishesViewInitializer {...props} />} />
-            <Route path="/demands" exact component={DemandsInitializer} />
-            <Route path="/peacekeepers" exact component={PeacekeepersViewInitializer} />
-            <Route path="/peacekeepers/:id" exact render={(props) => <PeacekeepersDetailedViewInitializer {...props} />} />
-            <Route exact path="/login" component={LoginViewInitializer} />
-            <Route exact path="/register" component={RegisterViewInitializer} />
-          </Switch>
-          <NotificationInitializer />
-        </Router>
+      <Router>
+        <NavbarInitializer />
+        <Switch>
+          <Redirect exact from="/" to="/districts" />
+          <Route path="/districts" exact component={RestaurantsInitializer} />
+          <Route
+            path="/districts/:id"
+            exact
+            render={props => <RestaurantDishesViewInitializer {...props} />}
+          />
+          <Route path="/demands" exact component={DemandsInitializer} />
+          <Route
+            path="/peacekeepers"
+            exact
+            component={PeacekeepersViewInitializer}
+          />
+          <Route
+            path="/peacekeepers/:id"
+            exact
+            render={props => <PeacekeepersDetailedViewInitializer {...props} />}
+          />
+          <Route exact path="/login" component={LoginViewInitializer} />
+          <Route exact path="/register" component={RegisterViewInitializer} />
+        </Switch>
+        <NotificationInitializer />
+      </Router>
     );
-  };
-}
+  }
+};
 
 export default App;

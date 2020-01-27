@@ -14,7 +14,9 @@ export function logoutEventHandler(): LTypes.LLogoutEvent {
   };
 }
 
-export function updateLoginUserValues(newUserValues : IUser) : LTypes.LoginActionTypes {
+export function updateLoginUserValues(
+  newUserValues: IUser
+): LTypes.LoginActionTypes {
   return {
     type: LTypes.LOGIN_UPDATE_TEMPORARY_USER,
     newUserValues: newUserValues

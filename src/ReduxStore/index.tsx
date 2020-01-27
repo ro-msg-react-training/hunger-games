@@ -20,39 +20,40 @@ import { demandsOrdersReducer } from "./DemandsSection/reducer";
 
 // ex: prodListReducer : ProductListState;
 export interface GlobalState {
-    restDishesReducer : RestaurantDishesState,
-    restReducer: RestaurantsComponentState,
-    demandsReducer:DemandsState,
-    notReducer : NotificationState,
-    registerReducerGlobal : RegisterState,
-    loginReducerGlobal : LoginState,
-    navReducerGlobal : NavbarState,
-    peacekeeperReducerGlobal : PeacekeepersState,
-    peacekeeperDetailedReducerGlobal : PeacekeepersDetailedState
+  restDishesReducer: RestaurantDishesState;
+  restReducer: RestaurantsComponentState;
+  demandsReducer: DemandsState;
+  notReducer: NotificationState;
+  registerReducerGlobal: RegisterState;
+  loginReducerGlobal: LoginState;
+  navReducerGlobal: NavbarState;
+  peacekeeperReducerGlobal: PeacekeepersState;
+  peacekeeperDetailedReducerGlobal: PeacekeepersDetailedState;
 }
 
 // ex: prodListReducer : productListReducer
 const rootReducer = combineReducers({
-    restDishesReducer : restaurantDishesReducer,
-    restReducer: restaurantListReducer,
-    demandsReducer:demandsOrdersReducer,
-    notReducer : notificationReducer,
-    registerReducerGlobal : registerReducer,
-    loginReducerGlobal : loginReducer,
-    navReducerGlobal : navbarReducer,
-    peacekeeperReducerGlobal : peacekeepersReducer,
-    peacekeeperDetailedReducerGlobal : peacekeepersDetailedReducer
+  restDishesReducer: restaurantDishesReducer,
+  restReducer: restaurantListReducer,
+  demandsReducer: demandsOrdersReducer,
+  notReducer: notificationReducer,
+  registerReducerGlobal: registerReducer,
+  loginReducerGlobal: loginReducer,
+  navReducerGlobal: navbarReducer,
+  peacekeeperReducerGlobal: peacekeepersReducer,
+  peacekeeperDetailedReducerGlobal: peacekeepersDetailedReducer
 });
 
 // Lipseste partea de Saga
 
 export function configureStore() {
-    const store = createStore(
-        rootReducer,
-        compose(
-            (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__()
-        )
-    );
+  const store = createStore(
+    rootReducer,
+    compose(
+      (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
+        (window as any).__REDUX_DEVTOOLS_EXTENSION__()
+    )
+  );
 
-    return store;
+  return store;
 }

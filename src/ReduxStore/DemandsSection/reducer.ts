@@ -31,7 +31,6 @@ export function demandsOrdersReducer(
       itemDemand.user.username = action.currentUser.username;
       itemDemand.user.user_id = action.currentUser.id;
       state.listOfOrders[crtIndex] = itemDemand;
-      
 
       return {
         ...state
@@ -39,23 +38,27 @@ export function demandsOrdersReducer(
     }
     case DTypes.REMOVE_ORDER_ITEM: {
       let itemToRemove: IDemands = action.itemToRemove;
-      const index = state.listOfOrders.indexOf(itemToRemove,0);
-      if (index > -1 && state.listOfOrders[index].user.username===action.crtActiveUser.username) {
+      const index = state.listOfOrders.indexOf(itemToRemove, 0);
+      if (
+        index > -1 &&
+        state.listOfOrders[index].user.username ===
+          action.crtActiveUser.username
+      ) {
         state.listOfOrders.splice(index, 1);
       }
       return {
-        listOfOrders:[...state.listOfOrders]
+        listOfOrders: [...state.listOfOrders]
       };
     }
 
     case DTypes.REMOVE_ORDER_ON_RESTAURANT: {
       let itemsToRemove: IDemands[] = action.itemsToRemove;
-      for(let i=0;i<itemsToRemove.length;i++){
-        const index = state.listOfOrders.indexOf(itemsToRemove[i],0);
-       state.listOfOrders.splice(index, 1);
+      for (let i = 0; i < itemsToRemove.length; i++) {
+        const index = state.listOfOrders.indexOf(itemsToRemove[i], 0);
+        state.listOfOrders.splice(index, 1);
       }
       return {
-        listOfOrders:[...state.listOfOrders]
+        listOfOrders: [...state.listOfOrders]
       };
     }
 

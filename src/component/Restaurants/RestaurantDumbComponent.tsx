@@ -7,59 +7,104 @@ import { RestaurantsComponentState } from "./RestaurantsSmartComponent";
 
 export interface IDumbRestaurant {
   restaurantsList: IRestaurant[];
-  restaurantOrders:Map<string,number>;
+  restaurantOrders: Map<string, number>;
 }
 export const RestaurantsListView = (props: RestaurantsComponentState) => {
-  let arrayOfOrdersNo:number[]= [...props.restaurants].map((restaurant, key) => (restaurant.orders_count));
-  let restaurantsImageAndOrderNumber = (ordersNo: number, restId: IRestaurant) => {
+  let arrayOfOrdersNo: number[] = [...props.restaurants].map(
+    (restaurant, key) => restaurant.orders_count
+  );
+  let restaurantsImageAndOrderNumber = (
+    ordersNo: number,
+    restId: IRestaurant
+  ) => {
     let restaurant;
     if (ordersNo > 0) {
-      if(arrayOfOrdersNo.find( element => {return element === ordersNo})!=null){
-        if(arrayOfOrdersNo.find( element =>{return  element > ordersNo})!=null){
+      if (
+        arrayOfOrdersNo.find(element => {
+          return element === ordersNo;
+        }) != null
+      ) {
+        if (
+          arrayOfOrdersNo.find(element => {
+            return element > ordersNo;
+          }) != null
+        ) {
           restaurant = (
             <Link to={`/districts/${restId.id}`}>
               <div>
-                <div className="tag is-white has-text-weight-bold  " id="tagOrders">
-                {ordersNo}
-              </div>
-                <img id="restarantImg" src={getRandomImage("restaurants")} alt="Restaurant" />
+                <div
+                  className="tag is-white has-text-weight-bold  "
+                  id="tagOrders"
+                >
+                  {ordersNo}
+                </div>
+                <img
+                  id="restarantImg"
+                  src={getRandomImage("restaurants")}
+                  alt="Restaurant"
+                />
               </div>
             </Link>
           );
-        }else{
+        } else {
           restaurant = (
             <Link to={`/districts/${restId.id}`}>
               <div>
-                <div className="tag is-warning  has-text-weight-bold" id="tagOrders">
-                {ordersNo}
-              </div>
-                <img id="restarantImg" src={getRandomImage("restaurants")} alt="Restaurant" />
+                <div
+                  className="tag is-warning  has-text-weight-bold"
+                  id="tagOrders"
+                >
+                  {ordersNo}
+                </div>
+                <img
+                  id="restarantImg"
+                  src={getRandomImage("restaurants")}
+                  alt="Restaurant"
+                />
               </div>
             </Link>
           );
         }
-      }else{
+      } else {
         arrayOfOrdersNo.push(ordersNo);
-        if(arrayOfOrdersNo.find( element => {return element > ordersNo})!=null){
-          console.log("am gasit mai mare" )
+        if (
+          arrayOfOrdersNo.find(element => {
+            return element > ordersNo;
+          }) != null
+        ) {
+          console.log("am gasit mai mare");
           restaurant = (
             <Link to={`/districts/${restId.id}`}>
               <div>
-                <div className="tag is-white has-text-weight-bold  " id="tagOrders">
-                {ordersNo}
-              </div>
-                <img id="restarantImg" src={getRandomImage("restaurants")} alt="Restaurant" />
+                <div
+                  className="tag is-white has-text-weight-bold  "
+                  id="tagOrders"
+                >
+                  {ordersNo}
+                </div>
+                <img
+                  id="restarantImg"
+                  src={getRandomImage("restaurants")}
+                  alt="Restaurant"
+                />
               </div>
             </Link>
           );
-        }else{
+        } else {
           restaurant = (
             <Link to={`/districts/${restId.id}`}>
               <div>
-                <div className="tag is-warning  has-text-weight-bold" id="tagOrders">
-                {ordersNo}
-              </div>
-                <img id="restarantImg" src={getRandomImage("restaurants")} alt="Restaurant" />
+                <div
+                  className="tag is-warning  has-text-weight-bold"
+                  id="tagOrders"
+                >
+                  {ordersNo}
+                </div>
+                <img
+                  id="restarantImg"
+                  src={getRandomImage("restaurants")}
+                  alt="Restaurant"
+                />
               </div>
             </Link>
           );
@@ -69,21 +114,37 @@ export const RestaurantsListView = (props: RestaurantsComponentState) => {
       restaurant = (
         <Link to={`/districts/${restId.id}`}>
           <div>
-            
-            <img id="restarantImg" src={getRandomImage("restaurants")} alt="Restaurant" />
+            <img
+              id="restarantImg"
+              src={getRandomImage("restaurants")}
+              alt="Restaurant"
+            />
           </div>
         </Link>
       );
     }
     return restaurant;
   };
-  let restaurantWithOrWithoutOrders = (restaurant: IRestaurant, nrOfOrders: number) => {
+  let restaurantWithOrWithoutOrders = (
+    restaurant: IRestaurant,
+    nrOfOrders: number
+  ) => {
     let restaurantStyle;
-      if(nrOfOrders !== 0 && (arrayOfOrdersNo.find( element =>{return  element > nrOfOrders}) == null)){
+    if (
+      nrOfOrders !== 0 &&
+      arrayOfOrdersNo.find(element => {
+        return element > nrOfOrders;
+      }) == null
+    ) {
       restaurantStyle = (
         <div className="content-with-orders">
           <div className="restaurant">
-            <figure>{restaurantsImageAndOrderNumber(restaurant.orders_count, restaurant)}</figure>
+            <figure>
+              {restaurantsImageAndOrderNumber(
+                restaurant.orders_count,
+                restaurant
+              )}
+            </figure>
             <div className="details-restaurant">
               <div className="columns ">
                 <div className="column">
@@ -100,7 +161,9 @@ export const RestaurantsListView = (props: RestaurantsComponentState) => {
                   <div className="time-info">
                     <i className="fa fa-clock-o" id="clock"></i>
                     <p id="time" className="subtitle is-7">
-                      {restaurant.opening_hour + " - " + restaurant.closing_hour}
+                      {restaurant.opening_hour +
+                        " - " +
+                        restaurant.closing_hour}
                     </p>
                   </div>
                 </div>
@@ -113,7 +176,12 @@ export const RestaurantsListView = (props: RestaurantsComponentState) => {
       restaurantStyle = (
         <div className="content-without-orders ">
           <div className="restaurant">
-            <figure>{restaurantsImageAndOrderNumber(restaurant.orders_count, restaurant)}</figure>
+            <figure>
+              {restaurantsImageAndOrderNumber(
+                restaurant.orders_count,
+                restaurant
+              )}
+            </figure>
             <div className="details-restaurant">
               <div className="columns ">
                 <div className="column">
@@ -130,7 +198,9 @@ export const RestaurantsListView = (props: RestaurantsComponentState) => {
                   <div className="time-info">
                     <i className="fa fa-clock-o" id="clock"></i>
                     <p id="time" className="subtitle is-7">
-                      {restaurant.opening_hour + " - " + restaurant.closing_hour}
+                      {restaurant.opening_hour +
+                        " - " +
+                        restaurant.closing_hour}
                     </p>
                   </div>
                 </div>
@@ -141,25 +211,24 @@ export const RestaurantsListView = (props: RestaurantsComponentState) => {
       );
     }
     return restaurantStyle;
-
-  }
+  };
   let restaurants = [...props.restaurants].map((restaurant, key) => (
-    <div key = {"Restaurant " + restaurant.id}>
+    <div key={"Restaurant " + restaurant.id}>
       {restaurantWithOrWithoutOrders(restaurant, restaurant.orders_count)}
     </div>
   ));
   return (
     <React.Fragment>
-    <div className="hero is-dark custom-scroll-bar is-bold">
-      <div className="hero-head">
-        <div id="content" >
-          <div className="restaurants_list">{restaurants}</div>
+      <div className="hero is-dark custom-scroll-bar is-bold">
+        <div className="hero-head">
+          <div id="content">
+            <div className="restaurants_list">{restaurants}</div>
+          </div>
         </div>
-      </div>
 
-      <div className="hero-body"></div>
-      <div className="hero-foot"></div>
-    </div>
-  </React.Fragment>
+        <div className="hero-body"></div>
+        <div className="hero-foot"></div>
+      </div>
+    </React.Fragment>
   );
 };

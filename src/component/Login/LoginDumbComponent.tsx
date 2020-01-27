@@ -4,7 +4,9 @@ import "../../styles/login.scss";
 import { LoginComponentState } from "./LoginSmartComponent";
 import { Redirect } from "react-router";
 
-export const LoginDisplay: React.FC<LoginComponentState> = (props: LoginComponentState) => {
+export const LoginDisplay: React.FC<LoginComponentState> = (
+  props: LoginComponentState
+) => {
   const [password, setPassword] = useState("");
   const [userName, setUsername] = useState("");
 
@@ -17,25 +19,63 @@ export const LoginDisplay: React.FC<LoginComponentState> = (props: LoginComponen
               <div className="box loginBox">
                 <div className="title has-text-white is-family-sand-serif">
                   Hunger Games
-              </div>
+                </div>
                 <figure className="avatar">
                   <img src={logo} alt="Website Logo, The Mockingkay" />
                 </figure>
                 <form>
                   <div className="field">
                     <div className="control">
-                      <input className="input" type="email" placeholder="Nickname" autoFocus value={userName} onChange={(e) => { props.onUsernameChange(props, e.target.value); setUsername(e.target.value.trim()); }} onKeyPress = {(e : React.KeyboardEvent<HTMLInputElement>) => props.onKeyPressedWhileInputIsFocused(props, e)}/>
+                      <input
+                        className="input"
+                        type="email"
+                        placeholder="Nickname"
+                        autoFocus
+                        value={userName}
+                        onChange={e => {
+                          props.onUsernameChange(props, e.target.value);
+                          setUsername(e.target.value.trim());
+                        }}
+                        onKeyPress={(
+                          e: React.KeyboardEvent<HTMLInputElement>
+                        ) => props.onKeyPressedWhileInputIsFocused(props, e)}
+                      />
                     </div>
                   </div>
 
                   <div className="field">
                     <div className="control">
-                      <input className="input" type="password" placeholder="Secret code" value={password} onChange={(e) => { props.onPasswordChange(props, e.target.value); setPassword(e.target.value.trim()); }} onKeyPress = {(e : React.KeyboardEvent<HTMLInputElement>) => props.onKeyPressedWhileInputIsFocused(props, e)}/>
+                      <input
+                        className="input"
+                        type="password"
+                        placeholder="Secret code"
+                        value={password}
+                        onChange={e => {
+                          props.onPasswordChange(props, e.target.value);
+                          setPassword(e.target.value.trim());
+                        }}
+                        onKeyPress={(
+                          e: React.KeyboardEvent<HTMLInputElement>
+                        ) => props.onKeyPressedWhileInputIsFocused(props, e)}
+                      />
                     </div>
                   </div>
                   <div className="field"></div>
 
-                  <input id="buttonLogin" className="button is-block is-info is-medium is-fullwidth" readOnly value = "Enter food arena" onClick={() => { props.onLoginClick(props); setPassword(""); setUsername(""); }} onKeyPress = {(e : React.KeyboardEvent<HTMLInputElement>) => props.onKeyPressedWhileInputIsFocused(props, e)}/>
+                  <input
+                    id="buttonLogin"
+                    className="button is-block is-info is-medium is-fullwidth"
+                    readOnly
+                    value="Enter food arena"
+                    onClick={() => {
+                      props.onLoginClick(props);
+                      setPassword("");
+                      setUsername("");
+                    }}
+                    onKeyPress={(e: React.KeyboardEvent<HTMLInputElement>) =>
+                      props.onKeyPressedWhileInputIsFocused(props, e)
+                    }
+                  />
 
                   <p className="has-text-white">
                     <br></br>
@@ -43,7 +83,7 @@ export const LoginDisplay: React.FC<LoginComponentState> = (props: LoginComponen
                       {"Not a participant yet? Become our newest tribute!"}
                     </a>
                     &nbsp;
-                </p>
+                  </p>
                 </form>
               </div>
             </div>
@@ -52,8 +92,6 @@ export const LoginDisplay: React.FC<LoginComponentState> = (props: LoginComponen
       </div>
     );
   } else {
-    return (
-      <Redirect to="/districts" />
-    );
+    return <Redirect to="/districts" />;
   }
 };

@@ -7,51 +7,51 @@ import { connect } from "react-redux";
 import { hideNotification } from "../../ReduxStore/NotificationSection/actions";
 
 export interface NotificationComponentState {
-    message: string;
-    color: string;
-    isVisible: boolean;
-    onClickEventHandler: () => void;
+  message: string;
+  color: string;
+  isVisible: boolean;
+  onClickEventHandler: () => void;
 }
 
-class NotificationSmartView extends React.Component<NotificationComponentState> {
-    performAutoHideNotification = () => {
-        if (this.props.isVisible) {
-            this.props.onClickEventHandler();
-        }
+class NotificationSmartView extends React.Component<
+  NotificationComponentState
+> {
+  performAutoHideNotification = () => {
+    if (this.props.isVisible) {
+      this.props.onClickEventHandler();
     }
+  };
 
-    componentDidMount() {
-        setTimeout(() => {
-            this.performAutoHideNotification()
-        }, 7000);
-    }
+  componentDidMount() {
+    setTimeout(() => {
+      this.performAutoHideNotification();
+    }, 7000);
+  }
 
-    componentDidUpdate() {
-        setTimeout(() => {
-            this.performAutoHideNotification()
-        }, 7000);
-    }
+  componentDidUpdate() {
+    setTimeout(() => {
+      this.performAutoHideNotification();
+    }, 7000);
+  }
 
-    render() {
-        return (
-            <NotificationDumpView {...this.props} />
-        );
-    }
+  render() {
+    return <NotificationDumpView {...this.props} />;
+  }
 }
 
 const mapStateToProps = (state: GlobalState) => ({
-    message: state.notReducer.message,
-    color: state.notReducer.color,
-    isVisible: state.notReducer.isVisible
+  message: state.notReducer.message,
+  color: state.notReducer.color,
+  isVisible: state.notReducer.isVisible
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-    onClickEventHandler: () => dispatch(hideNotification())
+  onClickEventHandler: () => dispatch(hideNotification())
 });
 
 const NotificationInitializer = compose<NotificationComponentState, {}>(
-    setDisplayName("Notification Component"),
-    connect(mapStateToProps, mapDispatchToProps)
+  setDisplayName("Notification Component"),
+  connect(mapStateToProps, mapDispatchToProps)
 )(NotificationSmartView);
 
 export default NotificationInitializer;

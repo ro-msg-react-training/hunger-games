@@ -6,33 +6,27 @@ import { compose, setDisplayName } from "recompose";
 import { connect } from "react-redux";
 
 export interface AppComponentState {
-    userIsLoggedIn : boolean;
-    history: any;
+  userIsLoggedIn: boolean;
+  history: any;
 }
 
 class AppSmartView extends React.Component<AppComponentState> {
-    componentDidMount() {
-        
-    }
+  componentDidMount() {}
 
-    render() {
-        return (
-            <App {...this.props}/>
-        );
-    }
+  render() {
+    return <App {...this.props} />;
+  }
 }
 
-const mapPropsToState = (state : GlobalState) => ({
-    userIsLoggedIn : state.loginReducerGlobal.isLoggedIn
+const mapPropsToState = (state: GlobalState) => ({
+  userIsLoggedIn: state.loginReducerGlobal.isLoggedIn
 });
 
-const mapDispatchToProps = (dispatch : Dispatch) => ({
-
-});
+const mapDispatchToProps = (dispatch: Dispatch) => ({});
 
 const AppViewInitializer = compose<AppComponentState, {}>(
-    setDisplayName("App Smart Component"),
-    connect(mapPropsToState, mapDispatchToProps)
+  setDisplayName("App Smart Component"),
+  connect(mapPropsToState, mapDispatchToProps)
 )(AppSmartView);
 
 export default AppViewInitializer;

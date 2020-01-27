@@ -23,7 +23,10 @@ export interface LLogoutEvent {
 
 export interface LUpdateTemporaryUser {
   type: typeof LOGIN_UPDATE_TEMPORARY_USER;
-  newUserValues : IUser;
+  newUserValues: IUser;
 }
 
-export type LoginActionTypes = LLoginEvent | LLogoutEvent | LUpdateTemporaryUser;
+export type LoginActionTypes =
+  | LLoginEvent
+  | LLogoutEvent
+  | LUpdateTemporaryUser;

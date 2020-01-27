@@ -6,7 +6,8 @@ export interface IRestaurant {
     adress: string;
     opening_hour: string;
     closing_hour: string;
-    orders: number;
+    orders_count: number;
+    toPay:number;
     image: string;
     food_list: IFood[];
 }
@@ -27,9 +28,9 @@ export interface IUser {
 
 // Comenzile utilizatorilor individuali
 export interface IUserOrders {
-    user_order_id : number;
-    food : IFood;
-    user : IUser;
+    cart_item_id : number;
+    food : FoodDemands;
+    user : UserDemands;
     payed : number;
     change : number;
     receivedChange : boolean;
@@ -38,14 +39,12 @@ export interface IUserOrders {
 
 // Comanda mare de mancare
 export interface IOrders {
-    restaurant : IRestaurant;
+    restaurant : RestaurantOrdersDemands;
     userOrders : IUserOrders[];
-    contor : number;
     order_id : number;
     placed_order_user : IUser;
     peopleLeftToPay : number;
     peopleLeftToReceiveChange : number;
-    totalOrderCost : number;
     haveAllChangesBeenAcquitted : boolean;
     orderIsActive : boolean;
 }
@@ -53,14 +52,22 @@ export interface IOrders {
 export interface RestaurantDemands{
     name:string;
     id:number;
+
+}
+export interface RestaurantOrdersDemands{
+    name:string;
+    id:number;
+    toPay:number;
 }
 
 export interface FoodDemands{
     food_name:string;
     food_price:number;
+    food_id:number;
 }
 export interface UserDemands{
     username:string;
+    user_id:number;
 }
 
 export interface IDemands{
@@ -84,20 +91,45 @@ export const emptyRestaurant : IRestaurant = {
     adress: "Default restaurant address",
     opening_hour: "Default restaurant opening hour",
     closing_hour: "Default restaurant closing hour",
-    orders: 0,
+    orders_count: 0,
+    toPay:0,
     image: NoImageFound,
     food_list: []
 }
-
+export const emptyRestaurantOrdersDemands:RestaurantOrdersDemands={
+    name:"",
+    id:0,
+    toPay:0
+    
+}
 export const emptyOrder : IOrders = {
-    restaurant : emptyRestaurant,
+    restaurant : emptyRestaurantOrdersDemands,
     userOrders : [],
-    contor : 0,
     order_id : 0,
     placed_order_user : emptyUser,
     peopleLeftToPay : 0,
     peopleLeftToReceiveChange : 0,
-    totalOrderCost : 0,
     haveAllChangesBeenAcquitted : false,
     orderIsActive : true
+}
+
+export const emptyRestaurantDemands:RestaurantDemands={
+    name:"",
+    id:0
+    
+}
+export const emptyFoodDemands:FoodDemands={
+    food_name:"",
+    food_price:0,
+    food_id:0,
+}
+export const emptyUserDemands:UserDemands={
+    username:"",
+    user_id:0
+}
+export const emptyDemand :IDemands={
+    restaurant:emptyRestaurantDemands,
+    food:emptyFoodDemands,
+    user:emptyUserDemands,
+
 }

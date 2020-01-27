@@ -43,7 +43,7 @@ const mapDispatchToProps = (dispatch : Dispatch) => ({
                 (order: IOrders) =>
                     <OrderCard {...order} key = {"towardsOrder_" + order.order_id}/>
             );
-
+           
             return (
                 ordersCards
             );

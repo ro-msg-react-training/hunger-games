@@ -1,4 +1,4 @@
-import { IUser, IFood, IRestaurant } from "../../model/entites";
+import { IUser, IRestaurant } from "../../model/entites";
 
 export interface RestaurantDishesState {
     currentUser : IUser;

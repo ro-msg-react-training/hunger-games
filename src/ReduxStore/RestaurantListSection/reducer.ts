@@ -1,6 +1,5 @@
 import * as RLTypes from "./types";
 import restaurantList from "../../MockupData/restaurants.json";
-import RestaurantsInitializer from "../../component/Restaurants/RestaurantsSmartComponent";
 
 export const initialState: RLTypes.RestaurantListState = {
   restaurantOrders:{} as any,
@@ -12,10 +11,11 @@ export function restaurantListReducer(
   action: RLTypes.RestaurantListActionTypes
 ): RLTypes.RestaurantListState {
   switch (action.type) {
-    case RLTypes.CHANGE_ORDERS_NUMBER: {
+    case RLTypes.INCREASE_ORDERS_NUMBER: {
       for(let i =0;i<state.restaurants.length;i++){
         if(state.restaurants[i].restaurant_name===action.currentRestaurant.restaurant_name){
-          state.restaurants[i].orders+= 1;
+          state.restaurants[i].orders_count+= 1;
+          state.restaurants[i].toPay+=action.currentFood.price
         }
       }
       return {
@@ -24,6 +24,32 @@ export function restaurantListReducer(
       };
       
     }
+    case RLTypes.DECREASE_ORDERS_NUMBER: {
+      for(let i =0;i<state.restaurants.length;i++){
+        if(state.restaurants[i].restaurant_name===action.currentRestaurant.name){
+          state.restaurants[i].orders_count-= 1;
+        }
+      }
+      return {
+        restaurantOrders:state.restaurantOrders,
+        restaurants:[...state.restaurants]
+      };
+      
+    }
+
+    case RLTypes.RELOAD_ORDERS_NUMBER: {
+      for(let i =0;i<state.restaurants.length;i++){
+        if(state.restaurants[i].id===action.restaurant_id){
+          state.restaurants[i].orders_count= 0;
+        }
+      }
+      return {
+        restaurantOrders:state.restaurantOrders,
+        restaurants:[...state.restaurants]
+      };
+      
+    }
+
     default:
       return state;
   }

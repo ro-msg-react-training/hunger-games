@@ -15,11 +15,14 @@ import { peacekeepersReducer } from "./PeacekeepersSection/reducers";
 import { peacekeepersDetailedReducer } from "./PeacekeepersDetailedSection/reducers";
 import { RestaurantsComponentState } from "../component/Restaurants/RestaurantsSmartComponent";
 import { restaurantListReducer } from "./RestaurantListSection/reducer";
+import { DemandsState } from "./DemandsSection/types";
+import { demandsOrdersReducer } from "./DemandsSection/reducer";
 
 // ex: prodListReducer : ProductListState;
 export interface GlobalState {
     restDishesReducer : RestaurantDishesState,
     restReducer: RestaurantsComponentState,
+    demandsReducer:DemandsState,
     notReducer : NotificationState,
     registerReducerGlobal : RegisterState,
     loginReducerGlobal : LoginState,
@@ -32,6 +35,7 @@ export interface GlobalState {
 const rootReducer = combineReducers({
     restDishesReducer : restaurantDishesReducer,
     restReducer: restaurantListReducer,
+    demandsReducer:demandsOrdersReducer,
     notReducer : notificationReducer,
     registerReducerGlobal : registerReducer,
     loginReducerGlobal : loginReducer,

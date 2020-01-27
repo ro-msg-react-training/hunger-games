@@ -29,7 +29,7 @@ export const OrderCard: React.FC<IOrders> = (props: IOrders) => {
                     <div className="orderCardText">
                         <div className="level">
                             <div id="restaurantTitle" className="level-item has-text-centered has-text-grey-lighter has-text-weight-medium">
-                                {props.restaurant.restaurant_name}
+                                {props.restaurant.name}
                             </div>
                         </div>
 

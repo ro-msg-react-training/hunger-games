@@ -1,14 +1,27 @@
-import { IRestaurant } from "../../model/entites";
+import { IRestaurant, RestaurantDemands, IFood } from "../../model/entites";
 
 export interface RestaurantListState {
   restaurantOrders:Map<string,number>,
   restaurants:IRestaurant[],
 }
-export const CHANGE_ORDERS_NUMBER = "CHANGE_ORDERS_NUMBER";
+export const INCREASE_ORDERS_NUMBER = "INCREASE_ORDERS_NUMBER";
+export const DECREASE_ORDERS_NUMBER = "DECREASE_ORDERS_NUMBER";
+export const RELOAD_ORDERS_NUMBER = "RELOAD_ORDERS_NUMBER";
 
-export interface RLOrdersNumberEvent {
-  type: typeof CHANGE_ORDERS_NUMBER;
-  currentRestaurant:IRestaurant
+
+export interface RLIncreaseOrdersNumberEvent {
+  type: typeof INCREASE_ORDERS_NUMBER;
+  currentRestaurant:IRestaurant,
+  currentFood:IFood,
+}
+export interface RLDecreaseOrdersNumberEvent {
+  type: typeof DECREASE_ORDERS_NUMBER;
+  currentRestaurant:RestaurantDemands,
 }
 
-export type RestaurantListActionTypes = RLOrdersNumberEvent;
+export interface RLReloadOrdersNumber {
+  type: typeof RELOAD_ORDERS_NUMBER;
+  restaurant_id:number,
+}
+ 
+export type RestaurantListActionTypes = RLIncreaseOrdersNumberEvent|RLDecreaseOrdersNumberEvent|RLReloadOrdersNumber;

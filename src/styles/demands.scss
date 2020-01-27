@@ -17,6 +17,14 @@
   width: 400px;
   margin-top: 0px !important;
 }
+.orderDisplayItem > section {
+
+  text-align: center;
+  vertical-align: auto;
+  height:auto;
+  margin-top: 0px !important;
+  margin-left: 140px;
+}
 
 .box {
   color: white;
@@ -106,6 +114,11 @@ div .columns {
  
 }
 
-.check {
-  color: rgba(131, 240, 149, 0.8) !important;
+.checks {
+  background-color: rgba(73, 218, 97, 0.8) !important;
+  color: black;
+}
+
+.checks :hover{
+  background-color: rgba(83, 255, 83, 0.8) !important;
 }

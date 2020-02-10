@@ -9,7 +9,8 @@
 .inactiveOrderText {
   width: 350px;
   position: absolute;
-  top: 12.4px;
+  z-index: 1;
+  margin-top: -13.5rem;
   background: rgba(0, 0, 0, 0.5);
   opacity: 1;
   text-align: center;
